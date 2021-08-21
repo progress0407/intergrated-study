@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyProgram {
-
     public static void main(String[] args) {
         List<Thumbnail> proxyThumbnails = new ArrayList<>();
 
