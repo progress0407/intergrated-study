@@ -1,6 +1,4 @@
-package coTe;
-
-import static java.lang.System.out;
+package codingtest;
 
 import java.util.Arrays;
 

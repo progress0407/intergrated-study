@@ -1,4 +1,4 @@
-package whiteship.lambda;
+package whiteship.java8to11.interfacelambda;
 
 import java.util.function.IntConsumer;
 

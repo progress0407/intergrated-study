@@ -1,12 +1,7 @@
-package coTe;
+package codingtest;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.lang.System.out;
 

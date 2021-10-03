@@ -1,4 +1,4 @@
-package coTe;
+package codingtest;
 
 import java.util.HashMap;
 import java.util.List;
