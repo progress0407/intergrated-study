@@ -4,10 +4,21 @@ import java.util.*;
 
 import static java.lang.System.*;
 
-public class CollectionMain {
+public class ListMain {
     public static void main(String[] args) {
 //        test1();
-        test2();
+//        test2();
+        test3();
+    }
+
+    private static void test3() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.addFirst(10);
+        list.addLast(90);
+        list.forEach(out::println);
     }
 
     private static void test2() {
