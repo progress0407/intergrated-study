@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.old;
 
 import static java.lang.System.out;
 
