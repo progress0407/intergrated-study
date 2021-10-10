@@ -14,7 +14,14 @@ public class lambdaMain {
 //        self1();
 //        lec3();
 //        lec4();
-        self2();
+//        self2();
+        self3();
+    }
+
+    private static void self3() {
+        ToIntFunction<String> fn = str -> Integer.parseInt(str);
+        int result = fn.applyAsInt("123");
+        out.println("result = " + result);
     }
 
     private static void self2() {

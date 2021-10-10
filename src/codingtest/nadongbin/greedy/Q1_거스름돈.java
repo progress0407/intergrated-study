@@ -8,6 +8,58 @@ public class Q1_거스름돈 {
 
     public static void main(String[] args) {
 
+//        풀이3();
+//        풀이2();
+//        풀이1();
+
+    }
+
+    private static void 풀이3() {
+        int[] coinTypes = {500, 100, 50, 10};
+        int INPUT_MONEY = 1260;
+        int cnt = 0;
+        for (int i = 0; i < coinTypes.length; i++) {
+            int coinType = coinTypes[i];
+            if (INPUT_MONEY >= coinType) {
+                cnt += INPUT_MONEY / coinType;
+                INPUT_MONEY %= coinType;
+            }
+        }
+        out.println("cnt = " + cnt);
+    }
+
+    private static void 풀이2() {
+        List<Map<Integer, Integer>> coinTypes = new ArrayList<>();
+        coinTypes.add(getNewMap(500, 0));
+        coinTypes.add(getNewMap(100, 0));
+        coinTypes.add(getNewMap(50, 0));
+        coinTypes.add(getNewMap(10, 0));
+
+        int INPUT_MONEY = 1260;
+        int cnt = 0;
+
+        for (Map<Integer, Integer> coinType : coinTypes) {
+            Integer coin = (Integer) coinType.keySet().toArray()[0]; // 500, 100 ...
+            if (INPUT_MONEY >= coin) {
+                int quotient = INPUT_MONEY / coin;
+                coinType.replace(coin, coinType.get(coin) + quotient);
+                cnt += quotient;
+                INPUT_MONEY %= coin;
+            }
+        }
+
+        coinTypes.forEach(out::println);
+        out.println("cnt = " + cnt);
+    }
+
+    private static Map<Integer, Integer> getNewMap(int coinType, int count) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(coinType, count);
+        return map;
+    }
+
+
+    private static void 풀이1() {
         LinkedHashMap<Integer, Integer> coin = new LinkedHashMap<>();
 
         coin.put(500, 0);
@@ -47,7 +99,6 @@ public class Q1_거스름돈 {
 
         out.printf("count = %d, INPUT_MONEY = %d \n",count, INPUT_MONEY);
         coin.forEach((k, v) -> out.printf("coin[%d, %d] \n", k, v));
-
     }
 
 }
