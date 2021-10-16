@@ -11,7 +11,7 @@ public class Q3_왕실의_나이트 {
 
     public static void main(String[] args) {
 
-        out.println("입력: ");
+        out.print("입력: ");
 
 //        INPUT_STRING = "c2";
 
@@ -20,8 +20,11 @@ public class Q3_왕실의_나이트 {
 
         String[] coord = INPUT_STRING.split("");
 
-        int y = coord[0].toCharArray()[0] - (int)'a' + 1;
-        int x = Integer.parseInt(String.valueOf(coord[1].toCharArray()[0]));
+//        int y = coord[0].toCharArray()[0] - (int)'a' + 1; // c
+//        int x = Integer.parseInt(String.valueOf(coord[1].toCharArray()[0])); // 2
+
+        int y = coord[0].charAt(0) - 'a' + 1;
+        int x = coord[1].charAt(0) - '0';
 
         out.printf("y, x = %d, %d \n", y, x);
 
