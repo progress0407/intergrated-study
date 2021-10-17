@@ -9,17 +9,9 @@ public class C06_음료수_얼려먹기 {
     private static final int ROUTE = 0;
     private static final int WALL = 1;
     private static final int VISITED = 2;
-    private static int groupCnt = 1;
+    private static int groupCnt = 0;
 
     public static void main(String[] args) {
-
-        /**
-         * 11011
-         * 00000
-         * 11111
-         * 00000
-         * 00000
-         */
 
         int[][] map = {
                 {1, 1, 0, 1, 1},
@@ -45,12 +37,13 @@ public class C06_음료수_얼려먹기 {
             for (int j = 0; j < MAX_COL; j++) {
                 int cell = map[i][j];
                 if (cell == ROUTE) { // ROUTE == 0
-                    groupCnt++;
-                    out.printf("(%d, %d) groupCnt = %d \n", i, j, groupCnt);
-                    dfs(map, i, j);
+                        groupCnt++;
+                        out.printf("(%d, %d) groupCnt = %d \n", i, j, groupCnt);
+                        dfs(map, i, j);
                 }
             }
         }
+
         printMap(map);
     }
 
@@ -82,7 +75,7 @@ public class C06_음료수_얼려먹기 {
         }
         */
 
-        if (cell == ROUTE) {
+        if (cell == ROUTE) { // ROUTE일 때만 순회한다.. 아니라면? 더이상 순회하지 않는다
             map[row][col] = VISITED;
             dfs(map, row - 1, col); // UP
             dfs(map, row, col + 1); // RIGHT
