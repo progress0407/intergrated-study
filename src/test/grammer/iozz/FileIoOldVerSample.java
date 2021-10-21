@@ -7,7 +7,7 @@ import java.util.Date;
 
 import static java.lang.System.out;
 
-public class FileSample {
+public class FileIoOldVerSample {
 
     private static String pathName = "";
 
@@ -23,7 +23,7 @@ public class FileSample {
 
     public static void main(String[] args) {
         init();
-        FileSample sample = new FileSample();
+        FileIoOldVerSample sample = new FileIoOldVerSample();
 //        sample.test1();
 //        sample.test2();
 //        sample.test3();
