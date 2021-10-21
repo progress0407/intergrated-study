@@ -1,4 +1,4 @@
-package codingtest.nadongbin.staacque;
+package codingtest.nadongbin.stackqueue;
 
 import java.util.LinkedList;
 
