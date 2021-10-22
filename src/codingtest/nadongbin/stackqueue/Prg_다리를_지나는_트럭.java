@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import static java.lang.System.out;
 
 public class Prg_다리를_지나는_트럭 {
+
     public static void main(String[] args) {
         out.println("Prg_다리를_지나는_트럭.main");
 
@@ -16,6 +17,7 @@ public class Prg_다리를_지나는_트럭 {
 
     static class Solution {
         public int solution(int bridge_length, int weight, int[] truck_weights) {
+
             int answer = 0;
 
             // 대기 큐

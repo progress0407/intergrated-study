@@ -6,12 +6,15 @@ import java.util.List;
 import static java.lang.System.out;
 
 public class Prg_땅따먹기 {
+
     public static void main(String[] args) {
+
         Solution sol = new Solution();
+
         int[][] land = {
-                {1,2,3,5},
-                {5,6,7,8},
-                {4,3,2,1}
+                {1, 2, 3, 5},
+                {5, 6, 7, 8},
+                {4, 3, 2, 1}
         };
 
         sol.solution(land);
@@ -23,6 +26,7 @@ public class Prg_땅따먹기 {
         private int width;
 
         int solution(int[][] land) {
+
             int answer = 0;
 
             List<Integer> sums = new ArrayList<>();
