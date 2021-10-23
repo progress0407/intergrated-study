@@ -18,7 +18,7 @@ public class ArrMain {
 
     private static void comp2() {
 
-        Integer[] intArr = {6, 12, 45, 446};
+        Integer[] intArr = {120, 45, 60, 446, 386, 9}; // 9 60 45 446 386 120
 
         Arrays.sort(intArr);
         out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
@@ -28,29 +28,32 @@ public class ArrMain {
 
         Arrays.sort(intArr, new CustomDictionarySort());
         out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
+
+        Arrays.sort(intArr, (o1, o2) -> 1);
+        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
+
+        Arrays.sort(intArr, (o1, o2) -> -1);
+        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
     }
 
-    private static class CustomDictionarySort implements Comparator {
+    private static class CustomDictionarySort implements Comparator<Integer> {
 
         // 양수면 내림차순
         // 음수면 오름차순
         @Override
-        public int compare(Object o1, Object o2) {
+        public int compare(Integer o1, Integer o2) { // Integer는 Comparable을 상속받았기 때문에 형변환 필요 X
 
-            if (o1 instanceof Comparable && o2 instanceof Comparable) {
-                char[] a = String.valueOf(o1).toCharArray();
-                char[] b = String.valueOf(o2).toCharArray();
+            char[] a = String.valueOf(o1).toCharArray();
+            char[] b = String.valueOf(o2).toCharArray();
 
-                int max = Math.min(a.length, b.length);
+            int max = Math.min(a.length, b.length);
 
-                for (int i = 0; i < max; i++) {
-                    if (a[i] > b[i]) return -1; // 큰것을 기준으로 오름차순 한다
-                    else if (a[i] < b[i]) return 1;
-                    else continue; // 같은 경우는 판별이 안나기 때문에 다음 것을 본다
-                }
-
-                return -1;
+            for (int i = 0; i < max; i++) {
+                if (a[i] > b[i]) return -1; // 큰것을 기준으로 오름차순 한다
+                else if (a[i] < b[i]) return 1;
+                // 같은 경우는 판별이 안나기 때문에 다음 것을 본다
             }
+
             return 0;
         }
     }
