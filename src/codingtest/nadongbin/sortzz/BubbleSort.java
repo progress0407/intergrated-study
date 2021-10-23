@@ -7,7 +7,7 @@ public class BubbleSort {
 
         BubbleSort bubble = new BubbleSort();
 
-        int[] arr = {3, 1, 5, 4, 2};
+        int[] arr = {7, 5, 9, 0, 3, 1, 6, 2, 4, 8};
         bubble.sort(arr);
         printMap(arr);
     }
