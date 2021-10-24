@@ -1,4 +1,4 @@
-package codingtest.nadongbin.greedy;
+package codingtest.programmers.greedy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

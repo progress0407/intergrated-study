@@ -1,4 +1,4 @@
-package codingtest.nadongbin.sortzz;
+package codingtest.nadongbin.sort;
 
 import static java.lang.System.out;
 

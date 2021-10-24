@@ -1,4 +1,4 @@
-package codingtest.nadongbin.implementation;
+package codingtest.programmers.implementation;
 
 import java.util.ArrayList;
 import java.util.List;

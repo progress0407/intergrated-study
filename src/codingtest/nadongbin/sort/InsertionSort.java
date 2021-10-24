@@ -1,7 +1,6 @@
-package codingtest.nadongbin.sortzz;
+package codingtest.nadongbin.sort;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import static java.lang.System.out;
 

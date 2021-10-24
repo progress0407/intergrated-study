@@ -1,4 +1,4 @@
-package codingtest.nadongbin.sortzz;
+package codingtest.nadongbin.sort;
 
 import java.util.Arrays;
 import java.util.Collections;

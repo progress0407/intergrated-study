@@ -1,4 +1,4 @@
-package codingtest.nadongbin.stackqueue;
+package codingtest.programmers.stackqueue;
 
 import java.util.LinkedList;
 
@@ -15,6 +15,9 @@ public class Prg_다리를_지나는_트럭 {
 //        sol.solution(100, 100, new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10});
     }
 
+    /**
+     * 다리를 지나는 트럭.. 객체 지향적으로 다시 구성해 보자
+     */
     static class Solution {
         public int solution(int bridge_length, int weight, int[] truck_weights) {
 
@@ -52,7 +55,7 @@ public class Prg_다리를_지나는_트럭 {
                 }
 
                 for (Integer[] truckOnBridge : bridgeQueue) { // 모든 트럭이 다리를 지나감
-                    truckOnBridge[1]--;
+                    truckOnBridge[1]--; // 대기시간 감소
                 }
 
                 Integer loadRemain = bridgeQueue.getFirst()[1]; // 얼마나 남아있는지

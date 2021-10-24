@@ -1,11 +1,11 @@
-package codingtest.nadongbin.bdfs;
+package codingtest.programmers.dbfs;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static codingtest.nadongbin.bdfs.Prg_타겟넘버.ArithmeticOperator.MINUS;
-import static codingtest.nadongbin.bdfs.Prg_타겟넘버.ArithmeticOperator.PLUS;
+import static codingtest.programmers.dbfs.Prg_타겟넘버.ArithmeticOperator.MINUS;
+import static codingtest.programmers.dbfs.Prg_타겟넘버.ArithmeticOperator.PLUS;
 import static java.lang.System.out;
 
 public class Prg_타겟넘버 {

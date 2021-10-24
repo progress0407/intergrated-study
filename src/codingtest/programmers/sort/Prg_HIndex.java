@@ -1,4 +1,4 @@
-package codingtest.nadongbin.sortzz;
+package codingtest.programmers.sort;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,10 +10,10 @@ import static java.lang.System.out;
 public class Prg_HIndex {
 
     public static void main(String[] args) {
-//        int[] citations = {3, 0, 6, 1, 5};
+        int[] citations = {3, 0, 6, 1, 5};
 //        int[] citations = {7, 3, 5, 8, 1, 0, 4, 11, 9};
 //        int[] citations = {15, 13, 11, 10, 11, 8, 7, 4, 1, 0};
-        int[] citations = {1, 1, 5, 7, 6};
+//        int[] citations = {1, 1, 5, 7, 6};
 
         // 9
         // 7 3 5 8 1 0 4 11 9
@@ -28,12 +28,23 @@ public class Prg_HIndex {
 //        }
 
         Solution sol = new Solution();
-        sol.solution(citations);
-
+//        sol.solution(citations);
+        sol.solution2(citations);
 
     }
 
     static class Solution {
+
+        public int solution2(int[] citations) {
+            int answer = 0;
+            Arrays.sort(citations);
+            for(int i=0; i<citations.length; i++){
+                int smaller = Math.min(citations[i], citations.length-i);
+                answer = Math.max(answer, smaller);
+            }
+            return answer;
+        }
+
         public int solution(int[] citations) {
             int answer = 0;
 
