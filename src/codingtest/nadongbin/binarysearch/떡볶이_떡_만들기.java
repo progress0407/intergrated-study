@@ -32,8 +32,11 @@ public class 떡볶이_떡_만들기 {
 
         int dduck = -1;
         while (start <= end) {
+
             mid = (start + end) / 2;
+
             dduck = getDduk(arr, mid);
+
             if (dduck == k) {
                 break;
             } else if (dduck < k) {

@@ -1,8 +1,11 @@
 package codingtest.nadongbin.binarysearch;
 
+import java.util.Arrays;
+
 import static java.lang.System.out;
 
 public class 정렬된_배열에서_특정수의_개수구하기 {
+
     public static void main(String[] args) {
 
         int n = 7;
@@ -13,24 +16,27 @@ public class 정렬된_배열에서_특정수의_개수구하기 {
         int end = n - 1;
 
         int mid = -1;
+
         while (start <= end) {
             mid = (start + end) / 2;
             int find = arr[mid];
 
             if (find == x) break;
-            else if (find < x) mid = end - 1;
-            else mid = start + 1;
+            else if (find < x) end = mid - 1;
+            else start = mid + 1;
         }
 
         out.println("mid = " + mid);
 
+        // (log2_N + k2-k1)
+
         int left = mid;
         while (arr[left] == x) left--;
-        left++;
+        left++; // left = 2
 
         int right = mid;
         while (arr[right] == x) right++;
-        right--;
+        right--; // right = 5
 
         out.println("right = " + right);
         out.println("left = " + left);
