@@ -1,7 +1,6 @@
 package codingtest.nadongbin.binarysearch;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 import static java.lang.System.out;
 

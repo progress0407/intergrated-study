@@ -15,11 +15,11 @@ import static java.lang.System.out;
 
 public class 두배열의_원소교체 {
     public static void main(String[] args) {
-        solve2();
-//        solve1();
+//        solve2();
+        solve1();
     }
 
-    private static void solve2() {
+    private static void solve2() { // 나동빈님
         Scanner sc = new Scanner(System.in);
         out.print("n: ");
         int n = sc.nextInt();
