@@ -3,6 +3,7 @@ package test.grammer.collectionzz;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
 import static java.lang.System.out;
 
@@ -10,15 +11,32 @@ public class ArrMain {
     public static void main(String[] args) {
 
 //        printArr();
-//        comp();
+//        comp(); // new Decending()
+//        comp2(); // new CustomDictionarySort()
+//        comp3(); // new Ascending()
 
-        comp2();
+        addStr();
+
+    }
+
+    private static void addStr() {
+        int[] arr1 = {0, 1, 0};
+        String s = IntStream.of(arr1).mapToObj(String::valueOf).reduce((a, b) -> a + b).orElseGet(() -> "");
+        out.println("s = " + s);
+    }
+
+    private static void comp3() {
+        String[] simpleStr = {"a", "b", "c"};
+
+        out.println("Arrays.toString(simpleStr) = " + Arrays.toString(simpleStr));
+        Arrays.sort(simpleStr, new Ascending());
+        out.println("Arrays.toString(simpleStr) = " + Arrays.toString(simpleStr));
 
     }
 
     private static void comp2() {
 
-        Integer[] intArr = {120, 45, 60, 446, 386, 9}; // 9 60 45 446 386 120
+        Integer[] intArr = {120, 45, 60, 446, 386, 9}; // 순서는 이렇게 나와야 함 -> 9 60 45 446 386 120
 
         Arrays.sort(intArr);
         out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
@@ -29,11 +47,11 @@ public class ArrMain {
         Arrays.sort(intArr, new CustomDictionarySort());
         out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
 
-        Arrays.sort(intArr, (o1, o2) -> 1);
-        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
-
-        Arrays.sort(intArr, (o1, o2) -> -1);
-        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
+//        Arrays.sort(intArr, (o1, o2) -> 1);
+//        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
+//
+//        Arrays.sort(intArr, (o1, o2) -> -1);
+//        out.println("Arrays.toString(intArr) = " + Arrays.toString(intArr));
     }
 
     private static class CustomDictionarySort implements Comparator<Integer> {
@@ -76,9 +94,23 @@ public class ArrMain {
 
     }
 
+    private static class Ascending implements Comparator<String> {
+
+        @Override
+        public int compare(String o1, String o2) {
+            int i1 = o1.toCharArray()[0];
+            int i2 = o2.toCharArray()[0];
+            if (i1 > i2) {
+                return 1;
+            }
+            return -1;
+//            return o1.compareTo(o2);
+        }
+    }
+
+
 
     private static class Decending implements Comparator {
-
 
         @Override
         public int compare(Object o1, Object o2) {
@@ -90,7 +122,6 @@ public class ArrMain {
             }
             return -1;
         }
-
     }
 
     private static void printArr() {
