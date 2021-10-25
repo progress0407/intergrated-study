@@ -20,6 +20,7 @@ public class Prg_땅따먹기_DP {
         };
 
         sol.solution(land);
+
     }
 
     static class Solution {
