@@ -13,7 +13,7 @@ import static java.lang.System.out;
  * 5 5 6 6 5
  */
 
-public class 두배열의_원소교체 {
+public class Q1_두배열의_원소교체 {
     public static void main(String[] args) {
 //        solve2();
         solve1();

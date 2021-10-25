@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class 떡볶이_떡_만들기 {
+public class Q1_떡볶이_떡_만들기 {
     public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        out.print("n 입력: ");

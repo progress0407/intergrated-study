@@ -2,12 +2,12 @@ package codingtest.nadongbin.binarysearch;
 
 import static java.lang.System.out;
 
-public class BinarySearchMain {
+public class C01_BinarySearchMain {
     public static void main(String[] args) {
         int[] arr = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18};
         int n = 4;
 
-        BinarySearchMain search = new BinarySearchMain();
+        C01_BinarySearchMain search = new C01_BinarySearchMain();
         search.binarySearch(arr, n);
     }
 

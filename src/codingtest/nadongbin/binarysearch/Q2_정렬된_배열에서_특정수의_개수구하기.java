@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class 정렬된_배열에서_특정수의_개수구하기 {
+public class Q2_정렬된_배열에서_특정수의_개수구하기 {
 
     public static void main(String[] args) {
 

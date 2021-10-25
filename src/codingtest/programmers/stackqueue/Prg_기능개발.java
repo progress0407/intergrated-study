@@ -4,7 +4,7 @@ import java.util.*;
 
 import static java.lang.System.out;
 
-public class 기능개발 {
+public class Prg_기능개발 {
     public static void main(String[] args) {
 
 //        int[] progresses = {93, 30, 55};
