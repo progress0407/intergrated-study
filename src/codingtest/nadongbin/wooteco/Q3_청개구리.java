@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import static java.lang.System.out;
 
-public class Q2_청개구리 {
+public class Q3_청개구리 {
     public static void main(String[] args) {
 
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
@@ -33,6 +33,10 @@ public class Q2_청개구리 {
         String str = "I love you";
 
         char[] chars = str.toCharArray();
+
+        // str.split("")
+        // 배열 나눌때는 저렇게 해서 char[] 말고
+//        Stream.of(str.split(""))
 
         out.println("chars = " + chars);
         for (char aChar : chars) {
