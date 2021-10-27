@@ -15,10 +15,36 @@ public class Prg_올바른괄호 {
          * "(()("	false
          */
         String inputStr = "(())()";
-        sol.solution(inputStr);
+//        sol.solution(inputStr); // 정확성 pass, 효율성 fail
+        sol.solution2(inputStr);
     }
 
     static class Solution {
+
+        boolean solution2(String s) {
+
+            Stack<Character> stack = new Stack<>();
+
+            for (int i = 0; i < s.length(); i++) {
+
+                char bracket = s.charAt(i);
+
+                if (!stack.isEmpty()) {
+                    char last = stack.peek();
+                    if (last == '(' && bracket == ')') {
+                        stack.pop();
+                        continue;
+                    }
+                    stack.push(bracket);
+                    continue;
+                }
+                stack.push(bracket);
+            }
+
+            if(stack.isEmpty()) return true;
+            return false;
+        }
+
         boolean solution(String s) {
 
             String[] brackets = s.split("");
@@ -26,6 +52,11 @@ public class Prg_올바른괄호 {
             Stack<String> stack = new Stack<>();
 
             for (String bracket : brackets) {
+
+                if (stack.size() > brackets.length) {
+                    return false;
+                }
+
                 if (!stack.isEmpty()) {
                     String last = stack.peek();
                     if (last.equals("(") && bracket.equals(")")) {
@@ -45,5 +76,7 @@ public class Prg_올바른괄호 {
 
             return false;
         }
+
+
     }
 }

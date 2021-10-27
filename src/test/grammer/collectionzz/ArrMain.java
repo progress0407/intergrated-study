@@ -10,12 +10,12 @@ import static java.lang.System.out;
 public class ArrMain {
     public static void main(String[] args) {
 
-//        printArr();
+        printArr();
 //        comp(); // new Decending()
 //        comp2(); // new CustomDictionarySort()
 //        comp3(); // new Ascending()
 
-        addStr();
+//        addStr();
 
     }
 
@@ -126,8 +126,8 @@ public class ArrMain {
 
     private static void printArr() {
         int[] oneDime = {11, 22, 33};
-        int[][] twoDim =  {{1, 2, 3}, {4, 5, 6}};
-        int[][][] threeDim = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}}};
+        int[][] twoDim = {{1, 2, 3}, {4, 5, 6}}; // new int[][]
+        int[][][] threeDim = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}}}; // new int[][][]
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
