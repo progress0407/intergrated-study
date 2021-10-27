@@ -70,7 +70,7 @@ public class Q3_부품찾기 {
         out.println("Arrays.toString(counting) = " + Arrays.toString(counting));
 
         ArrayList<String> result = new ArrayList<>();
-        // 찾을 ㅂ푸ㅜㅁ 색인
+        // 찾을 부품 색인
         for (int i = 0; i < m.length; i++) {
             if (counting[m[i]] == 1) {
                 result.add("true");

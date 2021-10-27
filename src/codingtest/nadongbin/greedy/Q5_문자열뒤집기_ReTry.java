@@ -3,8 +3,7 @@ package codingtest.nadongbin.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import static java.lang.System.out;
 
@@ -57,7 +56,8 @@ public class Q5_문자열뒤집기_ReTry {
         }
 
         int cntToZeros = 0;
-        for (int i = 0; i < toZeros.length; i++) {
+        for (int i = 0; i < toZeros.length - 1; i++) {
+
             if (toZeros[i] != '0') {
                 while (i < toZeros.length && toZeros[i] != '0') {
                     toZeros[i] = '0';
@@ -69,9 +69,9 @@ public class Q5_문자열뒤집기_ReTry {
 
         int min = Math.min(cntToZeros, cntToOnes);
 
-//        out.println("cntToZeros = " + cntToZeros);
-//        out.println("cntToOnes = " + cntToOnes);
-//        out.println("min = " + min);
+        out.println("cntToZeros = " + cntToZeros);
+        out.println("cntToOnes = " + cntToOnes);
+        out.println("min = " + min);
         out.println(min);
 
     }
