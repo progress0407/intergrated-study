@@ -3,7 +3,6 @@ package codingtest.nadongbin.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
@@ -21,7 +20,7 @@ public class Q5_문자열뒤집기 {
          *
          * 여니 방식으로 다시 접근해보자
          *
-         * 두 배열을
+         * 두 배열을 각자 1 / 0으로 만든후 누구의 max가 큰지를 비교
          */
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
