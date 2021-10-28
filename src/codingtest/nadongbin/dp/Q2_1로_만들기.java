@@ -1,12 +1,17 @@
 package codingtest.nadongbin.dp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
+
+import static java.lang.System.out;
 
 public class Q2_1로_만들기 {
     public static void main(String[] args) {
         int n = 26;
-        solve(26);
+        solve(n);
     }
 
     private static void solve(int n) {
@@ -19,21 +24,30 @@ public class Q2_1로_만들기 {
         d[4] = 2;
         d[5] = 1;
 
-        UnaryOperator<Integer> unaryOperator = e -> e * 5;
-
-        boolean b = Op.MUL_5.canResolve(5);
-        System.out.println("b = " + b);
-
-        int calc = Op.MUL_5.calc(5);
-        System.out.println("calc = " + calc);
 
         for (int i = 6; i <= n; i++) {
+            List<Integer> m = new ArrayList<>();
             if (Op.MUL_5.canResolve(i)) {
-                d[i]++;
-            } else if (Op.MUL_3.canResolve(i)) {
-                d[i]++;
-            } else if[i]
+                m.add(d[i / 5] + 1);
+            }
+            if (Op.MUL_3.canResolve(i)) {
+                m.add(d[i / 3] + 1);
+            }
+            if (Op.MUL_2.canResolve(i)) {
+                m.add(d[i / 2] + 1);
+            }
+            m.add(d[i - 1] + 1);
+            d[i] = getMin(m);
         }
+
+        out.println("Arrays.toString(d) = " + Arrays.toString(d));
+    }
+
+    private static int getMin(List<Integer> m) {
+        return m.stream()
+                .mapToInt(e -> e)
+                .min()
+                .orElseGet(() -> -1);
     }
 
     enum Op {
