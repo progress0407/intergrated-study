@@ -1,8 +1,8 @@
-package codingtest.programmers.dp;
+package codingtest.nadongbin.dp;
 
 import static java.lang.System.out;
 
-public class Prg_개미전사 {
+public class Q1_개미전사 {
     public static void main(String[] args) {
         int[] in = {1, 3, 1, 5};
         solution1(in);
