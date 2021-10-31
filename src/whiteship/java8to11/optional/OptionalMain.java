@@ -4,8 +4,10 @@ import whiteship.java8to11.vo.OnlineClass;
 import whiteship.java8to11.vo.Progress;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,8 +21,6 @@ public class OptionalMain {
 //        myEg1();
         eg1();
 
-        LocalDate date = LocalDate.of(2021, Month.JULY, 21);
-        out.println("date = " + date);
     }
 
     private static void eg1() {
@@ -33,13 +33,20 @@ public class OptionalMain {
         classes.add(new OnlineClass(5, "rest api development", false));
 
         OnlineClass js_es6 = new OnlineClass(6, "js es6", false);
-        Duration duration = Duration.ofDays(3L);
+        js_es6.setProgress(new Progress(Duration.ZERO, false));
 
-        out.println("duration = " + duration);
-//        js_es6.setProgress(new Progress(false));
-//        Progress progress = js_es6.getProgress();
+        out.println("js_es6 = " + js_es6.getProgress());
+//        js_es6.getProgress().ifPresent(e->{
+//            out.println("e = " + e);
+//        });
 
-//        out.println("progress.getStudyDuration() = " + progress.getStudyDuration());
+
+//        Instant now = Instant.now();
+//        Instant plus = now.plus(10, ChronoUnit.SECONDS);
+//        Duration between = Duration.between(plus, now);
+//        out.println("between = " + between.getSeconds());
+
+
 
     }
 

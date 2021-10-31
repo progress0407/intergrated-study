@@ -1,5 +1,7 @@
 package whiteship.java8to11.vo;
 
+import java.time.Duration;
+
 public class OnlineClass {
 
     private Integer id;
@@ -27,7 +29,7 @@ public class OnlineClass {
     }
 
     public Progress getProgress() {
-        return progress;
+        return progress == null ? new Progress(Duration.ZERO, false) : progress ;
     }
 
     public void setProgress(Progress progress) {

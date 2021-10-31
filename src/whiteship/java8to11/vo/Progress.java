@@ -18,4 +18,12 @@ public class Progress {
     public boolean isFinished() {
         return finished;
     }
+
+    @Override
+    public String toString() {
+        return "Progress{" +
+                "studyDuration=" + studyDuration +
+                ", finished=" + finished +
+                '}';
+    }
 }
