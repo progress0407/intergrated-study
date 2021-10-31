@@ -2,9 +2,9 @@ package codingtest.nadongbin.dp;
 
 import static java.lang.System.out;
 
-public class FibonacciMain {
+public class C1_FibonacciMain {
     public static void main(String[] args) {
-        FibonacciMain fibo = new FibonacciMain();
+        C1_FibonacciMain fibo = new C1_FibonacciMain();
         // 1 1 2 3 5 8 13
         long start = System.currentTimeMillis();
         int n = 45;
