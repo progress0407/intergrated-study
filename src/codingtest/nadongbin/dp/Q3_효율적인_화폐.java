@@ -7,10 +7,29 @@ import static java.lang.System.out;
 public class Q3_효율적인_화폐 {
     public static void main(String[] args) {
         int n = 15;
-        solve(n);
+//        solve(n);
+        solve2(n);
+    }
+
+    private static void solve2(int n) {
+        int[] d = new int[n + 1];
+
+        Arrays.fill(d, 10001);
+
+        int[] arr = {2, 3, 5};
+
+        int k = 1;
+        for (int e : arr) {
+            if (k * e <= n) {
+                d[k * e] = Math.min(k, d[k * e]);
+            }
+        }
+
+        out.println("Arrays.toString(d) = " + Arrays.toString(d));
     }
 
     private static void solve(int n) {
+
         int[] d = new int[n + 1];
 
         d[2] = 1;
@@ -22,8 +41,6 @@ public class Q3_효율적인_화폐 {
         }
 
         out.println("Arrays.toString(d) = " + Arrays.toString(d));
-
-
 
     }
 

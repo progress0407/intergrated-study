@@ -5,12 +5,13 @@ import static vacation.PlusMinus.*;
 
 public enum Vacation {
 
-      V01(1000_1001L, "휴가", DAY, MINUS)
-    , V02(1000_1002L, "반차", HALF_DAY, MINUS)
-    , V03(1000_1003L, "외출", HOUR, MINUS)
-    , V04(1000_1004L, "조퇴", HOUR, MINUS)
-    , V05(1000_1005L, "지각", SEC, MINUS)
-    , V06(1000_1006L, "공가", HOUR, NEUTRAL);
+      V01(1_000_001L, "휴가", DAY, MINUS)
+    , V02(1_000_002L, "반차", HALF_DAY, MINUS)
+    , V03(1_000_003L, "외출", HOUR, MINUS)
+    , V04(1_000_004L, "조퇴", HOUR, MINUS)
+    , V05(1_000_005L, "지각", SEC, MINUS)
+    , V06(1_000_006L, "공가", DAY, NEUTRAL)
+    , V07(1_000_107L, "대체휴일", DAY, PLUS);
 
     final Long id;
     final String name;

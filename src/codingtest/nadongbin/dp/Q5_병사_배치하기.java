@@ -1,6 +1,7 @@
 package codingtest.nadongbin.dp;
 
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import static java.lang.System.out;
 
@@ -8,6 +9,7 @@ public class Q5_병사_배치하기 {
     public static void main(String[] args) {
 
         solve1();
+
     }
 
     private static void solve1() {

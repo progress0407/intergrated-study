@@ -8,7 +8,11 @@ public enum DateTimeUnit {
     , HALF_DAY(8 * 60 * 60 / 2)
     , DAY(8 * 60 * 60);
 
-    int second;
+    final int second;
+
+    public int getSecond() {
+        return second;
+    }
 
     DateTimeUnit(int second) {
         this.second = second;
