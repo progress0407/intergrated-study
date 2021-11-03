@@ -9,8 +9,31 @@ public class C01_BinarySearchMain {
 
         C01_BinarySearchMain search = new C01_BinarySearchMain();
 //        search.binarySearch(arr, n);
-        int find = search.review(arr, n);
+//        int find = search.review(arr, n);
+
+        int find = search.dfs(arr, n, 0, arr.length - 1);
+
         out.println("find = " + find);
+    }
+
+    private int dfs(int[] arr, int n, int start, int end) {
+
+        if (start > end) {
+            out.println("적당한 수를 찾지 못하였습니다");
+            return -1;
+        }
+        
+        int mid = (start + end) / 2;
+        if (arr[mid] == n) {
+            return mid;
+        }
+        if (arr[mid] > n) {
+            end = mid - 1;
+        }
+        else {
+            start = mid + 1;
+        }
+        return dfs(arr, n, start, end);
     }
 
     private int review(int[] arr, int n) {

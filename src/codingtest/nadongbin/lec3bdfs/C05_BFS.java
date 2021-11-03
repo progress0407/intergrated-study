@@ -29,7 +29,6 @@ public class C05_BFS {
         for (int i = 0; i < visited.length; i++) {
             out.printf("%d: %s \n", i, visited[i]);
         }
-
     }
 
     private static void bfs2(Integer[][] graph, boolean[] visited, int startPosition) {

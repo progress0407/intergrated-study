@@ -6,7 +6,49 @@ import static java.lang.System.out;
 
 public class Q1_떡볶이_떡_만들기 {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
+//        solve1();
+        int want = 8;
+        int height = review(want);
+        out.println("height = " + height);
+    }
+
+    private static int review(int want) {
+        int[] heights = {19, 14, 10, 17};
+
+        Arrays.sort(heights);
+
+        int start = 0;
+        int length = heights.length;
+        int end = heights[length - 1];
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            int silceSum = getSilceSum(heights, mid);
+
+            if(silceSum == want) return mid;
+
+            if (silceSum > want) {
+                start = mid + 1;
+                continue;
+            }
+            end = mid - 1;
+        }
+
+        out.println("만족할 수 있는 떡의 길이가 존재하지 않습니다");
+        return -1;
+    }
+
+    private static int getSilceSum(int[] heights, int mid) {
+        return Arrays.stream(heights)
+                .filter(h -> h >= mid)
+                .map(e->e-mid)
+                .reduce(Integer::sum)
+                .orElseThrow();
+    }
+
+    private static void solve1() {
+        //        Scanner sc = new Scanner(System.in);
 //        out.print("n 입력: ");
 //        int n = sc.nextInt();
 //        out.print("떡 입력: ");
