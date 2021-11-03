@@ -28,9 +28,7 @@ public class Prg_주식가격 {
 
             Prices prices = new Prices(priceArr);
 
-            prices.print();
             prices.calc();
-            prices.print();
 
             int[] result = Arrays.stream(prices.prices).map(e -> e.maintain).mapToInt(e -> e).toArray();
 
