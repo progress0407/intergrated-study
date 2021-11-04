@@ -1,4 +1,4 @@
-package codingtest.nadongbin.lec12mplementation;
+package codingtest.nadongbin.lec1implementation;
 
 public class Q6_문자열압축 {
 

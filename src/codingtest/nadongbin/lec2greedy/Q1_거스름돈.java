@@ -6,12 +6,32 @@ import static java.lang.System.out;
 
 public class Q1_거스름돈 {
 
+    private static int[] coinTypes = {500, 100, 50, 10};
+    private static int INPUT_MONEY = 1260;
+    private static int[] countArr = new int[coinTypes.length];
+
     public static void main(String[] args) {
 
+        복습();
 //        풀이3();
 //        풀이2();
 //        풀이1();
 
+    }
+
+    private static void 복습() {
+
+        /*for (int i = 0; i < coinTypes.length; i++) {
+            countArr[i] = INPUT_MONEY / coinTypes[i];
+            INPUT_MONEY %= coinTypes[i];
+        }*/
+
+        //
+        for (int coinType : coinTypes) {
+
+        }
+
+        out.println("Arrays.toString(countArr) = " + Arrays.toString(countArr));
     }
 
     private static void 풀이3() {

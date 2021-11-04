@@ -1,5 +1,5 @@
 
-package codingtest.nadongbin.lec12mplementation;
+package codingtest.nadongbin.lec1implementation;
 
 import static java.lang.System.out;
 
