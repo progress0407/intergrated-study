@@ -1,8 +1,7 @@
-package codingtest.nadongbin.wooteco;
+package codingtest.wooteco.gen3;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.lang.System.out;
 

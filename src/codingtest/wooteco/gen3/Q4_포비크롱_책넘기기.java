@@ -1,4 +1,4 @@
-package codingtest.nadongbin.wooteco;
+package codingtest.wooteco.gen3;
 
 import java.util.ArrayList;
 import java.util.Arrays;

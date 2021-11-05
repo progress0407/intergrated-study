@@ -1,8 +1,6 @@
-package codingtest.nadongbin.wooteco;
+package codingtest.wooteco.gen3;
 
-import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 import static java.lang.System.out;
@@ -30,14 +28,8 @@ public class Q7_암호문_브라운 {
                 char alpha = cryptogram.charAt(i);
                 if (q.isEmpty()) {
                     q.push(alpha);
-                } else {
-                    char last = q.peek();
-                    if(last == alpha) {
-                        q.pop();
-                        continue;
-                    }
-                    else q.push(alpha);
-                }
+                } else if(q.peek() == alpha) q.pop();
+                else q.push(alpha);
             }
 
             out.println("q = " + q);
