@@ -20,14 +20,6 @@ public class Q6_티켓팅 {
 
         Solution sol = new Solution();
 //        sol.solution(totalTicket, logs);
-
-        LocalTime p1 = LocalTime.of(2, 2, 59);
-        LocalTime p2 = LocalTime.of(2, 1, 49);
-
-        Duration d = Duration.between(p2, p1);
-        out.println("d.getSeconds() = " + d.getSeconds());
-
-
     }
 
     static class Solution {
