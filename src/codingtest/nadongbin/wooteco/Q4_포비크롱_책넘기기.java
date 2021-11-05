@@ -1,9 +1,8 @@
 package codingtest.nadongbin.wooteco;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static java.lang.System.out;
 
@@ -14,6 +13,7 @@ import static java.lang.System.out;
  */
 public class Q4_포비크롱_책넘기기 {
     public static void main(String[] args) {
+
 //        int[] pobi = {97, 98};
 //        int[] crong = {197, 198};
 
@@ -25,11 +25,65 @@ public class Q4_포비크롱_책넘기기 {
 
 
         Solution sol = new Solution();
-        int solution = sol.solution(pobi, crong);
+        int solution = sol.solution2(pobi, crong);
         out.println("solution = " + solution);
+
     }
 
     static class Solution {
+
+        public int solution2(int[] pobi, int[] crong) {
+            if (!validation(pobi) || !validation(crong)) return -1;
+
+            int pobiMax = calc(pobi);
+            int crongMax = calc(crong);
+
+            out.println("pobiMax = " + pobiMax);
+            out.println("crongMax = " + crongMax);
+
+            int result = pobiMax > crongMax ? 1 : pobiMax < crongMax ? 2 : 0;
+
+            return result;
+        }
+
+        private int calc(int[] pobi) {
+
+            List<Integer> list = new ArrayList<>();
+
+            Integer left = pobi[0];
+            int[] leftSplit = Arrays.stream(left.toString().split("")).mapToInt(Integer::parseInt).toArray();
+
+            int leftSum = Arrays.stream(leftSplit).reduce(Integer::sum).getAsInt();
+            list.add(leftSum);
+
+            int leftMul = Arrays.stream(leftSplit).reduce((a, b) -> a * b).getAsInt();
+            list.add(leftMul);
+
+
+            Integer right = pobi[1];
+            int[] rightSplit = Arrays.stream(right.toString().split("")).mapToInt(Integer::parseInt).toArray();
+
+            int rightSum = Arrays.stream(rightSplit).reduce(Integer::sum).getAsInt();
+            list.add(rightSum);
+
+            int rightMul = Arrays.stream(rightSplit).reduce((a, b) -> a * b).getAsInt();
+            list.add(rightMul);
+
+            int max = list.stream().mapToInt(e->e).max().getAsInt();
+
+            return max;
+        }
+
+        private boolean validation(int[] pages) {
+            int left = pages[0];
+            int right = pages[1];
+
+            if (!(left + 1 == right)) return false;
+            if (left == 1 || right == 400) return false;
+            if (!(left % 2 == 1 && right % 2 == 0)) return false;
+
+            return true;
+        }
 
         public int solution(int[] pobi, int[] crong) {
 

@@ -1,7 +1,11 @@
 package codingtest.nadongbin.wooteco;
 
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+
+import static java.lang.System.out;
 
 public class Q7_암호문_브라운 {
     public static void main(String[] args) {
@@ -9,7 +13,7 @@ public class Q7_암호문_브라운 {
 //        String str = "zyelleyz";
         Solution sol = new Solution();
 //        sol.solution(str);
-        sol.solution2(str);
+        sol.solution3(str);
     }
 
     /**
@@ -17,6 +21,29 @@ public class Q7_암호문_브라운 {
      */
 
     static class Solution {
+
+        public String solution3(String cryptogram) {
+
+            Stack<Character> q = new Stack<>();
+
+            for (int i = 0; i < cryptogram.length(); i++) {
+                char alpha = cryptogram.charAt(i);
+                if (q.isEmpty()) {
+                    q.push(alpha);
+                } else {
+                    char last = q.peek();
+                    if(last == alpha) {
+                        q.pop();
+                        continue;
+                    }
+                    else q.push(alpha);
+                }
+            }
+
+            out.println("q = " + q);
+
+            return null;
+        }
 
         public String solution2(String cryptogram) {
             String[] cryptoArr = cryptogram.split("");
@@ -34,7 +61,7 @@ public class Q7_암호문_브라운 {
                 stack.push(element);
             }
 
-            System.out.println("stack.toString() = " + stack.toString());
+            out.println("stack.toString() = " + stack.toString());
 
             return stack.toString();
         }
@@ -60,7 +87,7 @@ public class Q7_암호문_브라운 {
             }
 
             String result = queue.toString();
-            System.out.println("result = " + result);
+            out.println("result = " + result);
 
             return result;
         }
