@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import static java.lang.System.out;
 
 public class Q2_ {
+
     public static void main(String[] args) {
 
         Solution sol = new Solution();

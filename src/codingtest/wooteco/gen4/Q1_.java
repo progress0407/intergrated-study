@@ -20,8 +20,6 @@ public class Q1_ {
 
             Arrays.sort(arr);
 
-
-
             int[] count = getCountArr(arr);  // 갯수를 담는 배열
 
             int max = getMax(count);
