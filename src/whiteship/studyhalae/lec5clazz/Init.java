@@ -1,4 +1,4 @@
-package whiteship.studyhalae.clazz;
+package whiteship.studyhalae.lec5clazz;
 
 public class Init extends ParentInit {
 	private int number;

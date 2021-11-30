@@ -1,4 +1,4 @@
-package whiteship.studyhalae.clazz;
+package whiteship.studyhalae.lec5clazz;
 
 public class LocalClassMain {
 	public static void main(String[] args) {

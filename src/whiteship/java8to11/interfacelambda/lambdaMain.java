@@ -24,21 +24,8 @@ public class lambdaMain {
         out.println("result = " + result);
     }
 
-    private static void self2() {
-        순서가_중요한지<Integer, Double, Integer, Double> 정말로 = (a, b, c) -> a + b * c;
-        out.println("정말로.returnAdd(100, 20, 1.5) = " + 정말로.returnAdd(100, 20, 1.5));
-        // 예상한 대로 잘 된다.. 제네릭의 선언 순서는 중요하지 않다
-    }
-
     private static void lec4() {
         String[] names = {"bb", "aa", "cc"};
-        /*Arrays.sort(names, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return 0;
-            }
-        });*/
-//        Arrays.sort(names, (o1, o2) -> 1);
         Arrays.sort(names, String::compareToIgnoreCase);
         out.println(Arrays.toString(names));
     }
