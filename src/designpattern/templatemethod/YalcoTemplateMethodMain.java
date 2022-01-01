@@ -7,49 +7,44 @@ public class YalcoTemplateMethodMain {
 		new KakaoMapview().initMap();
 	}
 
-	private static abstract class MapView {
+	private interface MapView {
 
-		protected abstract void connectMapServer();
-		protected abstract void showMapOnScreen();
-		protected abstract void moveToCurrentLocation();
+		void connectMapServer();
+		 void showMapOnScreen();
+		 void moveToCurrentLocation();
 
-		public void initMap() {
+		default void initMap() {
 			connectMapServer();
 			showMapOnScreen();
 			moveToCurrentLocation();
 		}
 	}
 
-	private static class NaverMapView extends MapView {
-		@Override
-		protected void connectMapServer() {
+	private static class NaverMapView implements MapView {
+		public void connectMapServer() {
 			System.out.println("네이버 지도 서버에 연결");
 		}
 
-		@Override
-		protected void showMapOnScreen() {
+
+		public void showMapOnScreen() {
 			System.out.println("네이버 지도를 보여줌");
 		}
 
-		@Override
-		protected void moveToCurrentLocation() {
+		public void moveToCurrentLocation() {
 			System.out.println("네이버 지도에서 현재 좌표로 이동");
 		}
 	}
 
-	private static class KakaoMapview extends MapView {
-		@Override
-		protected void connectMapServer() {
+	private static class KakaoMapview implements MapView {
+		public void connectMapServer() {
 			System.out.println("카카오 지도 서버에 연결");
 		}
 
-		@Override
-		protected void showMapOnScreen() {
+		public void showMapOnScreen() {
 			System.out.println("카카오 지도를 보여줌");
 		}
 
-		@Override
-		protected void moveToCurrentLocation() {
+		public void moveToCurrentLocation() {
 			System.out.println("카카오 지도에서 현재 좌표로 이동");
 		}
 	}
