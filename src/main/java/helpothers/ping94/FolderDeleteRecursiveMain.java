@@ -91,6 +91,9 @@ public class FolderDeleteRecursiveMain {
 		}
 
 		private static void deleteFolders(List<Folder> folders) {
+			if(folders.size() == 0) {
+				return;
+			}
 			for (Folder folder : folders) {
 				out.println("delete Folder = " + folder);
 				folder.setDeleted(true);
@@ -112,6 +115,11 @@ public class FolderDeleteRecursiveMain {
 		}
 
 		private static void deleteBookmarks(List<Bookmark> bookmarks) {
+
+			if(bookmarks.size() == 0) {
+				return;
+			}
+
 			for (Bookmark bookmark : bookmarks) {
 				out.println("delete Bookmark = " + bookmark);
 				bookmark.setDeleted(true);
@@ -141,10 +149,8 @@ public class FolderDeleteRecursiveMain {
 		Queue<String> queue = new LinkedList<>();
 		queue.offer("/");
 
-
 		List<Folder> tempFolders = new ArrayList<>();
 		List<Bookmark> tempBookmarks = new ArrayList<>();
-
 
 		while (!queue.isEmpty()) {
 			String parentId = queue.poll();
@@ -177,13 +183,13 @@ public class FolderDeleteRecursiveMain {
 		}
 		// list
 
-		out.println("-------------------- delete query :: folder :: start --------------------");
-		FolderRepository.deleteFolders(tempFolders);
-		out.println("-------------------- delete query :: folder :: end --------------------\n\n");
-
-		out.println("-------------------- delete query :: bookmark :: start --------------------");
-		BookmarkRepository.deleteBookmarks(tempBookmarks);
-		out.println("-------------------- delete query :: bookmark :: end --------------------\n\n");
+		// out.println("-------------------- delete query :: folder :: start --------------------");
+		// FolderRepository.deleteFolders(tempFolders);
+		// out.println("-------------------- delete query :: folder :: end --------------------\n\n");
+		//
+		// out.println("-------------------- delete query :: bookmark :: start --------------------");
+		// BookmarkRepository.deleteBookmarks(tempBookmarks);
+		// out.println("-------------------- delete query :: bookmark :: end --------------------\n\n");
 	}
 
 
