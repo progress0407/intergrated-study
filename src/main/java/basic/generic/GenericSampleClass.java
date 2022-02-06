@@ -1,11 +1,10 @@
-package basic;
+package basic.generic;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 class GenericSampleClass {
@@ -34,11 +33,32 @@ class GenericSampleClass {
 	}
 
 	static class FruitBox <T extends Fruit & Eatable> {
+
+		private static final int DEAFULT_CAPACITY = 100;
+
+		@Getter
 		private List<T> fruits = new ArrayList<>();
+
+		// T[] arr = new T[DEAFULT_CAPACITY];
+		// private T[] arr = (T[]) new Object[DEAFULT_CAPACITY];
 
 		public long add(T fruit) {
 			fruits.add(fruit);
 			return fruit.getId();
+		}
+
+		public void addAll(List<T> fruits) {
+			this.fruits.addAll(fruits);
+		}
+
+		public void printFruits(List<? extends Fruit> fruits) {
+			for (Fruit fruit : fruits) {
+				System.out.println("fruit = " + fruit);
+			}
+		}
+
+		public <T> void printSomething(T something) {
+			System.out.println("something class name = " + something.getClass().getSimpleName());
 		}
 
 		public Fruit findOne(long id) {
