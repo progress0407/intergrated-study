@@ -1,10 +1,8 @@
-package basic.simple.immutable;
+package simple.immutable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import lombok.Getter;
 
 class Names {
 
