@@ -11,7 +11,7 @@ public class HashMapClass implements MyBenchMark {
 
     public HashMapClass() {
         map = new HashMap<>();
-        IntStream.rangeClosed(1, REP_COUNT).forEach(value -> map.put(value, value));
+        IntStream.rangeClosed(1, NUMBER_OF_TRIALS).forEach(value -> map.put(value, value));
     }
 
     @Override
@@ -20,6 +20,6 @@ public class HashMapClass implements MyBenchMark {
     }
 
     private void map() {
-        IntStream.rangeClosed(1, REP_COUNT).forEach(value -> map.get(value));
+        IntStream.rangeClosed(1, NUMBER_OF_TRIALS).forEach(value -> map.get(value));
     }
 }

@@ -18,7 +18,7 @@ public class EnumMapClass implements MyBenchMark {
     @Override
     public void test() throws RuntimeException {
         final int myEnumSize = MyEnum.values().length;
-        for (int i = 0; i < REP_COUNT / myEnumSize; i++) {
+        for (int i = 0; i < NUMBER_OF_TRIALS / myEnumSize; i++) {
             for (MyEnum value : MyEnum.values()) {
                 map.get(value);
             }
