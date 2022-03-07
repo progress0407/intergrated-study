@@ -11,7 +11,7 @@ public class PasswordStrengthMeterTest {
     private final PasswordStrengthMeter meter = new PasswordStrengthMeter();
 
     private void assertStrength(String password, PasswordStrength expectedStrength) {
-        PasswordStrength result = meter.examine(password);
+        PasswordStrength result = meter.meter(password);
         Assertions.assertEquals(expectedStrength, result);
     }
 
