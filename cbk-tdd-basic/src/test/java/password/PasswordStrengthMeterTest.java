@@ -54,19 +54,25 @@ public class PasswordStrengthMeterTest {
 
     @Test
     @DisplayName("8글자 이상인 조건만 충족하는 경우")
-    void meetsOnlyCriteria_for_Length() {
+    void meetsOnlyCriteria_for_Length_then_Weak() {
         assertStrength("abcdefghi", PasswordStrength.WEAK);
     }
 
     @Test
     @DisplayName("숫자 포함 조건만 충족하는경우")
-    void meetsOnlyCriteria_for_Number() {
+    void meetsOnlyCriteria_for_Number_then_Weak() {
         assertStrength("1234", PasswordStrength.WEAK);
     }
 
     @Test
     @DisplayName("대문자 포함 조건만 충족하는경우")
-    void meetsOnlyCriteria_for_Uppercase() {
+    void meetsOnlyCriteria_for_Uppercase_then_Weak() {
         assertStrength("ABCD", PasswordStrength.WEAK);
+    }
+
+    @Test
+    @DisplayName("아무 조건도 충족하지 않은 경우")
+    void meetsNoCriteria_then_Weak() {
+        assertStrength("abcd", PasswordStrength.WEAK);
     }
 }
