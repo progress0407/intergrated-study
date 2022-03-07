@@ -6,7 +6,11 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class TestSomething {
 
@@ -21,6 +25,14 @@ public class TestSomething {
         this.members = new ArrayList<>();
         members.add(memberA);
         members.add(memberB);
+    }
+
+    @CsvSource(value = {"a : true", "b : true", "c : false"}, delimiterString = " : ")
+    @ParameterizedTest
+    void test2(String target, boolean expected) {
+        boolean result = List.of("a", "b").contains(target);
+
+        Assertions.assertEquals(expected, result);
     }
 
     @Test

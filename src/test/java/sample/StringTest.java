@@ -2,6 +2,7 @@ package sample;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -35,7 +36,6 @@ public class StringTest {
         for (int i = 0; i < 1_000; i++) {
             result += word;
         }
-
     }
 
 //    @Benchmark
