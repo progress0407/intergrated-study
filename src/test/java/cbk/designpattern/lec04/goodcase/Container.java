@@ -1,13 +1,15 @@
-package lec04.badcase;
+package cbk.designpattern.lec04.goodcase;
 
 import java.util.ArrayList;
 
-class Container extends ArrayList<Luggage> {
+class Container {
     private int maxSize;
     private int currentSize;
+    private ArrayList<Luggage> luggages;
 
     public Container(int maxSize) {
         this.maxSize = maxSize;
+        this.luggages = new ArrayList<>();
     }
 
     public int getCurrentSize() {
@@ -18,12 +20,12 @@ class Container extends ArrayList<Luggage> {
         if (!canContain(luggage)) {
             throw new NotEnoughSpaceException("수화물이 최대 용량을 초과합니다");
         }
-        super.add(luggage);
+        luggages.add(luggage);
         currentSize += luggage.getSize();
     }
 
     public void extract(Luggage luggage) {
-        super.remove(luggage);
+        luggages.remove(luggage);
         currentSize -= luggage.getSize();
     }
 

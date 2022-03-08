@@ -1,10 +1,10 @@
-package lec04.goodcase;
+package cbk.designpattern.lec04.badcase;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class GoodDesignedLuggageTest {
+class BadDesignedLuggageTest {
 
     @Test
     @DisplayName("수하물이 일정 용량 안에 있으면 굳이 예외를 던지지 않는다")

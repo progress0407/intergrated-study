@@ -1,4 +1,4 @@
-package lec04.goodcase;
+package cbk.designpattern.lec04.badcase;
 
 class Luggage {
     private int size;
