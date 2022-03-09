@@ -1,8 +1,8 @@
-package blackjack;
+package blackjack.v1;
 
 import java.util.Objects;
 
-public class Card {
+class Card {
 
     private final Denomination denomination;
     private final Suit suit;
@@ -10,6 +10,22 @@ public class Card {
     public Card(Denomination denomination, Suit suit) {
         this.denomination = denomination;
         this.suit = suit;
+    }
+
+    public boolean isSameDenomination(Denomination denomination) {
+        return this.denomination == denomination;
+    }
+
+    public boolean isSameSuit(Suit suit) {
+        return this.suit == suit;
+    }
+
+    public void chooseAceScoreAs1() {
+        denomination.chooseAceScoreAs1();
+    }
+
+    public void chooseAceValueAs11() {
+        denomination.chooseAceValueAs11();
     }
 
     @Override

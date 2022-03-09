@@ -1,6 +1,6 @@
-package blackjack;
+package blackjack.v1;
 
-public enum Suit {
+enum Suit {
     SPADE("스페이드"),
     DIAMOND("다이아몬드"),
     CLOVER("클로버"),
