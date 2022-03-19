@@ -3,7 +3,7 @@ package blackjack.statepattern;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-class Deck {
+public class Deck {
 
     private Queue<Card> cards = new ArrayDeque<>();
 

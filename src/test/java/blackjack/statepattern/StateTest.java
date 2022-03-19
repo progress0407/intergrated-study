@@ -1,10 +1,14 @@
 package blackjack.statepattern;
 
+import static blackjack.statepattern.utils.CreationUtils.createMockDeck;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
+import blackjack.statepattern.state.Blackjack;
+import blackjack.statepattern.state.Bust;
+import blackjack.statepattern.state.Normal;
+import blackjack.statepattern.state.Ready;
+import blackjack.statepattern.state.State;
 import org.junit.jupiter.api.Test;
-
 
 class StateTest {
 
@@ -12,76 +16,71 @@ class StateTest {
     void READY에서_NORMAL() {
         Hand hand = new Hand();
 
-        assertThat(hand.getState()).isInstanceOf(Ready.class);
+        assertThat(hand.state()).isInstanceOf(Ready.class);
 
-        hand.receiveCards(new MockDeck(new Card(5), new Card(9)));
+        MockDeck mockDeck = createMockDeck(5, 9);
+        hand.receiveCards(mockDeck);
 
-        assertThat(hand.getState()).isInstanceOf(Normal.class);
+        assertThat(hand.state()).isInstanceOf(Normal.class);
     }
 
     @Test
     void READY에서_BLACKJACK() {
         Hand hand = new Hand();
 
-        assertThat(hand.getState()).isInstanceOf(Ready.class);
+        assertThat(hand.state()).isInstanceOf(Ready.class);
 
-        hand.receiveCards(new MockDeck(new Card(11), new Card(10)));
+        MockDeck mockDeck = createMockDeck(11, 10);
+        hand.receiveCards(mockDeck);
 
-        assertThat(hand.getState()).isInstanceOf(BlackJack.class);
+        assertThat(hand.state()).isInstanceOf(Blackjack.class);
     }
 
     @Test
     void NORMAL에서_NORMAL() {
         Hand hand = new Hand();
 
-        assertThat(hand.getState()).isInstanceOf(Ready.class);
+        assertThat(hand.state()).isInstanceOf(Ready.class);
 
-        hand.receiveCards(new MockDeck(new Card(2), new Card(3)));
+        hand.receiveCards(createMockDeck(2, 3));
+        assertThat(hand.state()).isInstanceOf(Normal.class);
 
-        assertThat(hand.getState()).isInstanceOf(Normal.class);
-
-        hand.receiveCards(new MockDeck(new Card(6)));
-
-        assertThat(hand.getState()).isInstanceOf(Normal.class);
+        hand.receiveCards(createMockDeck(6));
+        assertThat(hand.state()).isInstanceOf(Normal.class);
     }
 
     @Test
-    void NORMAL_에서_BLACKJACK() {
+    void 카드가_3장일_경우_21점() {
         Hand hand = new Hand();
+        State handState = hand.state();
 
-        assertThat(hand.getState()).isInstanceOf(Ready.class);
+        assertThat(handState).isInstanceOf(Ready.class);
 
         hand.receiveCards(new MockDeck(new Card(5), new Card(6)));
 
-        assertThat(hand.getState()).isInstanceOf(Normal.class);
+        assertThat(hand.state()).isInstanceOf(Normal.class);
 
         hand.receiveCards(new MockDeck(new Card(10)));
 
-        assertThat(hand.getState()).isInstanceOf(BlackJack.class);
+        assertThat(hand.state()).isInstanceOf(Normal.class);
+        assertThat(hand.state()).isInstanceOf(Normal.class);
     }
 
     @Test
     void NORMAL에서_BUST() {
         Hand hand = new Hand();
 
-        assertThat(hand.getState()).isInstanceOf(Ready.class);
+        assertThat(hand.state()).isInstanceOf(Ready.class);
 
-        hand.receiveCards(createMock(8,6));
+        MockDeck mock = createMockDeck(8, 6);
+        hand.receiveCards(mock);
 
-        assertThat(hand.getState()).isInstanceOf(Normal.class);
+        assertThat(hand.state()).isInstanceOf(Normal.class);
 
-        hand.receiveCards(createMock(10));
+        hand.receiveCards(createMockDeck(10));
 
-        assertThat(hand.getState()).isInstanceOf(Bust.class);
+        assertThat(hand.state()).isInstanceOf(Bust.class);
     }
 
-    private MockDeck createMock(int... scores) {
 
-        Card[] cards = Arrays.stream(scores)
-                .boxed()
-                .map(score -> new Card(score))
-                .toArray(Card[]::new);
-
-        return new MockDeck(cards);
-    }
 }

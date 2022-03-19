@@ -1,6 +1,9 @@
-package blackjack.statepattern;
+package blackjack.statepattern.state;
 
-abstract class Finished implements State {
+import blackjack.statepattern.Hand;
+
+public abstract class Finished implements State {
+
     @Override
     public int receiveTimes() {
         return 0;

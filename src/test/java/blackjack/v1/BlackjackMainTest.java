@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class BlackJackMainTest {
+class BlackjackMainTest {
 
     /**
      * Ace의 값은 개별적으로 변해야 하는데 각 카드에서 참조하는 Enum의 ACE 인스턴스는 하나이므로

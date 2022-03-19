@@ -1,11 +1,11 @@
-package blackjack.v3;
+package blackjack.v4;
 
 import static java.lang.System.out;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-public class BlackJackMainTest {
+public class BlackjackMainTest {
 
     @Test
     void 덱에서_ACE를_찾을수_있다() {

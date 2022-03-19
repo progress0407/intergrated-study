@@ -1,6 +1,6 @@
 package blackjack.statepattern;
 
-class Card {
+public class Card {
 
     private int score;
 

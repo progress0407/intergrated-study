@@ -2,7 +2,7 @@ package blackjack.v2;
 
 import org.junit.jupiter.api.Test;
 
-public class BlackJackMainTest {
+public class BlackjackMainTest {
 
     /**
      * Inner 클래스로 new 로 재 생성

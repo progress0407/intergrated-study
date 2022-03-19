@@ -2,17 +2,20 @@ package blackjack.statepattern;
 
 import static java.lang.System.out;
 
+import blackjack.statepattern.state.Finished;
+import blackjack.statepattern.state.State;
+import blackjack.statepattern.state.StateContainer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
 
-    private State state = new Ready();
-    private List<Card> cards = new ArrayList<>();
+    private State state = StateContainer.READY;
+    private final List<Card> cards = new ArrayList<>();
 
-    public int getScore() {
+    public int score() {
         return cards.stream()
-                .mapToInt(it -> it.getScore())
+                .mapToInt(Card::getScore)
                 .sum();
     }
 
@@ -30,11 +33,23 @@ public class Hand {
         state.nextState(this);
     }
 
-    public State getState() {
+    public boolean isFinished() {
+        return state instanceof Finished;
+    }
+
+    public boolean isNotFinished() {
+        return !(state instanceof Finished);
+    }
+
+    public State state() {
         return state;
     }
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    public MatchResult match(Hand dealerHand) {
+        return MatchResult.from(this, dealerHand);
     }
 }
