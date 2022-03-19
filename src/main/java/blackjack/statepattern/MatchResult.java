@@ -34,23 +34,23 @@ public enum MatchResult {
     }
 
     private static boolean normalWinSubConditionFirst(Hand player, Hand dealer) {
-        return player.state() instanceof UnFinished &&
-                dealer.state() instanceof UnFinished &&
+        return player.isNotFinished() &&
+                dealer.isNotFinished() &&
                 player.score() > dealer.score();
     }
 
     private static boolean normalWinSubConditionSecond(Hand player, Hand dealer) {
-        return dealer.state() == BUST && player.state() instanceof UnFinished;
+        return dealer.state() == BUST && player.state() != BUST;
     }
 
     private static boolean drawCondition(Hand player, Hand dealer) {
-        return player.state() == BLACKJACK &&
-                dealer.state() == BLACKJACK &&
+        return (player.state() == BLACKJACK && dealer.state() == BLACKJACK) ||
                 player.score() == dealer.score();
     }
 
     private static boolean loseCondition(Hand player, Hand dealer) {
-        return false;
+        return player.state() == BUST ||
+                (player.isNotFinished() && dealer.isNotFinished() && player.score() < dealer.score());
     }
 
     public static MatchResult from(Hand player, Hand dealer) {
@@ -60,7 +60,7 @@ public enum MatchResult {
                 .orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_CONDITION_EXCEPTION_MESSAGE));
     }
 
-    public double getEarningRate() {
+    public double earningRate() {
         return earningRate;
     }
 }
