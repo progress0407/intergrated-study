@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 class BadDesignedLuggageTest {
 
     @Test
+    void test() {
+        Container container = new Container(4);
+//        container.
+    }
+
+    @Test
     @DisplayName("수하물이 일정 용량 안에 있으면 굳이 예외를 던지지 않는다")
     void in_store_amount_then_non_exception() {
         // given
