@@ -1,4 +1,4 @@
-package sample.staticc;
+package simple.staticc;
 
 class Outer {
 

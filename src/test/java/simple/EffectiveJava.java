@@ -1,9 +1,8 @@
-package sample;
+package simple;
 
 import static java.lang.System.out;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
