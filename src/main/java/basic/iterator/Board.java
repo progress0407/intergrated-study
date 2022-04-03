@@ -12,7 +12,7 @@ class Board {
     private final List<Post> posts;
 
     public Iterator<Post> getDefaultIterator() {
-        BoardIterator boardIterator = new BoardIterator(posts);
-        return boardIterator.getPostIterator();
+        PostIterator postIterator = new PostIterator(posts);
+        return postIterator.getPostIterator();
     }
 }

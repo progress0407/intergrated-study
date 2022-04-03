@@ -5,11 +5,11 @@ import java.util.List;
 import lombok.Getter;
 
 @Getter
-class BoardIterator implements Iterator<Post> {
+class PostIterator implements Iterator<Post> {
 
     private final Iterator<Post> postIterator;
 
-    public BoardIterator(List<Post> posts) {
+    public PostIterator(List<Post> posts) {
 //        posts.sort(Comparator.comparing(Post::getCreateAt)); // 순방향
         posts.sort((p1, p2) -> p2.getCreateAt().compareTo(p1.getCreateAt()));
         this.postIterator = posts.iterator();
