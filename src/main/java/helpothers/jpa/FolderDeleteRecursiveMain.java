@@ -1,4 +1,4 @@
-package helpothers.ping94;
+package helpothers.jpa;
 
 import static java.lang.System.*;
 
