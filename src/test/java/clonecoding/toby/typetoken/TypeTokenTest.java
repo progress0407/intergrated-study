@@ -24,16 +24,16 @@ class TypeTokenTest {
     @DisplayName("타입 세이프한 맵")
     @Test
     void typeSafeMap() {
-        TypeSafeMap typeSafeMap = new TypeSafeMap();
-        typeSafeMap.put(Integer.class, 1_1000);
-        typeSafeMap.put(String.class, "String");
-        typeSafeMap.put(List.class, List.of(1, 2, 3));
-        typeSafeMap.put(List.class, List.of("A", "B", "C"));
-        typeSafeMap.put(List.class, List.of('a', 'b', 'c'));
-        typeSafeMap.put(List.class, List.of(1, "A", 'c'));
+        TypeSafeMapV1 map = new TypeSafeMapV1();
+        map.put(Integer.class, 1_1000);
+        map.put(String.class, "String");
+        map.put(List.class, List.of(1, 2, 3));
+        map.put(List.class, List.of("A", "B", "C"));
+        map.put(List.class, List.of('a', 'b', 'c'));
+        map.put(List.class, List.of(1, "A", 'c'));
 
-        out.println(typeSafeMap.get(Integer.class));
-        out.println(typeSafeMap.get(String.class));
-        out.println(typeSafeMap.get(List.class));
+        out.println(map.get(Integer.class));
+        out.println(map.get(String.class));
+        out.println(map.get(List.class));
     }
 }
