@@ -13,7 +13,7 @@ class ResolvableTypeTest {
 
     @Test
     void t1() {
-//        ResolvableType resolvableType = ResolvableType.forClass(TypeReferenceV2.class);
+        ResolvableType resolvableType = ResolvableType.forClass(TypeReferenceV2.class);
     }
 
     @Test
