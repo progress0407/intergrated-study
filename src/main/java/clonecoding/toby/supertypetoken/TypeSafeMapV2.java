@@ -1,5 +1,6 @@
 package clonecoding.toby.supertypetoken;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,10 @@ public class TypeSafeMapV2 {
 
     public <T> T get(TypeReference<T> typeReference) {
         Type type = typeReference.getType();
-        Object findValue = values.get(type);
-        return ((Class<T>) type).cast(findValue);
+        Object findValue = values.get(typeReference);
+        if (type instanceof Class<?>) {
+            return ((Class<T>) type).cast(findValue);
+        }
+        return ((Class<T>) ((ParameterizedType) type).getRawType()).cast(findValue); // T.R.<List<String>>>
     }
 }
