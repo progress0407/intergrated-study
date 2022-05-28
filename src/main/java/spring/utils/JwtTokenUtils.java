@@ -4,45 +4,45 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.function.Supplier;
 
 import static spring.utils.DateTimeUtils.convertDateFrom;
 
+@AllArgsConstructor
 public final class JwtTokenUtils {
 
-    private static final String secretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.ih1aovtQShabQ7l0cINw4k1fagApg3qLWiB8Kt59Lno";
-    private static final long expirationInterval = 10;
+    private final String SECRET_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.ih1aovtQShabQ7l0cINw4k1fagApg3qLWiB8Kt59Lno";
+    private final long EXPIRATION_INTERVAL = 10;
+    private final DateTimeProvider dateTimeProvider;
 
-    private JwtTokenUtils() {
-    }
-
-    public static String createToken(String payload) {
+    public String createToken(String payload) {
 
         Claims claims = Jwts.claims().setSubject(payload);
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expirationDateTime = now.plusSeconds(expirationInterval);
+        LocalDateTime issuedDateTime = dateTimeProvider.get();
+        LocalDateTime expirationDateTime = issuedDateTime.plusSeconds(EXPIRATION_INTERVAL);
 
         String jwt = Jwts.builder()
                 .setClaims(claims)
-                .setIssuedAt(convertDateFrom(now))
+                .setIssuedAt(convertDateFrom(issuedDateTime))
                 .setExpiration(convertDateFrom(expirationDateTime))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
 
         return jwt;
     }
 
-    public static Optional<String> restorePayload(String token) {
+    public String restorePayload(String token) {
 
         String payload = Jwts.parser()
-                .setSigningKey(secretKey)
+                .setSigningKey(SECRET_KEY)
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
 
-        return Optional.of(payload);
+        return payload;
     }
 
     /**
@@ -53,7 +53,7 @@ public final class JwtTokenUtils {
      * @param expireDate
      * @return
      */
-    private static boolean isTokenExpired(String token, LocalDateTime expireDate) {
+    private boolean isTokenExpired(String token, LocalDateTime expireDate) {
         Jws<Claims> claims = restoreClaimsFrom(token);
 
         if (isTokenExpired(expireDate, claims)) {
@@ -62,13 +62,13 @@ public final class JwtTokenUtils {
         return false;
     }
 
-    private static Jws<Claims> restoreClaimsFrom(String token) {
+    private Jws<Claims> restoreClaimsFrom(String token) {
         return Jwts.parser()
-                .setSigningKey(secretKey)
+                .setSigningKey(SECRET_KEY)
                 .parseClaimsJws(token);
     }
 
-    private static boolean isTokenExpired(LocalDateTime expireDate, Jws<Claims> claims) {
+    private boolean isTokenExpired(LocalDateTime expireDate, Jws<Claims> claims) {
         return claims.getBody().getExpiration().after(convertDateFrom(expireDate));
     }
 }
