@@ -28,7 +28,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = AuthorizationExtractor.extract(request);
-
         String payload = null;
         try {
             payload = jwtTokenUtils.restorePayload(token);
@@ -40,8 +39,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         } catch (SignatureException e) {
             sendUnAuthorizedError(response);
+            return false;
         } catch (Exception e) {
             sendUnAuthorizedError(response);
+            return false;
         }
         return true;
     }
