@@ -23,7 +23,6 @@ class LoginInterceptorTest {
     };
     LoginInterceptor loginInterceptor = new LoginInterceptor();
     ObjectMapper objectMapper = new ObjectMapper();
-
     JwtTokenUtils jwtTokenUtils = new JwtTokenUtils(new CurrentDateTimeProvider());
 
     @DisplayName("토큰을 가지고 있지 않을 경우 로그인을 허가하지 않는다")
@@ -39,12 +38,17 @@ class LoginInterceptorTest {
     @DisplayName("정상적인 토큰을 가지고 있을 경우 로그인을 허가한다")
     @Test
     void t2() throws Exception {
+        // given
         String token = jwtTokenUtils.createToken(TestUser.ID);
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.addHeader(AUTHORIZATION, "Bearer "+ token);
         MockHttpServletResponse response = new MockHttpServletResponse();
         Object handler = new Object();
+
+        // when
         boolean result = loginInterceptor.preHandle(request, response, handler);
+
+        // then
         assertThat(result).isTrue();
     }
 
