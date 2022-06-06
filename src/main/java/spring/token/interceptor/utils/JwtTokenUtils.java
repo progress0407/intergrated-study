@@ -1,4 +1,4 @@
-package spring.utils;
+package spring.token.interceptor.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -7,9 +7,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.function.Supplier;
 
-import static spring.utils.DateTimeUtils.convertDateFrom;
+import static spring.token.interceptor.utils.DateTimeUtils.convertDateFrom;
 
 @AllArgsConstructor
 public final class JwtTokenUtils {

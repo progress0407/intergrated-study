@@ -1,13 +1,13 @@
-package spring;
+package spring.token.interceptor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimpleSpringApplication {
+class TokenInterceptorApp {
 
     public static void main(final String... args) {
-        SpringApplication.run(SimpleSpringApplication.class, args);
+        SpringApplication.run(TokenInterceptorApp.class, args);
     }
 
 }

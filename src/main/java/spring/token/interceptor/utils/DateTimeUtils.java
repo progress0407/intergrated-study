@@ -1,4 +1,4 @@
-package spring.utils;
+package spring.token.interceptor.utils;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

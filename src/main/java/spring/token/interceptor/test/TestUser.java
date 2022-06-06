@@ -1,4 +1,4 @@
-package spring.test;
+package spring.token.interceptor.test;
 
 public class TestUser {
     public static final String ID = "swcho@gmail.com";

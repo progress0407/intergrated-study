@@ -1,4 +1,4 @@
-package spring.config;
+package spring.token.interceptor.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.MalformedJwtException;
@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerInterceptor;
-import spring.utils.AuthorizationExtractor;
-import spring.utils.CurrentDateTimeProvider;
-import spring.utils.JwtTokenUtils;
+import spring.token.interceptor.utils.AuthorizationExtractor;
+import spring.token.interceptor.utils.CurrentDateTimeProvider;
+import spring.token.interceptor.utils.JwtTokenUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

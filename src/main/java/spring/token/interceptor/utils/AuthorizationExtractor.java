@@ -1,4 +1,4 @@
-package spring.utils;
+package spring.token.interceptor.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;

@@ -11,10 +11,10 @@ public class WebApiCaller {
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
 //        List users = restTemplate.getForObject("http://localhost:8080", List.class);
-        List<SimpleWebApp.User> users = restTemplate.exchange("http://localhost:8080",
+        List<TobyWebApp.User> users = restTemplate.exchange("http://localhost:8081",
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<SimpleWebApp.User>>() {
+                new ParameterizedTypeReference<List<TobyWebApp.User>>() {
                 }).getBody();
         users.forEach(System.out::println);
     }

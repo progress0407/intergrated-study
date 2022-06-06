@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @SpringBootApplication
-public class SimpleWebApp {
+public class TobyWebApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleWebApp.class, args);
+        SpringApplication.run(TobyWebApp.class, args);
     }
 
     @RestController

@@ -1,11 +1,11 @@
-package spring.utils;
+package spring.token.interceptor.utils;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import spring.test.TestUser;
+import spring.token.interceptor.test.TestUser;
 
 import java.time.LocalDateTime;
 

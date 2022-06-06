@@ -1,4 +1,4 @@
-package spring.config;
+package spring.token.interceptor.config;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,20 +7,22 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import spring.test.TestUser;
-import spring.utils.CurrentDateTimeProvider;
-import spring.utils.JwtTokenUtils;
+import spring.token.interceptor.test.TestUser;
+import spring.token.interceptor.utils.CurrentDateTimeProvider;
+import spring.token.interceptor.utils.JwtTokenUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static spring.utils.AuthorizationExtractor.AUTHORIZATION;
+import static spring.token.interceptor.utils.AuthorizationExtractor.AUTHORIZATION;
 
 class LoginInterceptorTest {
 
     public static final TypeReference<LinkedHashMap<String, String>> TYPE_REF = new TypeReference<>() {
     };
+
+    // ApllicationCon.getBean(List<>.class)
     LoginInterceptor loginInterceptor = new LoginInterceptor();
     ObjectMapper objectMapper = new ObjectMapper();
     JwtTokenUtils jwtTokenUtils = new JwtTokenUtils(new CurrentDateTimeProvider());
