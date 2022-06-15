@@ -2,11 +2,9 @@ package jpa.app.shop.repository;
 
 import java.util.List;
 import jpa.app.shop.domain.Member;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@RequiredArgsConstructor
 public class MemberRepository extends AbstractUtilsRepository<Member, Long> {
 
 	public List<Member> findByName(String name) {

@@ -119,12 +119,12 @@ public class RelationshipTest {
 
         memberRepository.clear();
 
-        Member find = memberRepository.findById(savedMemberId);
+        Member find = memberRepository.findById(savedMemberId).get();
         System.out.println("find = " + find);
     }
 
     private void 양방향_매핑_검증(Long savedMemberId, Long savedOrderId, Long savedOrderId2) {
-        Member findMember = memberRepository.findById(savedMemberId);
+        Member findMember = memberRepository.findById(savedMemberId).get();
         Order findOrder1 = orderRepository.findOne(savedOrderId);
         Order findOrder2 = orderRepository.findOne(savedOrderId2);
 
