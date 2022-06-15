@@ -7,13 +7,16 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
+@RequiredArgsConstructor
 public abstract class AbstractUtilsRepository<T, ID> {
 
     @Autowired
@@ -30,12 +33,18 @@ public abstract class AbstractUtilsRepository<T, ID> {
                 .getResultList();
     }
 
-    public T findById(ID id) {
-        return em.find(getClazz(), id);
+    public Optional<T> findById(ID id) {
+        T find = em.find(getClazz(), id);
+        return Optional.ofNullable(find);
     }
 
     public void delete(T object) {
         em.remove(object);
+    }
+
+    public void deleteById(ID id) {
+        T find = findById(id).orElse(null);
+        em.remove(find);
     }
 
     public void clear() {
