@@ -1,4 +1,4 @@
-package hellojpa.domain;
+package hellojpa.doing.v1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+//@Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class User {
+class User {
 
 	@Id
 	private String id;
