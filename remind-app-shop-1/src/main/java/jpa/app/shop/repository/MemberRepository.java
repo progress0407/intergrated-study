@@ -5,7 +5,7 @@ import jpa.app.shop.domain.Member;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MemberRepository extends AbstractUtilsRepository<Member, Long> {
+public class MemberRepository extends BasicCrudRepository<Member, Long> {
 
 	public List<Member> findByName(String name) {
 		return em.createQuery("select m from Member m where m.name = :name", Member.class)

@@ -25,6 +25,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 
+	// model mapper
+	implementation 'org.modelmapper:modelmapper:2.4.2'
+
 	runtimeOnly 'com.h2database:h2'
 
 	// lombok
