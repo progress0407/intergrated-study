@@ -108,25 +108,13 @@ public class RelationshipTest {
         Long savedOrderId = orderRepository.save(order1);
         Long savedOrderId2 = orderRepository.save(order2);
 
-        Order findOrder1 = orderRepository.findOne(savedOrderId);
+        Order findOrder1 = orderRepository.findById(savedOrderId).get();
         System.out.println("findOrder1 = " + findOrder1);
     }
-
-    @DisplayName("clear 2")
-    @Test
-    void clear2() {
-        Long savedMemberId = memberRepository.save(member1);
-
-        memberRepository.clear();
-
-        Member find = memberRepository.findById(savedMemberId).get();
-        System.out.println("find = " + find);
-    }
-
     private void 양방향_매핑_검증(Long savedMemberId, Long savedOrderId, Long savedOrderId2) {
         Member findMember = memberRepository.findById(savedMemberId).get();
-        Order findOrder1 = orderRepository.findOne(savedOrderId);
-        Order findOrder2 = orderRepository.findOne(savedOrderId2);
+        Order findOrder1 = orderRepository.findById(savedOrderId).get();
+        Order findOrder2 = orderRepository.findById(savedOrderId2).get();
 
         assertAll(
                 () -> assertThat(findMember.getName()).isEqualTo(member1.getName()),

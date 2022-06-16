@@ -8,8 +8,8 @@ public class BookForm {
 
 	private Long id;
 	private String name;
-	private int price;
-	private int stockQuantity;
+	private long price;
+	private long stockQuantity;
 	private String author;
 	private String isbn;
 }

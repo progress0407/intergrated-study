@@ -20,9 +20,9 @@ class ItemRepositoryTest {
     @Autowired
     private ItemRepository itemRepository;
 
-    Album album = new Album("YG Entertainment", 50_000L, "yg", "foo");
-    Book book = new Book("해리포터", 30_000L, "joen roling", "abcd-1234-5678");
-    Movie movie = new Movie("인셉션", 80_000L, "cristoper nolan", "liam nilson");
+    Album album = new Album("YG Entertainment", 25_000L, 50_000L, "yg", "foo");
+    Book book = new Book("해리포터", 15_000L, 30_000L, "joen roling", "abcd-1234-5678");
+    Movie movie = new Movie("인셉션", 40_000L, 80_000L, "cristoper nolan", "liam nilson");
 
     Long savedAlbumId;
     Long savedBookId;
@@ -39,7 +39,7 @@ class ItemRepositoryTest {
 
     @Test
     void findOne() {
-        Item findItem = itemRepository.findOne(savedAlbumId);
+        Item findItem = itemRepository.findById(savedAlbumId).get();
         assertThat(findItem).isEqualTo(album);
     }
 

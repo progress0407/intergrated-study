@@ -1,63 +1,65 @@
 package jpa.app.shop.controller;
 
+import java.util.List;
+import jpa.app.shop.controller.form.BookForm;
+import jpa.app.shop.domain.item.Book;
+import jpa.app.shop.domain.item.Item;
+import jpa.app.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/items")
 public class ItemController {
 
-	/*private final ItemService itemService;
+    private final ItemService itemService;
+    private final ModelMapper mapper;
 
-	@GetMapping("/items/new")
-	public String createForm(Model model) {
-		model.addAttribute("form", new BookForm());
-		return "items/createItemForm";
-	}
+    @GetMapping("/new")
+    public String createForm(Model model) {
+        model.addAttribute("form", new BookForm());
+        return "items/createItemForm";
+    }
 
-	@PostMapping("/items/new")
-	public String create(BookForm form) {
-		Book book = Book.createBook(form);
+    @PostMapping("/new")
+    public String create(BookForm form) {
+        Book book = mapper.map(form, Book.class);
 
-		itemService.save(book);
-		return "redirect:/";
-	}
+        itemService.save(book);
 
-	@GetMapping("/items")
-	public String list(Model model) {
-		List<Item> items = itemService.findItems();
-		model.addAttribute("items", items);
-		return "items/itemList";
-	}
+        return "redirect:/";
+    }
 
-	@GetMapping("/items/{itemId}/edit")
-	public String updateItemForm(@PathVariable Long itemId, Model model) {
-		Book item = (Book)itemService.findOne(itemId);
+    @GetMapping
+    public String list(Model model) {
+        List<Item> items = itemService.findItems();
+        model.addAttribute("items", items);
+        return "items/itemList";
+    }
 
-		BookForm form = new BookForm();
-		form.setId(item.getId());
-		form.setName(item.getName());
-		form.setPrice(item.getPrice());
-		form.setStockQuantity(item.getStockQuantity());
-		form.setAuthor(item.getAuthor());
-		form.setIsbn(item.getIsbn());
+    @GetMapping("/{itemId}/edit")
+    public String updateItemForm(@PathVariable Long itemId, Model model) {
+        Book item = (Book) itemService.findOne(itemId);
 
-		model.addAttribute("form", form);
-		return "items/updateItemForm_";
-	}
+        BookForm form = mapper.map(item, BookForm.class);
 
-	@PostMapping("/items/{itemId}/edit")
-	public String updateItem(@ModelAttribute("form") BookForm form) {
-		Book book = new Book();
+        model.addAttribute("form", form);
+        return "items/updateItemForm_";
+    }
 
-		book.setId(form.getId());
-		book.setName(form.getName());
-		book.setPrice(form.getPrice());
-		book.setStockQuantity(form.getStockQuantity());
-		book.setAuthor(form.getAuthor());
-		book.setIsbn(form.getIsbn());
+    @PostMapping("/{itemId}/edit")
+    public String updateItem(@ModelAttribute("form") BookForm form) {
+        Book book = mapper.map(form, Book.class);
 
-		itemService.save(book);
-		return "redirect:/items";
-	}*/
+        itemService.save(book);
+        return "redirect:/items";
+    }
 }

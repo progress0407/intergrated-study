@@ -17,13 +17,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @RequiredArgsConstructor
-public abstract class AbstractUtilsRepository<T, ID> {
+public abstract class BasicCrudRepository<T, ID> {
 
     @Autowired
     protected EntityManager em;
 
     public ID save(T object) {
-        em.persist(object);
+        ID id = getId(object);
+        if (id == null) {
+            em.persist(object);
+        } else {
+            em.merge(object);
+        }
         return getId(object);
     }
 
