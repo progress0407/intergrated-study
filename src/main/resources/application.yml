@@ -1,2 +1,9 @@
 server:
-  port: 8081
+  port: 8080
+  tomcat:
+    threads:
+      max: 20 # 생성할 수 있는 thread의 총 개수
+      min-spare: 1 # 항상 활성화 되어있는(idle) thread의 개수
+    max-connections: 819 # 수립가능한 connection의 총 개수
+    accept-count: 10 # 작업큐의 사이즈
+    connection-timeout: 2000 # timeout 판단 기준 시간, 20초
