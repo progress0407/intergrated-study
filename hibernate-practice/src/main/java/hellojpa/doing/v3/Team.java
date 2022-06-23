@@ -1,4 +1,4 @@
-package hellojpa.doing.v2;
+package hellojpa.doing.v3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,23 +6,26 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 class Team {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "team_id")
-    private String id;
+    private Long id;
 
     private String teamName;
 
@@ -30,8 +33,7 @@ class Team {
     @ToString.Exclude
     private List<User> users = new ArrayList<>();
 
-    public Team(String id, String teamName) {
-        this.id = id;
+    public Team(String teamName) {
         this.teamName = teamName;
     }
 }

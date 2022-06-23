@@ -18,6 +18,7 @@ public class ItemService {
 
 	@Transactional
 	public Long save(Item item) {
+		itemRepository.
 		return itemRepository.save(item);
 	}
 
