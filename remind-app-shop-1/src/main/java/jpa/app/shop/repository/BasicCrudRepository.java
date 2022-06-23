@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
+import javax.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @RequiredArgsConstructor
 public abstract class BasicCrudRepository<T, ID> {
 
-    @Autowired
+    @PersistenceContext
     protected EntityManager em;
 
     public ID save(T object) {
