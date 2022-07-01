@@ -1,7 +1,7 @@
 ---
 name: Custom issue template - ex
 about: 커스텀 템플릿 예제
-title: ''
+title: "[]"
 labels: ''
 assignees: ''
 
