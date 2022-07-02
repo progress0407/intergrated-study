@@ -6,17 +6,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import hellojpa.doing.GlobalTestConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
-public class PerformanceTest {
-
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("remind-hibernate");
-
-    EntityManager em = emf.createEntityManager();
+public class PerformanceTest extends GlobalTestConfig {
 
     static final String MOCK_LOG = "##########\n"
             + "\t###############################\n"

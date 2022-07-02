@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -34,8 +34,5 @@ class User {
 
 	public void setTeam(Team team) {
 		this.team = team;
-		if (team != null) {
-			team.getUsers().add(this);
-		}
 	}
 }

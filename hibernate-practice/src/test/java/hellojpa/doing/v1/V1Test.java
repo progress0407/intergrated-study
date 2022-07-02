@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 public class V1Test {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("remind-hibernate");
 
-
     @DisplayName("qwe")
     @Test
     void qwe() {

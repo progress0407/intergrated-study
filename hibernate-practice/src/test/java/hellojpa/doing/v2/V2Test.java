@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import hellojpa.doing.GlobalTestConfig;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -18,7 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.annotation.Rollback;
 
 @Slf4j
-public class V2Test {
+class V2Test extends GlobalTestConfig {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("remind-hibernate");
     EntityManager em = emf.createEntityManager();
@@ -208,9 +210,9 @@ public class V2Test {
     @Test
     void jpql_join_3_2() {
         List<TeamUsersDto> teamUsersDtos = em.createQuery(
-                "select"
-                        + " new hellojpa.doing.v2.TeamUsersDto(t.id, t.teamName, u.id, u.userName)"
-                        + " from Team t join t.users u", TeamUsersDto.class)
+                        "select"
+                                + " new hellojpa.doing.v2.TeamUsersDto(t.id, t.teamName, u.id, u.name)"
+                                + " from Team t join t.users u", TeamUsersDto.class)
                 .getResultList();
 
         for (TeamUsersDto teamUsersDto : teamUsersDtos) {
@@ -306,4 +308,37 @@ public class V2Test {
         em.createQuery("select t from Team t ", Team.class)
                 .getResultList();
     }
+
+    //    @DisplayName("연관관계 편의 메서드를 설정하지 않았을 시에 어떤 문제가 될까?") // 주제 변경하게 됨
+    @DisplayName("Team에 문제가 있을시에 어떤 문제가 발생하게 될까")
+    @Test
+    void relation_method() {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        Team team_1 = new Team("t_1", "team_1");
+        User user_1 = new User("u_1", "user_1");
+        user_1.setTeam(team_1);
+
+        em.persist(team_1); // 생애주기 같이 저장 -> 왜인지 같이 저장되지 않는다, 나중에 알아보자
+        em.persist(user_1);
+
+        em.flush();
+        em.clear();
+
+        // 어? 잠깐 생각해보니 uesr_2를 저장)안했잖아~~ 이것도 넣자구~ ㅋ
+        User user_2 = new User("u_2", "user_2");
+        team_1.getUsers().add(user_2); // 만일 이쪽에 변경권한이 있으면, 이 부분에서 변경감지가 일어나게 된다!
+        user_2.setTeam(team_1);
+        em.persist(user_2);
+
+        em.flush(); // 이때 문제가 일어난다... 팀의 변경감지 쿼리도 날라가게 된다...
+        em.clear();
+
+        Team findTeam = em.find(Team.class, team_1.getId());
+        for (User user : findTeam.getUsers()) {
+            out.println("# find user = {}" + user); //
+        }
+        tx.commit();
+    }
+
 }
