@@ -5,14 +5,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import hellojpa.doing.GlobalTestConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class V3Test {
-
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("remind-hibernate");
-    EntityManager em = emf.createEntityManager();
+public class V3_Test extends GlobalTestConfig {
 
     Team team1;
     User user1;
@@ -24,7 +23,7 @@ public class V3Test {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        team1 = new Team( "team-1");
+        team1 = new Team("team-1");
 
         user1 = new User("user-1");
 

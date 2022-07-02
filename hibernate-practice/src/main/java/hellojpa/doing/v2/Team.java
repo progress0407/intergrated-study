@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 class Team {
