@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Movie extends Item {
