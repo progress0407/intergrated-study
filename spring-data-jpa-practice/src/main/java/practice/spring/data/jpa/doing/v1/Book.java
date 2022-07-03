@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor
 class Book extends Item {

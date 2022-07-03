@@ -12,7 +12,7 @@ import static java.lang.System.out;
 @SpringBootTest
 class V5_Test {
 
-    @Autowired
+    /*@Autowired
     private ItemRepository itemRepository;
 
     @DisplayName("아이템 찾기 JPQL INTERFACE")
@@ -56,5 +56,5 @@ class V5_Test {
             out.println("itemView.getName() = " + itemView.getName());
             out.println("itemView.getPriceAndQuantity() = " + itemView.getPriceAndQuantity());
         }
-    }
+    }*/
 }
