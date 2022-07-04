@@ -3,7 +3,6 @@ package practice.spring.data.jpa.doing.v2;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import javax.transaction.Transactional;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
