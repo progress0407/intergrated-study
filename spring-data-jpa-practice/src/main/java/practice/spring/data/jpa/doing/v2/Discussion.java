@@ -1,20 +1,19 @@
 package practice.spring.data.jpa.doing.v2;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
-public class Discussion {
+@ToString(exclude = "opinions", callSuper = true)
+public class Discussion extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -28,26 +27,14 @@ public class Discussion {
 
     private boolean isAnonymous;
 
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
+//    @OneToMany(mappedBy = "discussion")
+//    private List<Opinion> opinions = new ArrayList<>();
 
-    private LocalDateTime updatedAt;
+    @Embedded
+    private Opinions opinions = new Opinions();
 
-    @OneToMany(mappedBy = "discussion")
-    private List<Opinion> opinions = new ArrayList<>();
-
-    @PrePersist
-    public void prePersist() {
-        System.out.println("Discussion.firstSave");
-        LocalDateTime now = LocalDateTime.now();
-        createdAt = now;
-        updatedAt = now;
+    public void addOpinion(Opinion opinion) {
+        opinions.getOpinions().add(opinion);
+        opinion.setDiscussion(this);
     }
-
-    @PreUpdate
-    public void preUpdate() {
-        System.out.println("Discussion.preUpdate");
-        updatedAt = LocalDateTime.now();
-    }
-
 }

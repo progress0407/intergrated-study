@@ -1,5 +1,6 @@
 package practice.spring.data.jpa.doing.v2;
 
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
@@ -14,5 +15,9 @@ public class DiscussionRepository {
     public Discussion save(Discussion discussion) {
         em.persist(discussion);
         return discussion;
+    }
+
+    public Optional<Discussion> findById(Long id) {
+        return Optional.ofNullable(em.find(Discussion.class, id));
     }
 }
