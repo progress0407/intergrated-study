@@ -20,4 +20,10 @@ public class DiscussionRepository {
     public Optional<Discussion> findById(Long id) {
         return Optional.ofNullable(em.find(Discussion.class, id));
     }
+
+    // SimpleJpaRepository 업데이트 로직이 아니다
+    void update(Long id) {
+        int rows = em.createQuery("update Discussion d set d.views = d.views + 1")
+                .executeUpdate();
+    }
 }

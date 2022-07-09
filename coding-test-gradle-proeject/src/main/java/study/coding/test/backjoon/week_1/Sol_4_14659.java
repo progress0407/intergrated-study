@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static java.lang.System.out;
 
-public class Sol_4_14659 {
+class Sol_4_14659 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

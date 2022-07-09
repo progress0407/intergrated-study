@@ -1,12 +1,11 @@
 package practice.spring.data.jpa.doing.v2;
 
-import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +33,4 @@ class UserRepositoryTest {
 
         assertThat(users.size()).isEqualTo(3);
     }
-
 }

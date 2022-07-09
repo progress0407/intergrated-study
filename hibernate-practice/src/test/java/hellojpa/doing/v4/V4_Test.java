@@ -64,7 +64,7 @@ class V4_Test extends GlobalTestConfig {
 
     @DisplayName("[cas.ALL] team 에는 쓰기 권한이 없는데, user를 등록하면 동시에 같이 쓰기가 되는가??")
     @Test // 쓰기가 된다 !!
-    void _() {
+    void asvssdfdf_() {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
@@ -252,22 +252,26 @@ class V4_Test extends GlobalTestConfig {
 
     @DisplayName("merge 테스트 / db에 data row 유무를 떠나 항상 select 를 불러올까?")
     @Test
-    void aslknd() {
+    void sdvfsadvfsdv() {
+
         /**
          * db에 없는 경우
          *  - 그냥 저장만 한다.
+         *
          * db에 있는 경우
-         *  - p.c.에 있을 경우 - select x
-         *  - 없을 경우 - select o - 심지어 left join
+         *  - p.c.에
+         *      - 있을 경우 - select x
+         *      - 없을 경우 - select o - 심지어 left join
          *
          *  db에 있고 값이 바뀐 경우
          *   - update 쿼리
          *
          * : 결론 merge()매서드 자체는 위험하지 않다...
-         *  - select를 left join 할 뿐... (페치타입 설정과 관계 없이)
-         * 다만 화면에서 데이터를 끌어다가 merge를 이용해서 넣는 경우는 위험하다,
+         *  - select 를 left join 할 뿐... (페치타입 설정과 관계 없이)
+         * 다만 화면에서 데이터를 끌어다가 merge 를 이용해서 넣는 경우는 위험하다,
          * 차라리 화면 값의 id를 통해서 가져온 후 다른 값만 변경 감지를 통해서 데이터를 수정하는 게 안전하다!
          */
+
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
@@ -276,7 +280,7 @@ class V4_Test extends GlobalTestConfig {
         em.persist(user);
 
         em.flush();
-        em.clear();
+//        em.clear();
 
         user.setName("other-name");
         em.merge(user);
