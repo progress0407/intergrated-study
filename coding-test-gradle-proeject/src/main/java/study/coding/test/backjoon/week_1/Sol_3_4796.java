@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static java.lang.System.out;
 
-public class Sol_3_4796 {
+class Sol_3_4796 {
 
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);

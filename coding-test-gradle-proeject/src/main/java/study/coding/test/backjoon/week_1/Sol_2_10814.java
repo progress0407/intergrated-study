@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 import static java.lang.System.out;
 
-public class Sol_2_10814 {
+class Sol_2_10814 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

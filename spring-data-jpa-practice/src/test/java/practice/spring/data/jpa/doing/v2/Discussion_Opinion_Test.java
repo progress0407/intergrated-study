@@ -41,7 +41,14 @@ class Discussion_Opinion_Test {
 
         em.flush();
 
-        out.println("savedDiscussion = " + savedDiscussion);
+        Thread.sleep(1000L);
+
+        out.println("#2 savedDiscussion = " + savedDiscussion);
+
+        em.createQuery("update Discussion set views = views + 1")
+                        .executeUpdate();
+
+        out.println("#3 savedDiscussion = " + savedDiscussion);
     }
 
     @DisplayName("d-find")

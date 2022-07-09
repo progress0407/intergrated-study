@@ -7,7 +7,7 @@ import java.util.Map;
 
 import static java.lang.System.out;
 
-public class Sol_1_17362 {
+class Sol_1_17362 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
