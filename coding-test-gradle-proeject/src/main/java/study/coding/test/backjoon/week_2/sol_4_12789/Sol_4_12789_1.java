@@ -1,4 +1,4 @@
-package study.coding.test.backjoon.week_2;
+package study.coding.test.backjoon.week_2.sol_4_12789;
 
 import static java.lang.System.out;
 
@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Stack;
-import java.util.concurrent.RecursiveTask;
 
-class Sol_4_12789 {
+class Sol_4_12789_1 extends Sol_4_12789 {
 
     static int person_size;
     static int[] waitingLine;
@@ -17,11 +16,12 @@ class Sol_4_12789 {
 
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
-        String output = solve(reader);
+        Sol_4_12789_1 main = new Sol_4_12789_1();
+        String output = main.solve(reader);
         out.println(output);
     }
 
-    public static String solve(Reader reader) {
+    public String solve(Reader reader) {
         BufferedReader br = new BufferedReader(reader);
         init(br);
 
@@ -58,13 +58,13 @@ class Sol_4_12789 {
         return isOrder() ? "Nice" : "Sad";
     }
 
-    private static void init(BufferedReader br) {
+    private void init(BufferedReader br) {
         person_size = Integer.parseInt(read(br));
         waitingLine = new int[person_size];
         shelter = new Stack<>();
     }
 
-    private static boolean isFirst_in_Shelter() {
+    private boolean isFirst_in_Shelter() {
         int size = shelter.size();
         if (size < 2) {
             return true;
@@ -79,7 +79,7 @@ class Sol_4_12789 {
         return true;
     }
 
-    private static boolean isOrder() {
+    private boolean isOrder() {
         if (shelter.size() < 2) {
             return true;
         }
@@ -94,7 +94,7 @@ class Sol_4_12789 {
         return true;
     }
 
-    private static String read(BufferedReader br) {
+    private String read(BufferedReader br) {
         try {
             return br.readLine();
         } catch (IOException e) {
@@ -102,7 +102,7 @@ class Sol_4_12789 {
         }
     }
 
-    private static boolean existLargeNumber(Stack<Integer> shelter, int i) {
+    private boolean existLargeNumber(Stack<Integer> shelter, int i) {
         for (int j = i + 1; j < person_size; j++) {
             if (waitingLine[i] > waitingLine[j]) {
                 return true;

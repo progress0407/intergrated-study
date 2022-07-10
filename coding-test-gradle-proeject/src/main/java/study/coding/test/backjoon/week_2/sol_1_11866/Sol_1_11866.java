@@ -1,4 +1,4 @@
-package study.coding.test.backjoon.week_2;
+package study.coding.test.backjoon.week_2.sol_1_11866;
 
 import static java.lang.System.out;
 
