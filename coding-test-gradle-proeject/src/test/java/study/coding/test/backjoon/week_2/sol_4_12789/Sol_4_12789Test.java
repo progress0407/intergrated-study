@@ -1,15 +1,18 @@
-package study.coding.test.backjoon.week_2;
+package study.coding.test.backjoon.week_2.sol_4_12789;
 
 import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThat;
-import static study.coding.test.backjoon.week_2.Sol_4_12789.solve;
 
-import java.io.IOException;
 import java.io.StringReader;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Sol_4_12789Test {
+abstract class Sol_4_12789Test {
+    
+    protected Sol_4_12789 sol;
+
+    public Sol_4_12789Test(Sol_4_12789 sol) {
+        this.sol = sol;
+    }
 
     @Test
     void test() {
@@ -17,7 +20,7 @@ class Sol_4_12789Test {
                 + "5 4 1 3 2";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
@@ -30,7 +33,7 @@ class Sol_4_12789Test {
                 + "3 5 4 2";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
@@ -43,7 +46,7 @@ class Sol_4_12789Test {
                 + "2 3 4 1";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
@@ -56,7 +59,7 @@ class Sol_4_12789Test {
                 + "4 5 2 1 3";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
@@ -69,7 +72,7 @@ class Sol_4_12789Test {
                 + "5 1 2 4 3";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
@@ -82,7 +85,7 @@ class Sol_4_12789Test {
                 + "5 4 3 1 2";
 
         StringReader reader = new StringReader(input);
-        String output = solve(reader);
+        String output = sol.solve(reader);
 
         out.println("output = " + output);
 
