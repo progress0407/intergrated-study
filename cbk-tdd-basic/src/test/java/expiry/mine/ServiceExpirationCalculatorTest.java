@@ -87,6 +87,4 @@ public class ServiceExpirationCalculatorTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> serviceExpirationCalculator.payAdditional(payment));
     }
-
-
 }
