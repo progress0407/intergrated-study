@@ -29,13 +29,18 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // p6spy
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.8'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-//querydsl 추가 시작
+// querydsl 추가 시작
+// https://www.inflearn.com/questions/23530
+// - mimo 님 게시글 참고
 def querydslDir = "$buildDir/generated/querydsl"
 
 querydsl {
