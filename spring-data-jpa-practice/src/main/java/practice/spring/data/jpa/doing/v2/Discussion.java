@@ -1,19 +1,15 @@
 package practice.spring.data.jpa.doing.v2;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Embedded;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @ToString(exclude = "opinions", callSuper = true)
-public class Discussion extends BaseEntity {
+class Discussion extends BaseEntity {
 
     @Id
     @GeneratedValue

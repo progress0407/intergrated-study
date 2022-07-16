@@ -4,6 +4,7 @@ import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.StringReader;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 abstract class Sol_4_12789Test {
@@ -83,6 +84,32 @@ abstract class Sol_4_12789Test {
     void test6() {
         String input = "5\n"
                 + "5 4 3 1 2";
+
+        StringReader reader = new StringReader(input);
+        String output = sol.solve(reader);
+
+        out.println("output = " + output);
+
+        assertThat(output).isEqualTo("Nice");
+    }
+
+    @Test
+    void test7() {
+        String input = "5\n"
+                + "10005 10004 10003 10001 10002";
+
+        StringReader reader = new StringReader(input);
+        String output = sol.solve(reader);
+
+        out.println("output = " + output);
+
+        assertThat(output).isEqualTo("Nice");
+    }
+
+    @Test
+    void test8() {
+        String input = "4\n"
+                + "3 2 1 5";
 
         StringReader reader = new StringReader(input);
         String output = sol.solve(reader);

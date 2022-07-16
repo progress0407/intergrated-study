@@ -8,9 +8,9 @@ import javax.persistence.PreUpdate;
 import lombok.Data;
 import lombok.ToString;
 
-@MappedSuperclass
+//@MappedSuperclass
 @Data
-public class BaseEntity {
+class BaseEntity {
 
     @Column(updatable = false)
     private LocalDateTime createdAt;
