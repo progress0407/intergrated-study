@@ -1,5 +1,6 @@
 package skeleton.code.spring.error.handle;
 
+import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,5 +40,10 @@ public class TestController {
     @GetMapping("/response-ex")
     public String responseStatusError() {
         throw new CustomResponseStatusException();
+    }
+
+    @GetMapping("/local-date-time")
+    public LocalDateTime localDateTime() {
+        return LocalDateTime.now();
     }
 }

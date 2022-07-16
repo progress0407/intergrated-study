@@ -8,10 +8,10 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @ToString(exclude = "discussion")
-public class Opinion {
+class Opinion {
 
     @Id
     @GeneratedValue

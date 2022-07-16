@@ -7,7 +7,7 @@ import javax.persistence.PersistenceUnit;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DiscussionRepository {
+class DiscussionRepository {
 
     @PersistenceContext
     private EntityManager em;

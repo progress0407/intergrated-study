@@ -5,8 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class UserRepository {
+//@Repository
+class UserRepository {
 
     @PersistenceContext
     private EntityManager em;
@@ -24,7 +24,4 @@ public class UserRepository {
         return em.createQuery("select u from User u", User.class)
                 .getResultList();
     }
-
-
-
 }

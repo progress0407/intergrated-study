@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 
-@Entity
-@Table(name = "`user`")
-public class User {
+//@Entity
+//@Table(name = "`user`")
+class User {
 
     @Id @GeneratedValue
     private Long id;

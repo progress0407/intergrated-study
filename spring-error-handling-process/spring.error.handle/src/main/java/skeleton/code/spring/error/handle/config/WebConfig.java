@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.Filter;
 
-@Config uration
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
