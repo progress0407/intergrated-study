@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.Filter;
+import skeleton.code.spring.error.handle.bean.ChildProd;
+import skeleton.code.spring.error.handle.bean.Parent;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -26,10 +28,15 @@ public class WebConfig implements WebMvcConfigurer {
 //                .excludePathPatterns("/error");
     }
 
+    @Bean
+    public Parent childProd() {
+        return new ChildProd();
+    }
     /*
     @Bean
     public Filter errorFilter() {
         return new ErrorFilter();
     }
     */
+
 }
