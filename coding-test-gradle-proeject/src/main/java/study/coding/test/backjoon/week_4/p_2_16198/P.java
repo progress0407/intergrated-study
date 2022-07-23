@@ -50,14 +50,20 @@ class P {
         System.out.println("sum = " + sum);
 */
 
-        sum += nums[index - 1] * nums[index + 1];
+        final int energy = nums[index - 1] * nums[index + 1];
+        sum += energy;
         final int[] subArr = cherryKill(nums, index);
 
+        int maxVal = Integer.MIN_VALUE;
         for (int j = 1; j < subArr.length - 1; j++) {
-            return dfs(subArr, j, sum);
+            maxVal = max(maxVal, dfs(subArr, j, sum));
         }
 
-        return sum;
+        if (subArr.length == 2) {
+            return sum;
+        }
+
+        return maxVal;
     }
 
     private static int[] cherryKill(final int[] arr, final int index) {
