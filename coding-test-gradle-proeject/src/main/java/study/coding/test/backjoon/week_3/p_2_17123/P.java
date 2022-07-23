@@ -8,17 +8,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
-class P_17123 {
+class P {
 
     final LinkedList<Case> cases = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        final P_17123 p = new P_17123();
+        final P p = new P();
         out.println(p.solve(br.readLine()));
         br.close();
     }

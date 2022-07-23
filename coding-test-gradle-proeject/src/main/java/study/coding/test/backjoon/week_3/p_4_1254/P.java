@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-class P_1254 {
+class P {
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String input = read(br);
 
-        final P_1254 p = new P_1254();
+        final P p = new P();
         final String result = p.solve(input);
         System.out.println(result);
 

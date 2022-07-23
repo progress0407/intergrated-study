@@ -1,14 +1,12 @@
 package study.coding.test.backjoon.week_3.p_2_17123;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class P_17123Test {
+class P_Test {
 
-    P_17123 p = new P_17123();
+    P p = new P();
 
     @Test
     void t1() {
