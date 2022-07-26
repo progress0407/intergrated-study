@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import org.junit.jupiter.api.Test;
 
-class PTest {
+class MainTest {
 
     @Test
     void test_1() {
