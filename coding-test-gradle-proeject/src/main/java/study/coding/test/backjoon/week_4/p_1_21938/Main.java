@@ -7,20 +7,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * fail ...
- * ArrayIndexOutOfBounds
+ * fail ... ArrayIndexOutOfBounds
  */
-class P {
+class Main {
 
     public static void main(String[] args) {
-        final P p = new P();
+        final Main main = new Main();
         final Reader reader = new InputStreamReader(System.in);
-        out.println(p.solve(reader));
+        out.println(main.solve(reader));
     }
 
     public String solve(final Reader reader) {
@@ -28,11 +26,11 @@ class P {
          * make matrix
          */
         BufferedReader br = new BufferedReader(reader);
-        out.println("-----------------");
+//        out.println("-----------------");
         final String[] H_W = read(br).split(" ");
         final int H = parseInt(H_W[0]);
         final int W = parseInt(H_W[1]);
-        final int[][] rgb_arr = new int[H][W];
+        final int[][] rgb_arr = new int[H][3 * W];
 
         for (int h = 0; h < H; h++) {
             final String[] rgb_line = read(br).split(" ");
@@ -47,10 +45,10 @@ class P {
         final int T = parseInt(read(br));
 
         // #
-        out.println("Arrays.deepToString(rgb_arr) = " + Arrays.deepToString(rgb_arr));
+//        out.println("Arrays.deepToString(rgb_arr) = " + Arrays.deepToString(rgb_arr));
 
         /**
-         * go dfs
+         * go bfs
          */
         final Queue<Coord> queue = new LinkedList<>();
         final boolean visited[][] = new boolean[H][W];

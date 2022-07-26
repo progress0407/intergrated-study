@@ -9,16 +9,15 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Arrays;
 
-class P {
+class Main {
 
     /**
-     * fail
+     * pass
      */
-
     public static void main(String[] args) {
-        final P p = new P();
+        final Main main = new Main();
         final Reader reader = new InputStreamReader(System.in);
-        String output = p.solve(reader);
+        String output = main.solve(reader);
         System.out.println(output);
         close(reader);
     }
