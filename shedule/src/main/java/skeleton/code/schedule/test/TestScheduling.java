@@ -1,4 +1,4 @@
-package skeleton.code.schedule;
+package skeleton.code.schedule.test;
 
 import static java.lang.System.out;
 
@@ -6,8 +6,11 @@ import java.time.LocalDateTime;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-@Component
-public class Scheduling {
+/**
+ * 연습용 스케쥴링 서비스
+ */
+//@Component
+public class TestScheduling {
 
     private int scheduled_1_sec = 0;
     private int scheduled_2_sec = 0;
