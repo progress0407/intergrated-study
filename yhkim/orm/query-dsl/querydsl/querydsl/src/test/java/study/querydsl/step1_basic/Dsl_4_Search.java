@@ -1,10 +1,11 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static study.querydsl.entity.QMember.member;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
 public class Dsl_4_Search extends AbstractQuerydslTest {

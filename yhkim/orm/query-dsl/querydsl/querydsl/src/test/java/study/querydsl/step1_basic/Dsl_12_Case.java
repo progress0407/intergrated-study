@@ -1,10 +1,11 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static java.lang.System.out;
 
 import com.querydsl.core.types.dsl.CaseBuilder;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 
 public class Dsl_12_Case extends AbstractQuerydslTest {
 

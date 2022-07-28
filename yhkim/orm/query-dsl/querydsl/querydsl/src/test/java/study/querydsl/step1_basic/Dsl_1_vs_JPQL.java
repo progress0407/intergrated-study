@@ -1,13 +1,11 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static study.querydsl.entity.QMember.member;
 
-import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
-import study.querydsl.entity.Team;
 
 public class Dsl_1_vs_JPQL extends AbstractQuerydslTest {
 

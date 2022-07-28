@@ -1,6 +1,8 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import study.querydsl.AbstractQuerydslTest;
 
 public class Dsl_2_To_Field extends AbstractQuerydslTest {
 
