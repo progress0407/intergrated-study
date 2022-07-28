@@ -1,4 +1,4 @@
-package study.querydsl.basic;
+package study.querydsl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import javax.persistence.EntityManager;
@@ -14,7 +14,7 @@ import study.querydsl.entity.Team;
 
 @SpringBootTest
 @Transactional
-abstract class AbstractQuerydslTest {
+public abstract class AbstractQuerydslTest {
 
     @PersistenceUnit
     protected EntityManagerFactory emf;

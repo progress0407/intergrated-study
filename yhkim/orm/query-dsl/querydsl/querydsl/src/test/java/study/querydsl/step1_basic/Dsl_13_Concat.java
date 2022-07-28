@@ -1,9 +1,10 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static java.lang.System.out;
 import static study.querydsl.entity.QMember.member;
 
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 
 public class Dsl_13_Concat extends AbstractQuerydslTest {
 

@@ -1,4 +1,4 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static com.querydsl.jpa.JPAExpressions.select;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -6,6 +6,7 @@ import static study.querydsl.entity.QMember.member;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 import study.querydsl.entity.QMember;
 

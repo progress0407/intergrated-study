@@ -1,4 +1,4 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static study.querydsl.entity.QMember.member;
@@ -7,6 +7,7 @@ import com.querydsl.core.Tuple;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 
 public class Dsl_8_Aggregation extends AbstractQuerydslTest {
 

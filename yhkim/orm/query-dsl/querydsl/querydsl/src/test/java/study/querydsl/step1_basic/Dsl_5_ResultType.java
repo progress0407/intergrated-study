@@ -1,4 +1,4 @@
-package study.querydsl.basic;
+package study.querydsl.step1_basic;
 
 import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
@@ -9,6 +9,7 @@ import com.querydsl.core.QueryResults;
 import java.util.List;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.Test;
+import study.querydsl.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
 public class Dsl_5_ResultType extends AbstractQuerydslTest {
