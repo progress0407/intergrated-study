@@ -7,9 +7,9 @@ import static study.querydsl.entity.QTeam.team;
 import com.querydsl.core.Tuple;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 
-public class Dsl_9_GroupBy extends AbstractQuerydslTest {
+class Dsl_9_GroupBy extends AbstractQuerydslTest {
 
     /**
      * 팀의 이름과 각 팀의 평균 연령을 구해라.

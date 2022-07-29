@@ -4,10 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static study.querydsl.entity.QMember.member;
 
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
-public class Dsl_1_vs_JPQL extends AbstractQuerydslTest {
+class Dsl_1_vs_JPQL extends AbstractQuerydslTest {
 
     @Test
     public void startJPQL() {

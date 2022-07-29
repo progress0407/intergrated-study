@@ -2,9 +2,9 @@ package study.querydsl.step1_basic;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 
-public class Dsl_2_To_Field extends AbstractQuerydslTest {
+class Dsl_2_To_Field extends AbstractQuerydslTest {
 
     /**
      * JPAQueryFactory 를 필드로 두었다는 의미

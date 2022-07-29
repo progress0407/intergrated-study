@@ -1,4 +1,4 @@
-package study.querydsl;
+package study.querydsl.support;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import javax.persistence.EntityManager;

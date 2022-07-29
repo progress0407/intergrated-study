@@ -4,9 +4,9 @@ import static java.lang.System.out;
 import static study.querydsl.entity.QMember.member;
 
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 
-public class Dsl_13_Concat extends AbstractQuerydslTest {
+class Dsl_13_Concat extends AbstractQuerydslTest {
 
     @Test
     void concat() {

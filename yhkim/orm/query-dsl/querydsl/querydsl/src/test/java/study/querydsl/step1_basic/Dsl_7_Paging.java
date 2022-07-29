@@ -6,10 +6,10 @@ import static study.querydsl.entity.QMember.member;
 import com.querydsl.core.QueryResults;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
-public class Dsl_7_Paging extends AbstractQuerydslTest {
+class Dsl_7_Paging extends AbstractQuerydslTest {
 
     /**
      * 페이징
