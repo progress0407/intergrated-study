@@ -8,10 +8,10 @@ import static study.querydsl.entity.QTeam.team;
 import com.querydsl.core.Tuple;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
-public class Dsl_10_Join extends AbstractQuerydslTest {
+class Dsl_10_Join extends AbstractQuerydslTest {
 
     /**
      * 일반 조인

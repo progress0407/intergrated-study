@@ -5,9 +5,9 @@ import static java.lang.System.out;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 
-public class Dsl_12_Case extends AbstractQuerydslTest {
+class Dsl_12_Case extends AbstractQuerydslTest {
 
     @Test
     void case_simple() {

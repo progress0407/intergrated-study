@@ -7,9 +7,9 @@ import com.querydsl.core.Tuple;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 
-public class Dsl_8_Aggregation extends AbstractQuerydslTest {
+class Dsl_8_Aggregation extends AbstractQuerydslTest {
 
     /**
      * 집합

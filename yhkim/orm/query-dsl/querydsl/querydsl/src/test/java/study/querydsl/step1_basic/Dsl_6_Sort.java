@@ -4,10 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
-public class Dsl_6_Sort extends AbstractQuerydslTest {
+class Dsl_6_Sort extends AbstractQuerydslTest {
 
     @Test
     void sort() {

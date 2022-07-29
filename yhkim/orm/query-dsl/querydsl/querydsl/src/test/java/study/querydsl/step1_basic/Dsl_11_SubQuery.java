@@ -6,11 +6,11 @@ import static study.querydsl.entity.QMember.member;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 import study.querydsl.entity.QMember;
 
-public class Dsl_11_SubQuery extends AbstractQuerydslTest {
+class Dsl_11_SubQuery extends AbstractQuerydslTest {
 
     @Test
     void subQuery() {

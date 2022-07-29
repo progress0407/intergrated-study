@@ -5,10 +5,10 @@ import static study.querydsl.entity.QMember.member;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import study.querydsl.AbstractQuerydslTest;
+import study.querydsl.support.AbstractQuerydslTest;
 import study.querydsl.entity.Member;
 
-public class Dsl_4_Search extends AbstractQuerydslTest {
+class Dsl_4_Search extends AbstractQuerydslTest {
 
     /**
      * JPQL의 검색 조건 제공
