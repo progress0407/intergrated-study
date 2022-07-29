@@ -100,10 +100,31 @@ public class MemberJpaRepository {
         return queryFactory
                 .selectFrom(member)
                 .leftJoin(member.team, team)
-                .where(userNameEq(condition.getUsername()),
+                .where(
+                        userNameEq(condition.getUsername()),
                         teamNameEq(condition.getTeamName()),
                         ageGoe(condition.getAgeGoe()),
-                    ageLoe(condition.getAgeLoe())
+                        ageLoe(condition.getAgeLoe())
+                )
+                .fetch();
+    }
+
+    public List<MemberTeamDto> search(MemberSearchCondition condition) {
+        return queryFactory
+                .select(new QMemberTeamDto(
+                        member.id,
+                        member.username,
+                        member.age,
+                        team.id,
+                        team.name
+                ))
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(
+                        userNameEq(condition.getUsername()),
+                        teamNameEq(condition.getTeamName()),
+                        ageGoe(condition.getAgeGoe()),
+                        ageLoe(condition.getAgeLoe())
                 )
                 .fetch();
     }
