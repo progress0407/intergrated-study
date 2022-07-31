@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AsyncTest {
 
-    private final AsyncTasker asyncTasker;
+    private final AsyncTestTasker asyncTestTasker;
 
     @RequestMapping("/async")
     public void print() {
         System.out.println("1 = " + 1);
-        asyncTasker.process();
+        asyncTestTasker.process();
         System.out.println("2 = " + 2);
     }
 }

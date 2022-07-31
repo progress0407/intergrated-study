@@ -1,4 +1,4 @@
-package study.coding.test.backjoon.week_5.p_5904;
+package study.coding.test.backjoon.week_5.p_5904.try_1;
 
 import static java.lang.Integer.parseInt;
 
