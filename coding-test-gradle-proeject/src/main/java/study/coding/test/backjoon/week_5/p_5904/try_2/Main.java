@@ -1,4 +1,4 @@
-package study.coding.test.backjoon.week_5.p_5904.try_1;
+package study.coding.test.backjoon.week_5.p_5904.try_2;
 
 import static java.lang.Integer.parseInt;
 
@@ -26,27 +26,42 @@ class Main {
 
         final StringBuilder sb = new StringBuilder(moo);
 
-        int k = 1;
-        while (sb.length() < N) {
-            recursive(sb, k);
+        int mooSize = 3;
+        int totSize = mooSize;
+
+        while (totSize < N) {
+            mooSize++;
+            totSize = 2 * totSize + mooSize;
         }
 
-        return sb.charAt(N - 1) + "";
+        return search(N-1, mooSize, totSize);
     }
 
-    private void recursive(final StringBuilder sb, final int k) {
-        final StringBuilder before = new StringBuilder(sb);
-        StringBuilder newMoo = makeNewMoo(k);
-        sb.append(newMoo);
-        sb.append(before);
-    }
+    private String search(int N, int mooSize, int totSize) {
+        int front = (totSize - mooSize) / 2;
+        int back = totSize - front;
 
-    private StringBuilder makeNewMoo(final int k) {
-        StringBuilder newMoo = new StringBuilder("m");
-        for (int i = 0; i < k + 2; i++) {
-            newMoo.append("o");
+        // 앞
+        if (N < front) {
+            totSize = (totSize - mooSize) / 2;
+            mooSize--;
+            return search(N, mooSize, totSize);
         }
-        return newMoo;
+        // 가운데
+        else if (N >= front && N < back) {
+            if (N == front) {
+                return "m";
+            } else {
+                return "o";
+            }
+        }
+        // 뒤
+        else {
+            N -= back;
+            totSize = (totSize - mooSize) / 2;
+            mooSize--;
+            return search(N, mooSize, totSize);
+        }
     }
 
     private String[] readStrArr(final BufferedReader br) {

@@ -4,7 +4,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AsyncTasker {
+public class AsyncTestTasker {
 
     @Async
     public void process() {

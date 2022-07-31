@@ -5,7 +5,7 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 
-class BOJ_2230 {
+class Two_Pointer {
 
     public static void main(String[] args) {
         int[] arr = {2, 3, 9, 13, 22};
