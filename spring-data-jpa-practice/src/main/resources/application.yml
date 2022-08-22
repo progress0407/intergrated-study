@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   jpa:
     properties:
       hibernate:
@@ -7,13 +9,6 @@ spring:
     hibernate:
 #      use-new-id-generator-mappings: false # mysql
       ddl-auto: create # ddl-auto
-
-  #  mysql
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    username: test-user
-#    password: 1234
-#    url: jdbc:mysql://localhost:3306/test-db?serverTimezone=Asia/Seoul
 
 logging.level:
   org.hibernate:

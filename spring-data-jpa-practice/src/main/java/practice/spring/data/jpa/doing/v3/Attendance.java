@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Table(name = "attendance")
 @NoArgsConstructor
 @Getter

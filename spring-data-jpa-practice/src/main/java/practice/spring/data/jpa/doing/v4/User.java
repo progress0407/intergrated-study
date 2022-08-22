@@ -1,4 +1,6 @@
-package practice.spring.data.jpa.doing.v3;
+package practice.spring.data.jpa.doing.v4;
+
+import static javax.persistence.FetchType.LAZY;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,37 +11,35 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.domain.Persistable;
 
-//@Entity
+@Entity
 @Table(name = "`user`")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
-class User {
-
-    private static final int MAX_NAME_LENGTH = 50;
+@Setter
+class User implements Persistable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = MAX_NAME_LENGTH)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private int absentCount;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "meeting_id")
-    private Meeting meeting;
-
-    public User(final String name, final Meeting meeting) {
-        this.name = name;
-        this.meeting = meeting;
-    }
-
-    public void increaseAbsentCount() {
-        absentCount++;
+    @Override
+    public boolean isNew() {
+        return true;
     }
 }
