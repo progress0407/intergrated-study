@@ -2,9 +2,9 @@ package practice.spring.data.jpa.doing.v4;
 
 import static javax.persistence.FetchType.LAZY;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.domain.Persistable;
 
 @Entity
@@ -25,6 +26,7 @@ import org.springframework.data.domain.Persistable;
 @Builder
 @Getter
 @Setter
+@ToString(exclude = {"team"})
 class User implements Persistable<Long> {
 
     @Id
@@ -41,5 +43,23 @@ class User implements Persistable<Long> {
     @Override
     public boolean isNew() {
         return true;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name)
+                && Objects.equals(team, user.team);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, team);
     }
 }

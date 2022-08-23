@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: local
   jpa:
     properties:
       hibernate:
@@ -10,7 +10,8 @@ spring:
 #      use-new-id-generator-mappings: false # mysql
       ddl-auto: create # ddl-auto
 
-logging.level:
-  org.hibernate:
+logging.level.org:
+  hibernate:
     SQL: debug
     type: trace
+  springframework.transaction.interceptor: TRACE

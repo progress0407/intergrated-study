@@ -1,10 +1,13 @@
 package practice.spring.data.jpa.doing.v4;
 
+import static java.lang.System.out;
+
 import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import lombok.Data;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-public class V4_Test {
+public class V4_1_Test {
 
     @PersistenceContext
     private EntityManager em;
@@ -101,7 +104,7 @@ public class V4_Test {
 
         userRepository.save(user1);
 
-        System.out.println("-------------------- ## ----------------------------");
+        out.println("-------------------- ## ----------------------------");
     }
 
     @DisplayName("test-4")
@@ -117,7 +120,7 @@ public class V4_Test {
 
         userRepository.deleteById(3L);
 
-        System.out.println("-------------------- ## ----------------------------");
+        out.println("-------------------- ## ----------------------------");
     }
 
     @DisplayName("test-5")
@@ -126,14 +129,14 @@ public class V4_Test {
     void test_5() {
         final User user1 = User.builder().name("user-1").build();
 
-        System.out.println("em = " + em);
+        out.println("em = " + em);
 
         userRepository.save(user1);
 
         final User found1 = userRepository.findById(1L).get();
-        System.out.println("em.contains(found1) = " + em.contains(found1));
+        out.println("em.contains(found1) = " + em.contains(found1));
         final User found2 = userRepository.findById(1L).get();
-        System.out.println("em.contains(found2) = " + em.contains(found2));
+        out.println("em.contains(found2) = " + em.contains(found2));
     }
 
     @DisplayName("test-6")
@@ -163,8 +166,68 @@ public class V4_Test {
         userRepository.save(user1);
 
         final User found2 = userRepository.findById(1L).get();
-        System.out.println("em.contains(found2) = " + em.contains(found2)); // 여기서도 false
+        out.println("em.contains(found2) = " + em.contains(found2)); // 여기서도 false
         em.clear();
-        System.out.println("em.contains(found2) = " + em.contains(found2)); // 지우더라도 false
+        out.println("em.contains(found2) = " + em.contains(found2)); // 지우더라도 false
+    }
+
+    @DisplayName("다대일 관계에서 일의 FK 보관 장소 확인해보자")
+    @Test
+    @Transactional
+    void test_8() {
+        saveTeamAndUsers();
+        em.clear();
+        final User foundUser = em.find(User.class, 1L);
+        out.println("foundUser = " + foundUser);
+    }
+
+    @DisplayName("다대일 관계에서 일을 통해 다를 확인해보자")
+    @Test
+    @Transactional
+    void test_9() {
+        saveTeamAndUsers();
+
+        em.clear();
+        em.find(Team.class, 1L);
+
+        final Team team = teamRepository.findById(1L).get();
+
+        out.println("team = " + team);
+    }
+
+    private void saveTeamAndUsers() {
+//        final TeamSon teamSon = new TeamSon();
+//        teamSon.setFoo("new Foo");
+//        out.println("teamSon = " + teamSon);
+
+        final Team team1 = new Team();
+        team1.setName("team-1");
+
+        final User user1 = User.builder().name("user-1").team(team1).build();
+        final User user2 = User.builder().name("user-2").team(team1).build();
+
+        team1.getUsers().add(user1);
+        team1.getUsers().add(user2);
+
+        teamRepository.save(team1);
+        userRepository.save(user1);
+        userRepository.save(user2);
+    }
+
+    @Data
+    static class TeamSon extends Team {
+
+        private String foo;
+
+        private InnerStaticClass staticClass = new InnerStaticClass();
+        private InnerClass innerClass = new InnerClass();
+
+        public static class InnerStaticClass {
+            public String var = "static";
+        }
+
+        public class InnerClass {
+            public String var = "no static";
+        }
     }
 }
