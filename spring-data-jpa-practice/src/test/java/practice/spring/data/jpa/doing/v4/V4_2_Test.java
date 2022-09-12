@@ -53,30 +53,4 @@ public class V4_2_Test {
         em.flush();
         tx.commit();
     }
-
-    @DisplayName("수동 flush 한 후 DB에 데이터가 있는가")
-    @Test
-    @Transactional
-    @Commit
-    void test_1() {
-        log.info("hello");
-        final EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        em.persist(user1);
-        em.flush();
-        tx.commit();
-    }
-
-    @DisplayName("flush 를 한 후 DB에 데이터가 있는가")
-    @Test
-    @Commit
-    void test_2() {
-        userRepository.save(user1);
-
-        System.out.println("----");
-
-        em.flush();
-
-        System.out.println("----");
-    }
 }

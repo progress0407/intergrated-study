@@ -6,6 +6,6 @@ interface ItemView2 {
     Long getId();
     String getName();
 
-    @Value("#{target.price + ' ' + target.stockQuantity}")
+    @Value("#{aopTarget.price + ' ' + aopTarget.stockQuantity}")
     String getPriceAndQuantity();
 }
