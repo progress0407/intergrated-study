@@ -1,18 +1,14 @@
 package practice.spring.data.jpa.doing.v4;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Persistence;
-import javax.persistence.Table;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.test.annotation.Commit;
 
 /**
  * No Spring
@@ -26,6 +22,7 @@ public class V4_3_Test {
     final EntityManager em = emf.createEntityManager();
 
     @Test
+//    @Commit
     void test_0() {
         final User user1 = new User();
         user1.setName("user-1");
@@ -48,22 +45,28 @@ public class V4_3_Test {
         log.info("#7"); // tx ox?
     }
 
-    @Entity
-    @Table(name = "`user`")
-    class User {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @DisplayName("remove 확인")
+    @Test
+    void test_1() {
+        final User user1 = new User();
+        user1.setName("user-1");
 
-        @Column(nullable = false)
-        private String name;
+        final EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
-        public void setId(final Long id) {
-            this.id = id;
-        }
+        em.persist(user1); // insert
 
-        public void setName(final String name) {
-            this.name = name;
-        }
+        em.remove(user1);
+        System.out.println(">>>>>>>>>>>> em.contains(user1) = " + em.contains(user1)); // false
+        final User foundUser = em.find(User.class, user1.getId());
+        System.out.println(">>>>>>>>>>>> foundUser = " + foundUser); // null : not found
+
+        System.out.println(">>>>>>>>>>>> flush start >>>>>>>>>>>>");
+        em.flush();                                                     // 쓰기 지연 저장소에 아래의 쿼리 등록
+        System.out.println(">>>>>>>>>>>> flush end >>>>>>>>>>>>");
+
+        System.out.println(">>>>>>>>>>>> commit start >>>>>>>>>>>>");
+        tx.commit();                                                   //
+        System.out.println(">>>>>>>>>>>> commit end >>>>>>>>>>>>");
     }
 }

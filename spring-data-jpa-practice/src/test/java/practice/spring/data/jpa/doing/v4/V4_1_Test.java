@@ -2,12 +2,18 @@ package practice.spring.data.jpa.doing.v4;
 
 import static java.lang.System.out;
 
+import com.zaxxer.hikari.pool.HikariProxyCallableStatement;
+import com.zaxxer.hikari.pool.HikariProxyConnection;
+import com.zaxxer.hikari.pool.HikariProxyPreparedStatement;
+import com.zaxxer.hikari.pool.ProxyPreparedStatement;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
+@RequiredArgsConstructor
 public class V4_1_Test {
 
     @PersistenceContext
@@ -96,6 +103,10 @@ public class V4_1_Test {
         userRepository.save(user2);
         userRepository.save(user3);
 
+        final List<User> users = userRepository.findAll();
+
+        out.println("users = " + users);
+
         em.createQuery("delete from User u where u.id in :ids")
                 .setParameter("ids", List.of(2L, 3L))
                 .executeUpdate();
@@ -103,6 +114,21 @@ public class V4_1_Test {
         em.clear();
 
         userRepository.save(user1);
+
+        out.println("-------------------- ## ----------------------------");
+    }
+
+    @DisplayName("test-3-2")
+    @Test
+    @Transactional
+    void test_3_2() {
+        final User user1 = User.builder().name("user-1").build();
+
+        userRepository.save(user1);
+
+        final List<User> users = userRepository.findAll();
+
+        out.println("users = " + users);
 
         out.println("-------------------- ## ----------------------------");
     }
