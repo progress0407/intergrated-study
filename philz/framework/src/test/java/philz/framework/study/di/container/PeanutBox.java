@@ -30,14 +30,14 @@ public enum PeanutBox {
     }
 
     private void initInternal(final String path) throws Exception {
-        final Set<Class<?>> peanutTypes = getTypeWithPeanutAnnotated(path);
+        final Set<Class<?>> peanutTypes = findPeanutAnnotatedTypes(path);
         for (final Class<?> peanutType : peanutTypes) {
             final Object peanutInstance = dfs(peanutType);
             peanutsCache.putIfAbsent(peanutType, peanutInstance);
         }
     }
 
-    private Set<Class<?>> getTypeWithPeanutAnnotated(final String path) {
+    private Set<Class<?>> findPeanutAnnotatedTypes(final String path) {
         final Reflections reflections = new Reflections(path);
         final Set<Class<?>> peanuts = reflections.getTypesAnnotatedWith(ImPeanut.class);
         peanuts.addAll(reflections.getTypesAnnotatedWith(LargePeanut.class));
