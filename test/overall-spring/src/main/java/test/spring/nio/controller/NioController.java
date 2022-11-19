@@ -1,4 +1,4 @@
-package test.spring.controller;
+package test.spring.nio.controller;
 
 import static java.util.stream.Collectors.toList;
 
@@ -16,23 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class NioController {
 
     @GetMapping("/req")
-    public String nio() throws InterruptedException {
-//        Thread.sleep(2_000L);
-        return "ok";
-    }
-
-    @GetMapping("/setting-info")
-    public String nio_current_setting_info() throws Exception {
+    public String nio() throws Exception {
+        Thread.sleep(1_000L);
 
         final Method method = Thread.class.getDeclaredMethod("getThreads");
         method.setAccessible(true);
-        final Thread[] ths = (Thread[]) method.invoke(null);
+        final Thread[] threads = (Thread[]) method.invoke(null);
 
-        final List<String> thStrs = Stream.of(ths)
-                .map(th -> th.getName())
+        final List<String> threadNames = Stream.of(threads)
+                .map(Thread::getName)
                 .filter(name -> name.contains("nio") && name.contains("exec"))
                 .collect(toList());
 
-        return thStrs.toString();
+        return threadNames.toString();
     }
 }
