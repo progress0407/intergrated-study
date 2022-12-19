@@ -4,9 +4,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -14,6 +16,19 @@ class NioTest {
 
     Logger log = LoggerFactory.getLogger(NioTest.class);
 
+    @DisplayName("RestTemplate으로 테스트")
+    @Test
+    void nio2() {
+        final ExecutorService threadPool = Executors.newFixedThreadPool(3);
+
+        final RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getFor
+        threadPool.execute(() -> );
+
+        threadPool.awaitTermination(60, SECONDS);
+    }
+
+    @DisplayName("WebClient로 테스트")
     @Test
     void nio() throws InterruptedException {
         final ExecutorService threadPool = Executors.newFixedThreadPool(3);
