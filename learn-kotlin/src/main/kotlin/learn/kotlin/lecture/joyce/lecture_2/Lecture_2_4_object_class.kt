@@ -1,4 +1,4 @@
-package learn.kotlin.lecture.joyce.Lecture_2
+package learn.kotlin.lecture.joyce.lecture_2
 
 /**
  * Object Class
