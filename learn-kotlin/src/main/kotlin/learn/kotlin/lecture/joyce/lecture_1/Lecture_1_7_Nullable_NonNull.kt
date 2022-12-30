@@ -1,4 +1,4 @@
-package learn.kotlin.lecture.joyce.Lecture_1
+package learn.kotlin.lecture.joyce.lecture_1
 
 /**
  * 7. Nullable / NonNull
