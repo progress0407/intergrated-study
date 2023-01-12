@@ -23,7 +23,7 @@ fun main() {
      * 없으면 이거 써!
      */
     val lastName: String? = null
-    val fullName = name + " " + (lastName ?: "No Last Name")
+    val fullName = name + ", " + (lastName ?: "No Last Name")
     println("fullName = ${fullName}")
 
     /**
