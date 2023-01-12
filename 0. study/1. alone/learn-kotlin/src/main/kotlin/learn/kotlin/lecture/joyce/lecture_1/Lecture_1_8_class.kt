@@ -25,13 +25,13 @@ class Human constructor(name: String) {
 }
 */
 
-// step 2: name, move to constructor
+/** step 2: name, move to constructor */
 //class Human constructor(val name: String) {
 
-// step 3: can remove constructor keyword
+/** step 3: can remove constructor keyword */
 //class Human(val name: String) {
 
-// step 4: set default value
+/** step 4: set default value */
 /*
 class Human(val name: String = "Anonymous") {
 
@@ -53,7 +53,8 @@ class Human(val name: String = "Anonymous") {
 
 /**
  * 상속
- * 기본적으로 코틀린은 class와 메서드의 가시성은 final !
+ * 기본적으로 코틀린은 class와 메서드는 final!
+ * 상속을 받을 때는 열어줘야 한다. (open)
  */
 open class Human(val name: String = "Anonymous", val age: Int = 0) {
 
