@@ -22,6 +22,12 @@ public class LoginController {
 
     private final UserRepository userRepository;
 
+    @GetMapping("/login-form")
+    public String loginForm() {
+
+        return "/login-form.html";
+    }
+
     @PostMapping("/login")
     public String hello(@RequestParam("name") String userName,
                         @RequestParam("password") String userPassword,
@@ -46,12 +52,6 @@ public class LoginController {
         loginSuccessProcess(httpRequest, httpResponse, findUser);
 
         return "redirect:/item-detail";
-    }
-
-    @GetMapping("/login-form")
-    public String loginForm() {
-
-        return "/login-form.html";
     }
 
     @GetMapping("/error-login")
