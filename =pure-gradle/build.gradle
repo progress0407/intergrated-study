@@ -1,0 +1,70 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+//    id "me.champeau.gradle.jmh" version "0.6.6"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // spring
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1'
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.assertj:assertj-core:3.21.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.reflections:reflections:0.10.2'
+
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // lombok
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+    /**
+     * jmh
+     */
+    implementation 'org.openjdk.jmh:jmh-core:1.34'
+    implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.34'
+
+//    jmh 'org.openjdk.jmh:jmh-core:1.34'
+//    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.34'
+
+//    jmh group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.34'
+//    jmh group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.34'
+
+    // jsoup
+    implementation 'org.jsoup:jsoup:1.15.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/*
+jmh {
+    fork = 1
+    iterations = 1
+    warmupIterations = 1
+    duplicateClassesStrategy = 'warn' //복제 중 중복 파일 존재시 warn 경고 처리
+}
+*/
