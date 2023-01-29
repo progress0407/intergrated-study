@@ -2,7 +2,7 @@ package test.grammer.thread;
 
 import java.util.Random;
 
-public class ThreadMain {
+public class ThreadPerformenceTestMain {
 
   public static final int ThreadGenNum = 16;
   public static final int RetryNum = 5;
