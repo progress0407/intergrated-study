@@ -1,7 +1,6 @@
 package simple.random;
 
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -12,14 +11,14 @@ public class RandomTest {
 
     public static final int MAX = 10_000_000;
 
+    public static final int RND_MAX = 30_000;
+
     public static void main(String[] args) {
-
         final RandomTest randomTest = new RandomTest();
-
         final Random random = new Random();
-        randomTest.doRandom("일반 Random", () -> random.nextInt(1_000));
+        randomTest.doRandom("일반 Random", () -> random.nextInt(RND_MAX));
         sleep();
-        randomTest.doRandom("ThreadLocalRandom", () -> ThreadLocalRandom.current().nextInt(1_000));
+        randomTest.doRandom("ThreadLocalRandom", () -> ThreadLocalRandom.current().nextInt(RND_MAX));
         System.out.println("hello world");
     }
 
@@ -72,11 +71,14 @@ public class RandomTest {
 
     private long diffSquareSum(final int avg, final int[] nums) {
         long diffSquareSum = 0;
+        int trialCnt = 0;
         for (final int num : nums) {
             final int diff = (num - avg);
             final int diffSquare = diff * diff;
             diffSquareSum += diffSquare;
+            trialCnt++;
         }
+        System.out.println("trialCnt = " + trialCnt);
         return diffSquareSum;
     }
 
