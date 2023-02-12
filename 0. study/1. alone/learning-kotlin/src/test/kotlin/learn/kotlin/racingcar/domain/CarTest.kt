@@ -9,7 +9,7 @@ class CarTest {
     @Test
     fun `자동차는 움직인다`() {
         // given
-        val car = Car(CarFixedMovingStrategy())
+        val car = Car("philz", CarFixedMovingStrategy())
 
         // when
         car.move()
@@ -17,4 +17,5 @@ class CarTest {
         // then
         assertThat(car.position).isEqualTo(1);
     }
+
 }

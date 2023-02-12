@@ -1,6 +1,6 @@
 package learn.kotlin.racingcar.domain
 
-class Car(private val movingStrategy: CarMovingStrategy) {
+class Car(val name: String, private val movingStrategy: CarMovingStrategy) {
 
     var position: Int = 0
 
