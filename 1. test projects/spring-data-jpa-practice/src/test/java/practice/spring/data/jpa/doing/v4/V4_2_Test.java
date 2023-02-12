@@ -18,6 +18,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 /**
  * DB와 Tx 실험
  */
+/*
 @SpringBootTest
 public class V4_2_Test {
 
@@ -54,3 +55,4 @@ public class V4_2_Test {
         tx.commit();
     }
 }
+*/

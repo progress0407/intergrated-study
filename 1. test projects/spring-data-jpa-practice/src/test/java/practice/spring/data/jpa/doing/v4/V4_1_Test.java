@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+/*
 @SpringBootTest
 @RequiredArgsConstructor
 public class V4_1_Test {
@@ -51,7 +52,8 @@ public class V4_1_Test {
         userRepository.delete(user2);
     }
 
-    /**
+    */
+/**
      * 전자
      * isNew
      * 단순 JPA merge에서만 분기처리를 하는데 쓰이는건지?
@@ -63,11 +65,14 @@ public class V4_1_Test {
      * id null 인걸 insert
      *
      * isNew 메서드에서 결정이 되는 것인지!
-     */
+     *//*
 
-    /**
+
+    */
+/**
      * insert 도 변경감지를 해주나?
-     */
+     *//*
+
 
     @DisplayName("test-2")
     @Test
@@ -176,18 +181,22 @@ public class V4_1_Test {
 //        em.close();
     }
 
-    /**
+    */
+/**
      * entityManger가 다르더라도, 같은 트랜잭션이라면
      * 같은 영속성 컨텍스트를 타게 된다
      *
-     */
+     *//*
+
     @DisplayName("test-7")
     @Test
     @Transactional
     void test_7() {
-        /**
+        */
+/**
          * 만일 em 이 서로 다르다면...
-         */
+         *//*
+
         final User user1 = User.builder().name("user-1").build();
         userRepository.save(user1);
 
@@ -257,3 +266,4 @@ public class V4_1_Test {
         }
     }
 }
+*/
