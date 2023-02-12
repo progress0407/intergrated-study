@@ -20,6 +20,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.domain.Persistable;
 
+/*
 @Entity
 @Table(name = "`user`")
 @NoArgsConstructor
@@ -63,3 +64,4 @@ class User implements Persistable<Long> {
         return Objects.hash(id, name, team);
     }
 }
+*/

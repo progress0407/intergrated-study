@@ -13,6 +13,7 @@ import org.springframework.test.annotation.Commit;
 /**
  * No Spring
  */
+/*
 public class V4_3_Test {
 
     // log
@@ -70,3 +71,4 @@ public class V4_3_Test {
         System.out.println(">>>>>>>>>>>> commit end >>>>>>>>>>>>");
     }
 }
+*/

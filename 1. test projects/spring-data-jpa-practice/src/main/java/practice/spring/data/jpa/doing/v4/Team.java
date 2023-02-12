@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/*
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,3 +35,4 @@ public class Team {
     @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
     private List<User> users = new ArrayList<>();
 }
+*/
