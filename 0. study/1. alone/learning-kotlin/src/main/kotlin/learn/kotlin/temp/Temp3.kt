@@ -17,14 +17,11 @@ fun main() {
 }
 
 fun fun1(): Boolean {
-//    TODO("h1 Not yet implemented")
     println("fun 1")
     return false
 }
 
 fun fun2(): Boolean {
-//    TODO("h2 Not yet implemented")
     println("fun 2")
     return true
 }
-
