@@ -25,6 +25,13 @@ data class Point(val x: Int, val y: Int) {
         return Point(this.x*n,this.y * n)
     }
 
+/*
+    // receiver must be a supertype of the return type
+    operator fun inc(): Unit {
+
+    }
+*/
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -54,6 +61,11 @@ data class Point(val x: Int, val y: Int) {
     private fun distance(): Double {
         return sqrt(x.toDouble().pow(2.0) + y.toDouble().pow(2.0))
     }
+
+    operator fun inc(): Point {
+        TODO("Not yet implemented")
+        return Point(this.x + 1, this.y + 1)
+    }
 }
 
 fun main() {
@@ -69,8 +81,12 @@ fun main() {
     println("p1 > p2 = ${p1 > p2}")
     println("p1 >= p2 = ${p1 >= p2}")
 
-    val point = Point(1, 4)
+    var point = Point(1, 4)
     point()
+
+    val nextPoint = point++
+    println("nextPoint = ${nextPoint}")
+
     println("point = ${point}")
 }
 

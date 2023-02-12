@@ -1,6 +1,7 @@
 package learn.kotlin.temp
 
 import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class Eq {
@@ -14,7 +15,6 @@ class Eq {
 
         println("introduceMent = ${introduce}")
 
-
-        Assertions.assertThat(2).isSameAs(1)
+        assertThat(2).isSameAs(1)
     }
 }
