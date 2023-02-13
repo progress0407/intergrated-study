@@ -1,4 +1,4 @@
-package learn.kotlin.racingcar.domain
+package learn.kotlin.racingcar.domain.moviing
 
 interface CarMovingStrategy {
 
