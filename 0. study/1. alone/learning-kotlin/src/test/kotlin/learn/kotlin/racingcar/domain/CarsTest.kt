@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class CarsTest {
 
     @Test
-    fun `자동차들이 움직이면  움직인다`() {
+    fun `자동차들이 움직이면 움직인다`() {
         // given
         val car1 = Car("philz", CarFixedMovingStrategy())
 
@@ -21,8 +21,8 @@ class CarsTest {
         cars.move()
 
         // then
-        assertThat(cars[0].position).isEqualTo(1)
-        assertThat(cars[1].position).isEqualTo(2)
+        assertThat(car1.position).isEqualTo(1)
+        assertThat(car2.position).isEqualTo(0)
     }
 
     @Test
