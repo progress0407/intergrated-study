@@ -30,3 +30,12 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka # 유레카 서버 url 
       # 강사님이 localhost 보다는 이 표기 법을 선호
   ```
+
+## Discovery Client 를 실행하는 다양한 방법
+
+1. yaml을 직접 수정한다
+
+2. 인텔리제이 Run Configuration Button을 수정한다.
+
+3. Artifact (War, Jar) 와 Build 명령어 이용
+
