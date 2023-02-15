@@ -34,3 +34,13 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.withType<Test>().configureEach() {
+	useJUnitPlatform()
+}
+
+tasks {
+	test {
+		useJUnitPlatform()
+	}
+}
