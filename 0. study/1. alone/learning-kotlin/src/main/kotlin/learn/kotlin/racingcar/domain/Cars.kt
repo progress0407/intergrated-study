@@ -16,4 +16,3 @@ fun List<Car>.winners(): List<Car> =
 fun List<Car>.hasWinner(): Boolean =
     this.winners()
         .isNotEmpty()
-

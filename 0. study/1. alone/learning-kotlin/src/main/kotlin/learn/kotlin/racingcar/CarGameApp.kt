@@ -37,5 +37,4 @@ class CarGameApp() {
 
 
 operator fun String.times(repeatNo: Int): String =
-
     this.repeat(repeatNo)

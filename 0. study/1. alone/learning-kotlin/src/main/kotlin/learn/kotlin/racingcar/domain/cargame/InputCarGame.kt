@@ -17,12 +17,10 @@ class InputCarGame(gameMemory: GameMemory) : CarGame(gameMemory) {
     }
 
     private fun createCars(carNames: MutableList<String>) =
-
         carNames.map { name -> Car(name, gameMemory.carMovingStrategy) }
             .toList()
 
     private fun convertCarNames(line: String): MutableList<String> =
-
         line.split(",").stream()
             .map { it.trim() }
             .toList()
