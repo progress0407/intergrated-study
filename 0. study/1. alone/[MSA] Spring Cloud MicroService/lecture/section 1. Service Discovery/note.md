@@ -24,8 +24,8 @@ spring:
 
 eureka:
   client:
-    register-with-eureka: true # 유레카 서버에 등록할지 여부
-    fetch-registry: true # 서버와 주기적으로 통신할 지 여부
+    register-with-eureka: false # 유레카 서버에 등록할지 여부
+    fetch-registry: false # 서버와 주기적으로 통신할 지 여부
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka # 유레카 서버 url 
       # 강사님이 localhost 보다는 이 표기 법을 선호
