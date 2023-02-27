@@ -93,16 +93,72 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: first-service
-          url: http://localhost:8081/ # forwarding 시켜버리기 ~
-          predicates:
+      routes: # forwarding 시켜버리기
+        - id: first-service 
+          url: http://localhost:8081/
+          predicates: # 조건절
             - Path=/first-service/**
         - id: second-service
           url: http://localhost:8082/
-          predicates:
+          predicates: #
             - Path=/second-service/**
 ```
 
+- 예시) `xxx:8000/first-service/welcome` 로 요청이 오면 `localhost:8081/first-service/welcome` 으로 라우팅한다!
+
 - 다만, `/MS명` 으로 요청이 오면 `:MS포트번호_/MS명` 로 고스란히 요청이 가게 되는 불편함이 있다
   - 추후에 수정하는 방법을 알려주시는 것 같다
+
+
+header를 추가하는 방법(`spring.cloud.gateway.routes`)은 아래 두 가지가 있다
+
+```java
+@Configuration
+class FilterConfig {
+
+    @Bean
+    fun gatewayRoutes(builder: RouteLocatorBuilder): RouteLocator =
+        builder.routes {
+            route {
+                path("/first-service/**")
+                    .filters {
+                        it
+                            .addRequestHeader("first-request", "first-request-value")
+                            .addResponseHeader("first-response", "first-response-value")
+                    }
+                    .uri("http://localhost:8081")
+            }
+            route {
+                path("/second-service/**")
+                    .filters {
+                        it
+                            .addRequestHeader("second-request", "second-request-value")
+                            .addResponseHeader("second-response", "second-response-value")
+                    }
+                    .uri("http://localhost:8082")
+            }
+        }
+}
+```
+
+```yaml
+spring:
+  ...
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/first-service/**
+          filters:
+            - AddRequestHeader=first-request, first-request-value
+            - AddResponseHeader=first-response, first-response-value
+        - id: second-service
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/second-service/**
+          filters:
+            - AddRequestHeader=second-request, second-request-value
+            - AddResponseHeader=second-response, second-response-value
+```
