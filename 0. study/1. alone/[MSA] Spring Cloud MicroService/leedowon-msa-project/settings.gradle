@@ -1,0 +1,11 @@
+rootProject.name = 'leedowon-msa-project'
+
+include(
+        "discoveryservice",
+        "apigateway-service",
+        "first-service",
+        "second-service",
+        "user-service",
+        "apigateway-service-old-version"
+)
+
