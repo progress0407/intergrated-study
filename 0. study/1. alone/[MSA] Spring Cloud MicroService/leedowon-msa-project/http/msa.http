@@ -5,7 +5,7 @@ GET http://localhost:8081/first-service/welcome
 GET http://localhost:8082/second-service/welcome
 
 ### first-service request by gateway
-GET http://localhost:8000/first-service/welcome
+GET http://localhost:8000/first-service/check
 
 ### second-service request by gateway
 GET http://localhost:8000/second-service/welcome

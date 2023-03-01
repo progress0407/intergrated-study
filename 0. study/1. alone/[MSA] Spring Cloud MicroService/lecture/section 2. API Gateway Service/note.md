@@ -311,3 +311,42 @@ spring.cloud.gateway.routes:
           postLogger: true
 ```
 
+## 로드밸런스 등록
+
+호출순서: 유레카(디스커버리) -> 게이트웨이, Micro Service (First 등)
+
+micro service yaml
+
+```yml
+server:
+  port: 0
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+```
+
+Environment 객체를 이용해서 서버의 포트 번호를 출력할 수 있다.
+
+서버의 포트 번호 출력하기
+
+1. Environment 객체
+
+`request.serverPort`
+
+2. HttpServletRequest 객체
+
+`env.getProperty("local.server.port")`
+
+### 등록 후의 모습
+
+![image](https://user-images.githubusercontent.com/66164361/222172537-c5341384-0a69-492f-a318-14bba2237fc8.png)
+
+
+서버가 다운되면 이렇게 표시된다 ㄷㄷ
+
+![image](https://user-images.githubusercontent.com/66164361/222173808-f694a918-8295-4565-871a-f6ed68dfa425.png)
+
