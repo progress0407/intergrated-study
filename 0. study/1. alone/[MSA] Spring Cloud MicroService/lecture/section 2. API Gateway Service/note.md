@@ -112,7 +112,7 @@ spring:
 
 header를 추가하는 방법(`spring.cloud.gateway.routes`)은 아래 두 가지가 있다
 
-```java
+```kotlin
 @Configuration
 class FilterConfig {
 
@@ -162,3 +162,152 @@ spring:
             - AddRequestHeader=second-request, second-request-value
             - AddResponseHeader=second-response, second-response-value
 ```
+
+커스텀 필터를 등록해보자
+
+커스텀 필터
+
+```kotlin
+@Component
+class CustomFilter : AbstractGatewayFilterFactory<CustomFilter.Config>() {
+
+    private val log = LoggerFactory.getLogger(CustomFilter::class.java)
+
+    override fun apply(config: Config?): GatewayFilter =
+        GatewayFilter { exchange: ServerWebExchange,
+                        chain: GatewayFilterChain ->
+
+            val request: ServerHttpRequest = exchange.request
+            val response: ServerHttpResponse = exchange.response
+
+            log.info("custom pre filter: request id: {}", request.id)
+
+            chain
+                .filter(exchange)
+                .then(Mono.fromRunnable {
+                    log.info("custom post filter: request id: {}", response.statusCode)
+                })
+        }
+
+    class Config {
+        // put the configuration properties if exist
+    }
+}
+```
+
+설정
+
+```yml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+        ...
+          filters:
+            - CustomFilter
+        - id: second-service
+        ...
+          filters:
+            - CustomFilter
+```
+
+`글로벌 필터`도 크게 다른건 없다
+
+```kotlin
+@Component
+class GlobalFilter : AbstractGatewayFilterFactory<GlobalFilter.Config>(Config::class.java) {
+
+    val log = LoggerFactory.getLogger(GlobalFilter::class.java)!!
+
+    override fun apply(config: Config?): GatewayFilter =
+        GatewayFilter { exchange: ServerWebExchange,
+                        chain: GatewayFilterChain ->
+
+            if (config == null) {
+                throw NullPointerException("config should not be null")
+            }
+
+            log.info("Global Filter baseMessage: {}", config.baseMessage)
+
+            if (config.preLogger) {
+                log.info("Global Filter Start: request id -> {}", exchange.request.id)
+            }
+
+            chain
+                .filter(exchange)
+                .then(Mono.fromRunnable {
+                    if (config.postLogger) {
+                        log.info("Global Filter End: request id -> {}", exchange.response.statusCode)
+                    }
+                })
+        }
+
+    class Config {
+        lateinit var baseMessage: String
+        var preLogger: Boolean = false
+        var postLogger: Boolean = false
+    }
+}
+```
+
+
+```yml
+spring.cloud.gateway.default-filters:
+  - name: GlobalFilter
+    args:
+      baseMessage: "Spring Cloud Gateway GlobalFilter"
+      preLogger: true
+      postLogger: true
+```
+
+로깅 필터
+
+```kotlin
+@Component
+class LoggingFilter : AbstractGatewayFilterFactory<LoggingFilter.Config>(Config::class.java) {
+
+    val log = LoggerFactory.getLogger(LoggingFilter::class.java)!!
+
+    override fun apply(config: Config?): GatewayFilter =
+        OrderedGatewayFilter({ exchange, chain ->
+            if (config == null) {
+                throw NullPointerException("config should not be null")
+            }
+
+            log.info("Logging Filter baseMessage: {}", config.baseMessage)
+
+            if (config.preLogger) {
+                log.info("Logging Filter Start: request id -> {}", exchange.request.id)
+            }
+
+            chain
+                .filter(exchange)
+                .then(Mono.fromRunnable {
+                    if (config.postLogger) {
+                        log.info("Logging Filter End: request id -> {}", exchange.response.statusCode)
+                    }
+                })
+        }, Ordered.LOWEST_PRECEDENCE)
+
+    class Config {
+        lateinit var baseMessage: String
+        var preLogger: Boolean = false
+        var postLogger: Boolean = false
+    }
+}
+
+```
+
+```yml
+spring.cloud.gateway.routes:
+  - id: second-service
+  ...
+    filters:
+      - name: LoggingFilter
+        args:
+          baseMessage: "Spring Cloud Gateway GlobalFilter"
+          preLogger: true
+          postLogger: true
+```
+
