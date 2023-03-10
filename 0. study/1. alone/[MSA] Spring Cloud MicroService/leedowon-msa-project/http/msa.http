@@ -9,3 +9,9 @@ GET http://localhost:8000/first-service/check
 
 ### second-service request by gateway
 GET http://localhost:8000/second-service/welcome
+
+### second-service request by gateway
+GET http://localhost:8000/second-service/welcome
+
+### user-service request by gateway
+GET http://localhost:8000/user-service/welcome
