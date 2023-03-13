@@ -11,6 +11,12 @@ body {
   font-family: 'nanumsqaure';
 }
 
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
+}
+
 .black-nav {
   background-color: black;
   width: 100%;
