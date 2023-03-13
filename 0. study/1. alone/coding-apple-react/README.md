@@ -103,9 +103,9 @@ addEventListener('click', function() {
 
 쌤 코드는 5강에서!
 
-### 5강
+## 5강 State 변경
 
-### copy
+### Copy
 
 shallow copy
 
@@ -143,4 +143,27 @@ function 제목_바꾸기() {
 
 - 페이지 나누고 이런건 라우터를 사용해야 한다고 한다
 
-### 글 상세페이지 UI 만들기
+## 6강 Component
+
+Component: HTML, JS 등을 한 단어 (`<Modal>` 등)로 줄여서 쓸 수 있게 해 줌.
+
+### Component로 만들기 좋은 것들
+
+- 반복 출현하는 HTML 덩어리들
+- 자주 변경되는 HTMl 들
+- 서브 페이지를 만들 때
+
+### Component 단점
+
+- state를 사용하기 까다로움
+- 상위 component에서 만든 state 쓰려면 props 문법 이용해야 함
+
+## Redux
+
+> 출처: [코딩애플](https://youtu.be/QZcYz2NrDIs)
+
+### 사용 이유
+
+1. props 문법 귀찮을 때 사용한다.
+2. (state) 상태 변경 관리할 때 쓴다.
+
