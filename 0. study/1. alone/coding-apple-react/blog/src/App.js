@@ -1,24 +1,43 @@
+/* eslint-disable */
+
+// import React from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
-  let posts = '강남 고기 맛집';
+  let blackHeader = { color: 'white', fontSize: '30px' }
 
-  let blackHeader = { color : 'white', fontSize : '30px' }
-
-  function fn() {
-    return 100;
+  let [글제목, 글제목_변경] = useState(['남자코트 추천', '강남 우동 맛집', '필즈의 개발 사랑 이야기']);
+  let [따봉, 따봉_변경] = useState(0);
+  let 따봉_변경_이벤트 = () => { 따봉_변경(따봉 + 1) };
+  
+  function 제목_바꾸기() {
+    var newArray = [...글제목];
+    debugger;
+    newArray[0] = '여자코트 추천'
+    글제목_변경(newArray);
   }
 
   return (
     <div className="App">
       <div className="black-nav">
-        <div style= { blackHeader } >개발 Blog</div>
+        <div style={blackHeader} >개발 Blog</div>
       </div>
-      <h4> { posts } </h4>
       <img src={logo} />
-      <h4> { fn() } </h4>
+      <button onClick={ 제목_바꾸기 }>코튼 성별 변경</button>
+      <div className="list">
+        <h3> {글제목[2]} <span onClick={ 따봉_변경_이벤트 }>👍</span> {따봉} </h3>
+        <p>4월 15일 발행</p>
+        <hr />
+        <h3> {글제목[1]} </h3>
+        <p>3월 16일 발행</p>
+        <hr />
+        <h3> {글제목[0]} </h3>
+        <p>2월 17일 발행</p>
+        <hr />
+      </div>
     </div>
   );
 }
