@@ -21,3 +21,8 @@ logging.level:
     hibernate:
       SQL: debug
       type: trace
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
