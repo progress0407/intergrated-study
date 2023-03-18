@@ -17,6 +17,13 @@ import study.querydsl.dto.MemberTeamDto;
 import study.querydsl.dto.QMemberTeamDto;
 import study.querydsl.entity.Member;
 
+/**
+ * 순수 JPA 리포지토리와 Querydsl
+ *
+ * 엔티티매니저와 JPAQueryFactory는 싱글톤 등록되더라도 멀티쓰레드 환경에서 문제없다
+ * 엔티티매니저는 스프링이 프록시로 등록시키는데,
+ * 트랜잭션 단위로 영속성 컨텍스트별로 생성하기 때문이다
+ */
 @Repository
 public class MemberJpaRepository {
     private final EntityManager em;
@@ -69,6 +76,7 @@ public class MemberJpaRepository {
     public List<MemberTeamDto> searchByBuilder(MemberSearchCondition condition) {
 
         final BooleanBuilder builder = new BooleanBuilder();
+        // "", null 등
         if (hasText(condition.getUsername())) {
             builder.and(member.username.eq(condition.getUsername()));
         }
