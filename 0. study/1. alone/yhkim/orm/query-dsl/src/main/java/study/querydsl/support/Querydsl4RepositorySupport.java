@@ -5,6 +5,7 @@ import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,14 +38,27 @@ public abstract class Querydsl4RepositorySupport {
     @Autowired
     public void setEntityManager(EntityManager entityManager) {
         requireNonNull(entityManager, "EntityManager must not be null!");
-        JpaEntityInformation entityInformation =
-                JpaEntityInformationSupport.getEntityInformation(domainClass, entityManager);
-        SimpleEntityPathResolver resolver = SimpleEntityPathResolver.INSTANCE;
-        EntityPath path = resolver.createPath(entityInformation.getJavaType());
+
+        EntityPath path = getEntityPath(entityManager);
+
+
         this.entityManager = entityManager;
         this.querydsl = new Querydsl(entityManager, new
                 PathBuilder<>(path.getType(), path.getMetadata()));
         this.queryFactory = new JPAQueryFactory(entityManager);
+    }
+
+    /**
+     * 이 패스 생성 코드가 있어야 Sort가 가능해진다
+     */
+    @NotNull
+    private EntityPath getEntityPath(EntityManager entityManager) {
+
+        JpaEntityInformation entityInformation =
+                JpaEntityInformationSupport.getEntityInformation(domainClass, entityManager);
+        SimpleEntityPathResolver resolver = SimpleEntityPathResolver.INSTANCE;
+
+        return resolver.createPath(entityInformation.getJavaType());
     }
 
     @PostConstruct
