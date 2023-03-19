@@ -57,22 +57,6 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
                 .fetch();
     }
 
-    private BooleanExpression userNameEq(final String username) {
-        return isEmpty(username) ? null : member.username.eq(username);
-    }
-
-    private BooleanExpression teamNameEq(final String teamName) {
-        return isEmpty(teamName) ? null : team.name.eq(teamName);
-    }
-
-    private BooleanExpression ageGoe(final Integer ageGoe) {
-        return ageGoe == null ? null : member.age.goe(ageGoe);
-    }
-
-    private BooleanExpression ageLoe(final Integer ageLoe) {
-        return ageLoe == null ? null : member.age.loe(ageLoe);
-    }
-
     @Override
     public Page<MemberTeamDto> searchPageSimple(MemberSearchCondition condition, Pageable pageable) {
 
@@ -178,5 +162,21 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
+    }
+
+    private BooleanExpression userNameEq(final String username) {
+        return isEmpty(username) ? null : member.username.eq(username);
+    }
+
+    private BooleanExpression teamNameEq(final String teamName) {
+        return isEmpty(teamName) ? null : team.name.eq(teamName);
+    }
+
+    private BooleanExpression ageGoe(final Integer ageGoe) {
+        return ageGoe == null ? null : member.age.goe(ageGoe);
+    }
+
+    private BooleanExpression ageLoe(final Integer ageLoe) {
+        return ageLoe == null ? null : member.age.loe(ageLoe);
     }
 }
