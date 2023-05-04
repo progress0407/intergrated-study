@@ -50,3 +50,4 @@ public <T> JPQLQuery<T> applyPagination(Pageable pageable, JPQLQuery<T> query) {
 ```java
 class MemberRepoWithQuerydslSupportCustom extends Querydsl4RepositorySupport
 ```
+             
