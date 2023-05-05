@@ -5,7 +5,6 @@ include(
         "apigateway-service",
         "first-service",
         "second-service",
-        "user-service",
-        "apigateway-service-old-version"
+        "user-service"
 )
 
