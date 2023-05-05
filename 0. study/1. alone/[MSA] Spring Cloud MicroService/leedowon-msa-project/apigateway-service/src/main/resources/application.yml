@@ -29,6 +29,7 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
+
         - id: first-service
           uri: lb://PHILZ-FIRST-SERVICE
           predicates:
@@ -37,6 +38,7 @@ spring:
             - AddRequestHeader=first-request, first-request-value
             - AddResponseHeader=first-response, first-response-value
             - CustomFilter
+
         - id: second-service
           uri: lb://PHILZ-SECOND-SERVICE
           predicates:
