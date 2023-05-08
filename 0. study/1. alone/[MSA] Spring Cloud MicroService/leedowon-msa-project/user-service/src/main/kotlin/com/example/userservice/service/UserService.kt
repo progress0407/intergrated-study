@@ -3,7 +3,7 @@ package com.example.userservice.service
 import com.example.userservice.dto.CreateUserRequest
 import com.example.userservice.dto.CreateUserResponse
 import com.example.userservice.entity.User
-import com.example.userservice.repository.UserRepository
+import com.example.userservice.infrastructure.UserRepository
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import java.util.*

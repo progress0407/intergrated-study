@@ -4,19 +4,19 @@ GET http://localhost:8081/first-service/welcome
 ### direct request second-service
 GET http://localhost:8082/second-service/welcome
 
-### first-service request by gateway
+### first-service request
 GET http://localhost:8000/first-service/check
 
-### second-service request by gateway
+### second-service request
 GET http://localhost:8000/second-service/welcome
 
-### second-service request by gateway
+### second-service request
 GET http://localhost:8000/second-service/welcome
 
-### user-service get request by gateway
+### user-service get request
 GET http://localhost:8000/user-service/welcome
 
-### user-service post request by gateway
+### user-service post request
 POST http://localhost:8000/user-service
 Content-Type: application/json
 
@@ -25,3 +25,9 @@ Content-Type: application/json
   "name": "sw cho",
   "password": "1234"
 }
+
+### user-service find All
+GET http://localhost:8000/user-service/users
+
+### user-service find by id
+GET http://localhost:8000/user-service/users/1
