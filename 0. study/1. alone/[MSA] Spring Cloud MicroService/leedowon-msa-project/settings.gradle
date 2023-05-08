@@ -7,4 +7,5 @@ include(
         "second-service",
         "user-service"
 )
+include 'catalog-service'
 
