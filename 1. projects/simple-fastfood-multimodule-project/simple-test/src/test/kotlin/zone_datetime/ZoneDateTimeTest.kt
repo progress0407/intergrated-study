@@ -19,6 +19,22 @@ class ZoneDateTimeTest : StringSpec({
         val 영국_일시 = ZonedDateTime.of(LocalDateTime.of(2023, 1, 30, 18, 0), 영국_타임_존)
 
         한국_일시.isEqual(영국_일시) shouldBe true
-        한국_일시.equals(영국_일시) shouldBe  false // equal은 Zone까지 확인한다
+        한국_일시.equals(영국_일시) shouldBe false // equal은 Zone까지 확인한다
+    }
+
+    "한국시가 영국시보다 느린 경우" {
+
+        val 한국_일시 = ZonedDateTime.of(LocalDateTime.of(2023, 1, 31, 3 + 1, 0), 한국_타임_존)
+        val 영국_일시 = ZonedDateTime.of(LocalDateTime.of(2023, 1, 30, 18, 0), 영국_타임_존)
+
+        한국_일시.isAfter(영국_일시) shouldBe true
+    }
+
+    "한국시가 영국시보다 빠른 경우" {
+
+        val 한국_일시 = ZonedDateTime.of(LocalDateTime.of(2023, 1, 31, 3 - 1, 0), 한국_타임_존)
+        val 영국_일시 = ZonedDateTime.of(LocalDateTime.of(2023, 1, 30, 18, 0), 영국_타임_존)
+
+        한국_일시.isBefore(영국_일시) shouldBe true
     }
 })
