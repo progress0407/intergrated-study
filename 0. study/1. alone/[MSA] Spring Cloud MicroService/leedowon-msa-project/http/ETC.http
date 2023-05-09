@@ -1,0 +1,11 @@
+### First service Requset
+GET http://localhost:8000/first-service/check
+
+### Second service Requset
+GET http://localhost:8000/second-service/welcome
+
+### First service Direct Request
+GET http://localhost:8081/first-service/welcome
+
+### Second service Direct Request
+GET http://localhost:8082/second-service/welcome

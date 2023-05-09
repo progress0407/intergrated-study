@@ -1,5 +1,5 @@
-### catalog-service health check
+### Health Check
 GET http://localhost:8000/catalog-service/health_check
 
-### catalog-service find All
+### List
 GET http://localhost:8000/catalog-service/catalogs

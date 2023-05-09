@@ -1,0 +1,18 @@
+### Welcome
+GET http://localhost:8000/user-service/welcome
+
+### Sign Up
+POST http://localhost:8000/user-service
+Content-Type: application/json
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+### List
+GET http://localhost:8000/user-service/users
+
+### Detail
+GET http://localhost:8000/user-service/users/1
