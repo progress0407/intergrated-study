@@ -163,6 +163,9 @@ spring:
             - AddResponseHeader=second-response, second-response-value
 ```
 
+(Path) `/first-service/**` 로 요청이 오면 (uri) `http://localhost:8081/` 로 라우팅한다
+
+
 커스텀 필터를 등록해보자
 
 커스텀 필터
