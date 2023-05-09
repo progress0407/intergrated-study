@@ -7,10 +7,12 @@ import org.springframework.stereotype.Component
 @Component
 class UserQuery(private val userRepository: UserRepository) {
 
-    fun findAll(): List<UserResponse> =
-        userRepository.findAll()
+    fun findAll(): List<UserResponse> {
+
+        return userRepository.findAll()
             .map { UserResponse(it) }
             .toList()
+    }
 
     fun findOne(userId: Long): UserResponse {
 
