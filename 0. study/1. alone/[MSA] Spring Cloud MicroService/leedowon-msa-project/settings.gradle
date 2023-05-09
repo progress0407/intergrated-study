@@ -1,11 +1,10 @@
 rootProject.name = 'leedowon-msa-project'
 
 include(
-        "discoveryservice",
-        "apigateway-service",
-        "first-service",
-        "second-service",
-        "user-service"
+        'discoveryservice',
+        'apigateway-service',
+        'first-service',
+        'second-service',
+        'user-service',
+        'catalog-service'
 )
-include 'catalog-service'
-
