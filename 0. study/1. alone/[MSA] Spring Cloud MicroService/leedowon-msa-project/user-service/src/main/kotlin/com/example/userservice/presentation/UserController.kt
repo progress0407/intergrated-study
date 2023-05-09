@@ -10,14 +10,13 @@ import org.springframework.core.env.Environment
 import org.springframework.web.bind.annotation.*
 
 
-@RestController
 @RequestMapping("/user-service")
+@RestController
 class UserController(
     val env: Environment,
     val greeting: Greeting,
     val userService: UserService,
-    val userQuery: UserQuery
-) {
+    val userQuery: UserQuery) {
 
     @GetMapping("/health_check")
     fun status() =
