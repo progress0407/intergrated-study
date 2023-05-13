@@ -1,4 +1,4 @@
-package org.example.app
+package org.example.catalog.app
 
 import java.time.LocalDateTime
 
