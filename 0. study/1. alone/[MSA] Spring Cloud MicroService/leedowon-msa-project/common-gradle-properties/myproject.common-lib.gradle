@@ -1,6 +1,3 @@
-/**
- * 기본적으로 user-service와 동일
- */
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {

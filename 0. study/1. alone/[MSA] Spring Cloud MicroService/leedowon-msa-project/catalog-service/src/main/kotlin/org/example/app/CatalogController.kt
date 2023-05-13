@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/catalog-service")
 @RestController
 class CatalogController(private val env: Environment,
-                        private val categoryQuery: CategoryQuery
-) {
+                        private val categoryQuery: CategoryQuery) {
 
     @GetMapping("/health_check")
     fun status(): String {
