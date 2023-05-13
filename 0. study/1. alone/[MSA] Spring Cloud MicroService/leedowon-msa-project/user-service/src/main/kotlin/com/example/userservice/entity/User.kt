@@ -24,7 +24,7 @@ open class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id: Long? = null
 
-    constructor() : this( "", "", "", "")
+    constructor() : this(email = "", name = "", userId = "", encryptedPassword = "")
 
     override fun toString(): String {
         return "User(email='$email', name='$name', userId='$userId', encryptedPassword='$encryptedPassword', id=$id)"
