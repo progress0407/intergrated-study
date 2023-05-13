@@ -2,13 +2,12 @@ package org.example.catalog.app
 
 import jakarta.persistence.*
 import org.hibernate.annotations.ColumnDefault
-import java.io.Serializable
 import java.time.LocalDateTime
 
 
 @Entity
 @Table(name = "catalog")
-open class CatalogEntity : Serializable {
+open class Catalog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -20,7 +20,7 @@ class CatalogResponse {
     var createdAt: LocalDateTime? = null
         private set
 
-    constructor(entity: CatalogEntity) {
+    constructor(entity: Catalog) {
         this.productId = entity.productId
         this.productName = entity.productName
         this.unitPrice = entity.unitPrice
