@@ -10,8 +10,9 @@ import java.util.UUID
 @Entity
 @Table(name = "orders")
 open class Order {
-    
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id: Long? = null
 
     @Column(nullable = false, length = 120, unique = true)
@@ -44,5 +45,8 @@ open class Order {
         this.userId = userId
         this.unitPrice = unitPrice
         this.orderQuantity = orderQuantity
+        this.totalPrice = calcTotalPrice(unitPrice, orderQuantity)
     }
+
+    private fun calcTotalPrice(unitPrice: Int, orderQuantity: Int) = unitPrice * orderQuantity
 }

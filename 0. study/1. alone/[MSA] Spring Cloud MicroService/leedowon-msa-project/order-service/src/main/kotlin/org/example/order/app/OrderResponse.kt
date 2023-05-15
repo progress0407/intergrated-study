@@ -2,15 +2,17 @@ package org.example.order.app
 
 import java.time.LocalDateTime
 
-//@JsonInclude(JsonInclude.Include.NON_NULL)
-class OrderResponse {
+data class OrderResponse(
 
-    private val orderId: String? = null
-    private val productId: String? = null
-    private val unitPrice: Int? = null
-    private val orderQuantity: Int? = null
-    private val totalPrice: Int? = null
-    private val createdAt: LocalDateTime? = null
+    val orderId: String = "",
 
-    constructor()
-}
+    val productId: String = "",
+
+    val unitPrice: Int = 0,
+
+    val orderQuantity: Int = 0,
+
+    val totalPrice: Int = 0,
+
+    val createdAt: LocalDateTime = LocalDateTime.now()
+)

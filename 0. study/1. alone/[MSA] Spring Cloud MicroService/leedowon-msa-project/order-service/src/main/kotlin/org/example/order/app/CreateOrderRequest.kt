@@ -1,15 +1,20 @@
 package org.example.order.app
 
-import lombok.Data
+import jakarta.validation.constraints.NotNull
 
-@Data
-class CreateOrderRequest {
+data class CreateOrderRequest(
 
-    private val productId: String? = null
-    private val orderQuantity: Int? = null
-    private val unitPrice: Int? = null
+    @NotNull
+    private val productId: String = "",
+
+    @NotNull
+    private val orderQuantity: Int = 0,
+
+    @NotNull
+    private val unitPrice: Int = 0
+) {
 
     fun toEntity(userId: String): Order {
-        return Order(userId, productId!!, orderQuantity!!, unitPrice!!)
+        return Order(userId, productId, orderQuantity, unitPrice)
     }
 }

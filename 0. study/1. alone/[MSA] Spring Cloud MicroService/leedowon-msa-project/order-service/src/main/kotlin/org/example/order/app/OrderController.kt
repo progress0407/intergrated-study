@@ -38,7 +38,7 @@ class OrderController(private val environment: Environment,
         log.info("Before retrieve orders data")
 
         val orderResponses = orderQuery.finderOrdersByUserId(userId)
-        delayOrException()
+//        delayOrException()
 
         log.info("Add retrieved orders data")
 
