@@ -1,0 +1,25 @@
+### Health Check
+GET http://localhost:8000/order-service/health_check
+
+### Order "CATALOG-001"
+POST http://localhost:8000/order-service/abc-123/orders
+Content-Type: application/json
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+### Order "CATALOG-002"
+POST http://localhost:8000/order-service/abc-123/orders
+Content-Type: application/json
+
+{
+  "productId": "CATALOG-002",
+  "orderQuantity": 5,
+  "unitPrice": 1000
+}
+
+### List
+GET http://localhost:8000/order-service/abc-123/orders
