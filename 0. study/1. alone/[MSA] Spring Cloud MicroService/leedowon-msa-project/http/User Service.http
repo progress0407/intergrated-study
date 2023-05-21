@@ -17,6 +17,16 @@ Content-Type: application/json
 }
 
 
+### Login
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+
 ### List
 GET http://localhost:8000/user-service/users
 

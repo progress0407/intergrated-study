@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.config.annotation.ObjectPostProcessor
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -18,7 +19,8 @@ import org.springframework.security.web.SecurityFilterChain
 class SecurityConfiguration(
     private val objectMapper: ObjectMapper,
     private val userService: UserService,
-    private val bCryptPasswordEncoder: BCryptPasswordEncoder) {
+    private val bCryptPasswordEncoder: BCryptPasswordEncoder,
+    private val objectPostProcessor: ObjectPostProcessor<Any>) {
 
     companion object {
         private val WHITE_LIST = arrayOf("/users/**", "/**")
@@ -29,15 +31,23 @@ class SecurityConfiguration(
 
         return http.csrf().disable()
             .headers().frameOptions().disable().and()
-            .addFilter(AuthenticationFilter(objectMapper))
+            .addFilter(createAuthenticationFilter())
             .authorizeHttpRequests {
                 it.requestMatchers(*WHITE_LIST).permitAll()
 //                    .requestMatchers(PathRequest.toH2Console()).permitAll()
             }.build()
     }
 
+    @Throws(java.lang.Exception::class)
+    private fun createAuthenticationFilter(): AuthenticationFilter {
+        val authenticationFilter = AuthenticationFilter(objectMapper)
+        val builder = AuthenticationManagerBuilder(objectPostProcessor)
+        authenticationFilter.setAuthenticationManager(authenticationManager(builder))
+        return authenticationFilter
+    }
+
     @Throws(Exception::class)
-    fun authenticationManager(auth: AuthenticationManagerBuilder): AuthenticationManager {
+    private fun authenticationManager(auth: AuthenticationManagerBuilder): AuthenticationManager {
         auth.userDetailsService<UserDetailsService>(userService).passwordEncoder(bCryptPasswordEncoder)
         return auth.build()
     }
