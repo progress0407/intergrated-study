@@ -41,5 +41,4 @@ class SecurityConfiguration(
         auth.userDetailsService<UserDetailsService>(userService).passwordEncoder(bCryptPasswordEncoder)
         return auth.build()
     }
-
 }
