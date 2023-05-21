@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment
 import org.springframework.web.bind.annotation.*
 
 
-@RequestMapping("/user-service")
+@RequestMapping("/users")
 @RestController
 class UserController(
     val env: Environment,
@@ -36,12 +36,12 @@ class UserController(
         return userService.createUser(createUserRequest)
     }
 
-    @GetMapping("/users")
+    @GetMapping
     fun findAll(): List<UserResponse> {
         return userQuery.findAll()
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/{userId}")
     fun findByUserId(@PathVariable("userId") userId: Long): UserResponse {
         return userQuery.findOne(userId)
     }
