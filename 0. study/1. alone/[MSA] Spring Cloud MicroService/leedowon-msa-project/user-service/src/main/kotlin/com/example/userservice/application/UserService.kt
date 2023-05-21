@@ -1,9 +1,10 @@
-package com.example.userservice.service
+package com.example.userservice.application
 
 import com.example.userservice.dto.CreateUserRequest
 import com.example.userservice.dto.CreateUserResponse
 import com.example.userservice.entity.User
 import com.example.userservice.infrastructure.UserRepository
+import com.example.userservice.security.SecurityUser
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -28,7 +29,7 @@ class UserService(
 
         val user = userRepository.findByEmail(username) ?: throw UsernameNotFoundException(username)
 
-        return org.springframework.security.core.userdetails.User(
+        return SecurityUser(
             user.email,
             user.encryptedPassword,
             emptyList<GrantedAuthority>()
