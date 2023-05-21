@@ -27,6 +27,39 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   "password": "1234"
 }
 
+<> 2023-05-22T012504.200.json
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=D44F85A504F0E614F7C0AD8B00A8F66D
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=D44F85A504F0E614F7C0AD8B00A8F66D
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
 <> 2023-05-22T004635.200.json
 
 ###
@@ -575,26 +608,6 @@ Cookie: JSESSIONID=D44F85A504F0E614F7C0AD8B00A8F66D
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-05-21T234732.404.json
-
-###
-
-GET http://localhost:8000/user-service/health_check
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Cookie: JSESSIONID=D44F85A504F0E614F7C0AD8B00A8F66D
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-21T234729.404.json
-
-###
-
-GET http://localhost:8000/user-service/users
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Cookie: JSESSIONID=D44F85A504F0E614F7C0AD8B00A8F66D
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-21T234545.200.json
 
 ###
 
