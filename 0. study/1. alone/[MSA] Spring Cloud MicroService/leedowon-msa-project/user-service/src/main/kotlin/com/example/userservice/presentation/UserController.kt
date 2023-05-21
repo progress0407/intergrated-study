@@ -4,7 +4,7 @@ import com.example.userservice.dto.CreateUserRequest
 import com.example.userservice.dto.CreateUserResponse
 import com.example.userservice.dto.UserResponse
 import com.example.userservice.infrastructure.UserQuery
-import com.example.userservice.service.UserService
+import com.example.userservice.application.UserService
 import com.example.userservice.vo.Greeting
 import org.springframework.core.env.Environment
 import org.springframework.web.bind.annotation.*

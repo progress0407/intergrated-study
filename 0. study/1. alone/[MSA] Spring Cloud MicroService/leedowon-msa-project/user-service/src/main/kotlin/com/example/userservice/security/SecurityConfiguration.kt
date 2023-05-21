@@ -1,6 +1,6 @@
 package com.example.userservice.security
 
-import com.example.userservice.service.UserService
+import com.example.userservice.application.UserService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

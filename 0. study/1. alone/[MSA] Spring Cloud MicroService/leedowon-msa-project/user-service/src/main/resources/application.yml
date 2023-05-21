@@ -38,6 +38,7 @@ greeting:
   message: "Welcome to the Simple E-commerce"
 
 logging.level:
-    org.hibernate:
-      type.descriptor.sql: trace
+  com.example.userservice: DEBUG
+  org.hibernate:
+    type.descriptor.sql: trace
 
