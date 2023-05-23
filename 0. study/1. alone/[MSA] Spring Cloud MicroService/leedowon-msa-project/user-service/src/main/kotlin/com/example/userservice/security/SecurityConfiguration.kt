@@ -19,12 +19,7 @@ import org.springframework.security.web.SecurityFilterChain
 @EnableWebSecurity
 @Configuration
 class SecurityConfiguration(
-    private val userDetailServiceImpl: UserService,
-    private val bCryptPasswordEncoder: BCryptPasswordEncoder,
-    private val objectPostProcessor: ObjectPostProcessor<Any>,
-    private val objectMapper: ObjectMapper,
-    private val userQuery: UserQuery,
-    private val env: Environment
+    private val authenticationFilter: AuthenticationFilter
 ) {
 
     companion object {
@@ -36,29 +31,10 @@ class SecurityConfiguration(
 
         return http.csrf().disable()
             .headers().frameOptions().disable().and()
-            .addFilter(createAuthenticationFilter())
+            .addFilter(authenticationFilter)
             .authorizeHttpRequests {
                 it.requestMatchers(*WHITE_LIST).permitAll()
 //                    .requestMatchers(PathRequest.toH2Console()).permitAll()
             }.build()
-    }
-
-    @Throws(java.lang.Exception::class)
-    private fun createAuthenticationFilter(): AuthenticationFilter {
-
-        val builder = AuthenticationManagerBuilder(objectPostProcessor)
-        val authenticationManager = authenticationManager(builder)
-        val authenticationFilter = AuthenticationFilter(objectMapper, userQuery, env)
-        authenticationFilter.setAuthenticationManager(authenticationManager)
-
-        return authenticationFilter
-    }
-
-    @Throws(Exception::class)
-    private fun authenticationManager(authenticationManagerBuilder: AuthenticationManagerBuilder): AuthenticationManager {
-
-        authenticationManagerBuilder.userDetailsService<UserDetailsService>(userDetailServiceImpl).passwordEncoder(bCryptPasswordEncoder)
-
-        return authenticationManagerBuilder.build()
     }
 }
