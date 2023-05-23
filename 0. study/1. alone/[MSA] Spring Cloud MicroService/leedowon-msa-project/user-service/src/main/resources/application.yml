@@ -43,5 +43,5 @@ logging.level:
     type.descriptor.sql: trace
 
 token:
-  expiration-time: 86400000
-  secret: "token secret value abcdefghijklmn 1234567890 asfunvsaoiuf123214fdaslmdsajlkdvf"
+  secret-key: "token secret value abcdefghijklmn 1234567890 asfunvsaoiuf123214fdaslmdsajlkdvf"
+  expiration-duration-time: 86400000

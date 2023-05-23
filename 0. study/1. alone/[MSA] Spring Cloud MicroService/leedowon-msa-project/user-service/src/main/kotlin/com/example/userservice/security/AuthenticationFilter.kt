@@ -11,7 +11,7 @@ import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import mu.KotlinLogging
-import org.springframework.core.env.Environment
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.config.annotation.ObjectPostProcessor
@@ -33,7 +33,8 @@ class AuthenticationFilter(
     private val bCryptPasswordEncoder: BCryptPasswordEncoder,
     private val objectMapper: ObjectMapper,
     private val userQuery: UserQuery,
-    private val env: Environment
+    @Value("\${token.secret-key}") val secretKey: String,
+    @Value("\${token.expiration-duration-time}") val expirationDurationTime: Long
 ) : UsernamePasswordAuthenticationFilter() {
 
     private val log = KotlinLogging.logger {}
@@ -67,9 +68,7 @@ class AuthenticationFilter(
         authResult: Authentication
     ) {
 
-        val username = (authResult.principal as SecurityUser).username
-        log.info("User Name : $username")
-        val userId = userQuery.findIdByUsername(username)
+        val userId = convertUserId(authResult)
         val expirationTime = createExpirationDateTime()
         val key = createKey()
         val algorithm = SignatureAlgorithm.HS512
@@ -78,6 +77,13 @@ class AuthenticationFilter(
 
         response.addHeader("token", token)
         response.addHeader("userId", userId.toString())
+    }
+
+    private fun convertUserId(authResult: Authentication): Long {
+
+        val username = (authResult.principal as SecurityUser).username
+
+        return userQuery.findIdByUsername(username)
     }
 
     @Throws(Exception::class)
@@ -95,7 +101,7 @@ class AuthenticationFilter(
         expirationTime: Date,
         key: SecretKey,
         algorithm: SignatureAlgorithm
-    ): String? =
+    ): String =
         Jwts.builder()
             .setSubject(userId.toString())
             .setExpiration(expirationTime)
@@ -104,13 +110,11 @@ class AuthenticationFilter(
 
     private fun createKey(): SecretKey {
 
-        val secretKey = env.getProperty("token.secret")!!
-
         return Keys.hmacShaKeyFor(secretKey.toByteArray())
     }
 
     private fun createExpirationDateTime(): Date =
-        Date(System.currentTimeMillis() + env.getProperty("token.expiration-time")!!.toLong())
+        Date(System.currentTimeMillis() + expirationDurationTime)
 
     private fun usernamePasswordAuthenticationToken(credentials: LoginRequest) =
         UsernamePasswordAuthenticationToken(credentials.email, credentials.password, emptyList())
