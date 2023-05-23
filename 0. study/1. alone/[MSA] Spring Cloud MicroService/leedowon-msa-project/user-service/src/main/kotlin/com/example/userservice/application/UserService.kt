@@ -20,8 +20,10 @@ class UserService(
 ) : UserDetailsService {
 
     fun createUser(dto: CreateUserRequest): CreateUserResponse {
+
         val user = createUserOne(dto)
         userRepository.save(user)
+
         return CreateUserResponse(user.id!!, user.userId)
     }
 
