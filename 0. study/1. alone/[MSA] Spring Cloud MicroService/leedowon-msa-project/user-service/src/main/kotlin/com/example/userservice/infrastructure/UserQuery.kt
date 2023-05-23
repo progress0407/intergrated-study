@@ -19,4 +19,9 @@ class UserQuery(private val userRepository: UserRepository) {
         val userOne = userRepository.findById(userId).orElseThrow { throw UserNotFoundException("User not found") }
         return UserResponse(userOne, listOf())
     }
+
+    fun findIdByUsername(username: String): Long {
+        val user = userRepository.findByEmail(username) ?: throw UserNotFoundException("User not found")
+        return user.id!!
+    }
 }

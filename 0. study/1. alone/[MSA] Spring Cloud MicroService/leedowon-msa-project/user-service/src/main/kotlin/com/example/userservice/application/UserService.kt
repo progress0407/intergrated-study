@@ -30,15 +30,17 @@ class UserService(
         val user = userRepository.findByEmail(username) ?: throw UsernameNotFoundException(username)
 
         return SecurityUser(
-            user.email,
-            user.encryptedPassword,
-            emptyList<GrantedAuthority>()
+            username = user.email,
+            password = user.encryptedPassword,
+            authorities = emptyList<GrantedAuthority>()
         )
     }
 
     private fun createUserOne(dto: CreateUserRequest): User {
+
         val randomId = createRandomId()
         val encodedPassword = passwordEncoder.encode(dto.password)
+
         return User(
             userId = randomId,
             email = dto.email,
