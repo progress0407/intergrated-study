@@ -1,9 +1,11 @@
 ### Health Check
 GET http://localhost:8000/user-service/health_check
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
 
 
 ### Welcome
 GET http://localhost:8000/user-service/welcome
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
 
 
 ### Sign Up
@@ -29,7 +31,9 @@ Content-Type: application/json
 
 ### List
 GET http://localhost:8000/user-service/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
 
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA

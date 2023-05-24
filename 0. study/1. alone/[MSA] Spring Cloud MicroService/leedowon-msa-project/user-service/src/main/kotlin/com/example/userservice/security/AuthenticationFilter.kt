@@ -53,6 +53,8 @@ class AuthenticationFilter(
             // id, pw 비교하는 로직 위임
             val authenticate: Authentication = authenticationManager.authenticate(authenticationToken)
 
+            log.info { "authenticate = $authenticate" }
+
             authenticate
 
         } catch (e: IOException) {
@@ -74,6 +76,8 @@ class AuthenticationFilter(
         val algorithm = SignatureAlgorithm.HS512
 
         val token = createToken(userId, expirationTime, key, algorithm)
+
+        log.info { "login success ! token: $token" }
 
         response.addHeader("token", token)
         response.addHeader("userId", userId.toString())
@@ -103,9 +107,10 @@ class AuthenticationFilter(
         algorithm: SignatureAlgorithm
     ): String =
         Jwts.builder()
-            .setSubject(userId.toString())
-            .setExpiration(expirationTime)
             .signWith(key, algorithm)
+            .setSubject(userId.toString())
+            .setIssuedAt(Date())
+            .setExpiration(expirationTime)
             .compact()
 
     private fun createKey(): SecretKey {
