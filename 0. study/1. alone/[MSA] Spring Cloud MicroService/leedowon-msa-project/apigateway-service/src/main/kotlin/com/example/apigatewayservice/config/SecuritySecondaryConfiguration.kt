@@ -1,4 +1,4 @@
-package com.example.userservice.security
+package com.example.apigatewayservice.config
 
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
@@ -11,9 +11,6 @@ import javax.crypto.SecretKey
 class SecuritySecondaryConfiguration(
     @Value("\${token.secret-key}") private val secretKey: String
 ) {
-
-    @Bean
-    fun passwordEncoder() = BCryptPasswordEncoder()
 
     @Bean
     fun secretKey(): SecretKey = Keys.hmacShaKeyFor(secretKey.toByteArray())
