@@ -9,3 +9,5 @@ include(
         'catalog-service',
         'order-service'
 )
+include 'config-service'
+
