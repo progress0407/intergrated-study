@@ -4,4 +4,5 @@ server:
 spring:
   application.name: config-service
   cloud.config.server:
-    git.uri: 'file://${user.dir}/server-configuration'
+#    git.uri: 'file://${user.dir}/../../../../leedowon-msa-spring-cloud-configuration'
+    git.uri: 'file:///C:/dev/5.%20projects/3.%20global/leedowon-msa-spring-cloud-configuration'
