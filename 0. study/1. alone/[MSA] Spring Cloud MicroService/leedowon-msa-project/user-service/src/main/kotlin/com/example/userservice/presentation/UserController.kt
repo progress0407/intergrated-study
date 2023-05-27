@@ -18,11 +18,14 @@ class UserController(
     val userService: UserService,
     val userQuery: UserQuery) {
 
-    @GetMapping("/health_check")
+    @GetMapping("/health-check")
     fun status() =
         """
         It's Working in User Service 
-        port(local.server.port)= ${env.getProperty("local.server.port")}
+        port(local.server.port) = ${env.getProperty("local.server.port")}, 
+        port(server.port) = ${env.getProperty("server.port")}, 
+        token secret key = ${env.getProperty("token.secret-key")}, 
+        token expiration duration time = ${env.getProperty("token.expiration-duration-time")}
         """.trimIndent()
 
     @GetMapping("/welcome")
