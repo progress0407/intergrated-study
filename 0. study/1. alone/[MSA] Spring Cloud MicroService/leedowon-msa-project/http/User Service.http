@@ -1,5 +1,9 @@
+### Direct Health Check
+GET http://localhost:6744/users/health-check
+
+
 ### Health Check
-GET http://localhost:8000/user-service/health_check
+GET http://localhost:8000/user-service/health-check
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
 
 
