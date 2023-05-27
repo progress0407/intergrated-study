@@ -23,18 +23,21 @@ class SecurityConfiguration(
 ) {
 
     companion object {
-        private val WHITE_LIST = arrayOf("/users/**", "/**")
+        private val WHITE_LIST = arrayOf("/actuator/**", "/users/**")
     }
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
 
-        return http.csrf().disable()
-            .headers().frameOptions().disable().and()
-            .addFilter(authenticationFilter)
-            .authorizeHttpRequests {
-                it.requestMatchers(*WHITE_LIST).permitAll()
-//                    .requestMatchers(PathRequest.toH2Console()).permitAll()
-            }.build()
+        http.csrf().disable()
+
+        http.headers().frameOptions().disable()
+
+        http.authorizeHttpRequests {
+            it.requestMatchers(*WHITE_LIST).permitAll()
+//                .requestMatchers(PathRequest.toH2Console()).permitAll()
+        }.addFilter(authenticationFilter)
+
+        return http.build()
     }
 }
