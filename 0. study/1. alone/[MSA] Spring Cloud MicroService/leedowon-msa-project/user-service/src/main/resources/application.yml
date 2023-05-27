@@ -41,7 +41,3 @@ logging.level:
   com.example.userservice: DEBUG
   org.hibernate:
     type.descriptor.sql: trace
-
-#token:
-#  secret-key: "token secret value abcdefghijklmn 1234567890 asfunvsaoiuf123214fdaslmdsajlkdvf"
-#  expiration-duration-time: 86400000
