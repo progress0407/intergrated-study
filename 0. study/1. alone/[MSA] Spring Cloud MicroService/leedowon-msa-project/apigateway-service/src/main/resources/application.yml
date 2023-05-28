@@ -26,7 +26,7 @@ spring:
             postLogger: true
       routes:
 
-        #회원 가입
+        ## User Service 회원 가입
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -36,7 +36,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*),/$\{segment}
 
-        #로그인
+        ## User Service 로그인
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -46,12 +46,23 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*),/$\{segment}
 
-        # 사용자 조회
+        ## User Service 조회
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
             - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*),/$\{segment}
+            - AuthorizationHeaderFilter
+
+        ## User Service Actuator
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/actuator/**
+            - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*),/$\{segment}
@@ -89,3 +100,9 @@ spring:
                 baseMessage: "Spring Cloud Gateway GlobalFilter"
                 preLogger: true
                 postLogger: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httpexchanges

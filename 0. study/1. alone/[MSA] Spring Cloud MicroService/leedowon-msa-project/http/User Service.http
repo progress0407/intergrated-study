@@ -8,7 +8,7 @@ POST http://localhost:10623/actuator/refresh
 
 ### Health Check
 GET http://localhost:8000/user-service/health-check
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
+Authorization: Bearer {[token}}
 
 
 ### Welcome
@@ -39,14 +39,14 @@ Content-Type: application/json
 
 ### List
 GET http://localhost:8000/user-service/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY1ODcxLCJleHAiOjE2ODUyNTIyNzF9.7yJfLglGuGDDsVYI8UPEkVwJEDwpSADd8xwvGRMtc2hZzPLHkRowxwmcFgT6iCxacaL3OY--v9rsvPFRuMpT-A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
 
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY2MzQ0LCJleHAiOjE2ODUyNTI3NDR9.j2A9ZjiqBFTJP8LDk04k9BrChBQzpWk4AeIgjJF9Z_vlWDutRxHq1oqIja8jUEi1GLsvDe0VpEcIqfriWSneEQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
 
 
 ### Refresh
 GET http://localhost:8000/user-service/actuator/refresh
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY2MzQ0LCJleHAiOjE2ODUyNTI3NDR9.j2A9ZjiqBFTJP8LDk04k9BrChBQzpWk4AeIgjJF9Z_vlWDutRxHq1oqIja8jUEi1GLsvDe0VpEcIqfriWSneEQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
