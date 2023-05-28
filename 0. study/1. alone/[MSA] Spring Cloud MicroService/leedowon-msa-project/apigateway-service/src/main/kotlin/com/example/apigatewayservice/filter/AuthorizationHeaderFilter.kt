@@ -1,8 +1,7 @@
 package com.example.apigatewayservice.filter
 
-import com.google.common.net.HttpHeaders
 import io.jsonwebtoken.Jwts
-import org.hibernate.query.sqm.tree.SqmNode.log
+import mu.KotlinLogging
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory
@@ -14,6 +13,8 @@ import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 import javax.crypto.SecretKey
 
+private const val AUTHORIZATION = "AUTHORIZATION"
+
 @Component
 class AuthorizationHeaderFilter(
     private val secretKey: SecretKey
@@ -21,12 +22,14 @@ class AuthorizationHeaderFilter(
 
     class Config
 
+    private val log = KotlinLogging.logger {}
+
     override fun apply(config: Config?): GatewayFilter =
         GatewayFilter { exchange: ServerWebExchange,
                         chain: GatewayFilterChain ->
 
             val request: ServerHttpRequest = exchange.request
-            if (!request.headers.containsKey(HttpHeaders.AUTHORIZATION)) {
+            if (!request.headers.containsKey(AUTHORIZATION)) {
                 return@GatewayFilter onUnAuthorizedError(exchange, "No authorization header")
             }
             val authorizationHeader: String = parseAuthorizationHeader(request)
@@ -40,7 +43,7 @@ class AuthorizationHeaderFilter(
         }
 
     private fun parseAuthorizationHeader(request: ServerHttpRequest): String =
-        request.headers[HttpHeaders.AUTHORIZATION]!![0]
+        request.headers[AUTHORIZATION]!![0]
 
     private fun extractJwt(authorizationHeader: String) = authorizationHeader.replace("Bearer", "").trim()
 
