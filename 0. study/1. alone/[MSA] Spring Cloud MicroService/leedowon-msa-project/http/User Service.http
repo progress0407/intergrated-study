@@ -1,9 +1,9 @@
 ### Direct Health Check
-GET http://localhost:10623/users/health-check
+GET http://localhost:6764/users/health-check
 
 
 ### Direct Refresh
-POST http://localhost:10623/actuator/refresh
+POST http://localhost:6764/actuator/refresh
 
 
 ### Health Check
