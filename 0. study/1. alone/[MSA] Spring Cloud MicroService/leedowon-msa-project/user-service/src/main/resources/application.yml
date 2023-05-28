@@ -41,3 +41,10 @@ logging.level:
   com.example.userservice: DEBUG
   org.hibernate:
     type.descriptor.sql: trace
+
+management:
+  endpoints:
+    web:
+      exposure:
+          include: refresh, health, beans
+
