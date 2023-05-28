@@ -1,5 +1,9 @@
 ### Direct Health Check
-GET http://localhost:6744/users/health-check
+GET http://localhost:10623/users/health-check
+
+
+### Direct Refresh
+POST http://localhost:10623/actuator/refresh
 
 
 ### Health Check
@@ -40,4 +44,9 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY1ODcxL
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY1ODcxLCJleHAiOjE2ODUyNTIyNzF9.7yJfLglGuGDDsVYI8UPEkVwJEDwpSADd8xwvGRMtc2hZzPLHkRowxwmcFgT6iCxacaL3OY--v9rsvPFRuMpT-A
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY2MzQ0LCJleHAiOjE2ODUyNTI3NDR9.j2A9ZjiqBFTJP8LDk04k9BrChBQzpWk4AeIgjJF9Z_vlWDutRxHq1oqIja8jUEi1GLsvDe0VpEcIqfriWSneEQ
+
+
+### Refresh
+GET http://localhost:8000/user-service/actuator/refresh
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MTY2MzQ0LCJleHAiOjE2ODUyNTI3NDR9.j2A9ZjiqBFTJP8LDk04k9BrChBQzpWk4AeIgjJF9Z_vlWDutRxHq1oqIja8jUEi1GLsvDe0VpEcIqfriWSneEQ
