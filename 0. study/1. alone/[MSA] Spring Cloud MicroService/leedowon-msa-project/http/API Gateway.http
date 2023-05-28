@@ -1,8 +1,8 @@
-### Actuator Httpexchanges
-GET http://localhost:8000/actuator/httpexchanges
-
 ### Actuator Health Check
 GET http://localhost:8000/actuator/health
 
 ### Actuator Beans
 GET http://localhost:8000/actuator/beans
+
+### Actuator Httpexchanges
+GET http://localhost:8000/actuator/httpexchanges
