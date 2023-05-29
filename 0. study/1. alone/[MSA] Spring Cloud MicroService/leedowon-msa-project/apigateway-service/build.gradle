@@ -5,6 +5,9 @@ dependencies {
     // Service Registry Client
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+    // AMQP for Spring Cloud Bus
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
     apply from: rootProject.file('gradle-dependencies/cloud-config-client-and-actuator.gradle')
     apply from: rootProject.file('gradle-dependencies/jjwt.gradle')
 }

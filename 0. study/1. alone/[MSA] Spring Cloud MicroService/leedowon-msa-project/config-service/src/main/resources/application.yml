@@ -3,5 +3,12 @@ server:
 
 spring:
   application.name: config-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   cloud.config.server:
     git.uri: https://github.com/progress0407/leedowon-msa-spring-cloud-configuration
+
+management.endpoints.web.exposure.include: health, busrefresh

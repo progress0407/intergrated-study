@@ -1,6 +1,4 @@
 dependencies {
-    apply from: rootProject.file('gradle-dependencies/cloud-config-client-and-actuator.gradle')
-    apply from: rootProject.file('gradle-dependencies/jjwt.gradle')
     apply from: rootProject.file('gradle-dependencies/micro-service.gradle')
 
     // Spring Security
@@ -8,4 +6,10 @@ dependencies {
 
     // eureka
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+    // AMQP for Spring Cloud Bus
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    apply from: rootProject.file('gradle-dependencies/cloud-config-client-and-actuator.gradle')
+    apply from: rootProject.file('gradle-dependencies/jjwt.gradle')
 }
