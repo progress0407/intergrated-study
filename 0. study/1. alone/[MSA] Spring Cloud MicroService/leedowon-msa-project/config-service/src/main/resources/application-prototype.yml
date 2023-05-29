@@ -1,0 +1,8 @@
+server:
+  port: 8888
+
+spring:
+  application.name: config-service
+  cloud.config.server:
+#    git.uri: 'file://${user.dir}/../../../../leedowon-msa-spring-cloud-configuration' # 파일 상대 주소 fail
+    git.uri: 'file:///C:/dev/5.%20projects/3.%20global/leedowon-msa-spring-cloud-configuration' # 파일 절대 주소

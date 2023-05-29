@@ -1,5 +1,6 @@
 package com.example.apigatewayservice.filter
 
+import com.example.apigatewayservice.filter.GlobalFilter.*
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
@@ -9,7 +10,7 @@ import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
 @Component
-class GlobalFilter : AbstractGatewayFilterFactory<GlobalFilter.Config>(Config::class.java) {
+class GlobalFilter : AbstractGatewayFilterFactory<Config>(Config::class.java) {
 
     val log = LoggerFactory.getLogger(GlobalFilter::class.java)!!
 
