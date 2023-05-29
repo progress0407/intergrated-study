@@ -1,39 +1,41 @@
-package com.example.apigatewayservice.filter
+package com.example.apigatewayservice.app.filter
 
-import com.example.apigatewayservice.filter.LoggingFilter.*
+import com.example.apigatewayservice.app.filter.GlobalFilter.*
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
-import org.springframework.cloud.gateway.filter.OrderedGatewayFilter
+import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory
-import org.springframework.core.Ordered
 import org.springframework.stereotype.Component
+import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
 @Component
-class LoggingFilter : AbstractGatewayFilterFactory<Config>(Config::class.java) {
+class GlobalFilter : AbstractGatewayFilterFactory<Config>(Config::class.java) {
 
-    val log = LoggerFactory.getLogger(LoggingFilter::class.java)!!
+    val log = LoggerFactory.getLogger(GlobalFilter::class.java)!!
 
     override fun apply(config: Config?): GatewayFilter =
-        OrderedGatewayFilter({ exchange, chain ->
+        GatewayFilter { exchange: ServerWebExchange,
+                        chain: GatewayFilterChain ->
+
             if (config == null) {
                 throw NullPointerException("config should not be null")
             }
 
-            log.info("Logging Filter baseMessage: {}", config.baseMessage)
+            log.info("Global Filter baseMessage: {}", config.baseMessage)
 
             if (config.preLogger) {
-                log.info("Logging Filter Start: request id -> {}", exchange.request.id)
+                log.info("Global Filter Start: request id -> {}", exchange.request.id)
             }
 
             chain
                 .filter(exchange)
                 .then(Mono.fromRunnable {
                     if (config.postLogger) {
-                        log.info("Logging Filter End: request id -> {}", exchange.response.statusCode)
+                        log.info("Global Filter End: request id -> {}", exchange.response.statusCode)
                     }
                 })
-        }, Ordered.LOWEST_PRECEDENCE)
+        }
 
     class Config {
         lateinit var baseMessage: String
