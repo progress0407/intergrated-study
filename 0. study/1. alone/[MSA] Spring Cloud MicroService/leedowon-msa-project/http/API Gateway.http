@@ -1,3 +1,6 @@
+### App Info
+GET http://localhost:8000/gateway/app-info
+
 ### Actuator Health Check
 GET http://localhost:8000/actuator/health
 
@@ -6,3 +9,6 @@ GET http://localhost:8000/actuator/beans
 
 ### Actuator Httpexchanges
 GET http://localhost:8000/actuator/httpexchanges
+
+### Bus Refresh
+POST http://localhost:8000/actuator/busrefresh

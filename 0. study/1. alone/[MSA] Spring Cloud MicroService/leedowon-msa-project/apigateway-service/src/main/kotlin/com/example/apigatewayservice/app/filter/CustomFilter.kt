@@ -1,6 +1,6 @@
-package com.example.apigatewayservice.filter
+package com.example.apigatewayservice.app.filter
 
-import com.example.apigatewayservice.filter.CustomFilter.*
+import com.example.apigatewayservice.app.filter.CustomFilter.*
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain

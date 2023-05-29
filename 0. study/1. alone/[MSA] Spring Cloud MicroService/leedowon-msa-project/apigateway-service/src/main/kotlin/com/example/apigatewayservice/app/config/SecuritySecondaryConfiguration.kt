@@ -1,4 +1,4 @@
-package com.example.apigatewayservice.config
+package com.example.apigatewayservice.app.config
 
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value

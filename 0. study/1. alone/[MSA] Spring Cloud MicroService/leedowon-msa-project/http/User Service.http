@@ -1,20 +1,23 @@
-### Direct Health Check
-GET http://localhost:9876/users/health-check
+### App Info
+GET http://localhost:8000/user-service/users/app-info
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM3OTI5LCJleHAiOjE2ODU0MjQzMjl9.pFbdw2b-wJwcsFZjjKYZWU9HmsVQVG6ZAj-CQxBpTT2o4en8ETzRjYFWAQTigcLCrbLLtSh4HpmWC2pn3ohAqg
 
+### Direct App Info
+GET http://localhost:6858/users/app-info
 
 ### Direct Refresh
-POST http://localhost:6764/actuator/refresh
+POST http://localhost:6858/actuator/refresh
 
+### Direct Bus Refresh
+POST http://localhost:6858/actuator/busrefresh
 
 ### Health Check
 GET http://localhost:8000/user-service/health-check
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjY0MDY4LCJleHAiOjE2ODUzNTA0Njd9.NIKJl7mBmFdnMcEGZeMBM_3HIKCJBgDx165VO-gEURX2ZthgF4W7aPNxGYanccN14_zSlwzJRz4QGgn7yM5aGA
 
-
 ### Welcome
 GET http://localhost:8000/user-service/welcome
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
-
 
 ### Sign Up
 POST http://localhost:8000/user-service/users
@@ -26,7 +29,6 @@ Content-Type: application/json
   "password": "1234"
 }
 
-
 ### Login
 POST http://localhost:8000/user-service/login
 Content-Type: application/json
@@ -36,16 +38,13 @@ Content-Type: application/json
   "password": "1234"
 }
 
-
 ### List
 GET http://localhost:8000/user-service/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
-
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM3OTI5LCJleHAiOjE2ODU0MjQzMjl9.pFbdw2b-wJwcsFZjjKYZWU9HmsVQVG6ZAj-CQxBpTT2o4en8ETzRjYFWAQTigcLCrbLLtSh4HpmWC2pn3ohAqg
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
-
 
 ### Refresh
 GET http://localhost:8000/user-service/actuator/refresh

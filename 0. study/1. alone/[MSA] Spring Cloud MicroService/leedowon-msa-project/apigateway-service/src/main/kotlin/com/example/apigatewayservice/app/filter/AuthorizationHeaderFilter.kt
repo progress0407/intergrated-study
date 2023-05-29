@@ -1,6 +1,6 @@
-package com.example.apigatewayservice.filter
+package com.example.apigatewayservice.app.filter
 
-import com.example.apigatewayservice.filter.AuthorizationHeaderFilter.*
+import com.example.apigatewayservice.app.filter.AuthorizationHeaderFilter.*
 import io.jsonwebtoken.Jwts
 import mu.KotlinLogging
 import org.springframework.cloud.gateway.filter.GatewayFilter

@@ -1,0 +1,5 @@
+### Bus Refresh
+POST http://localhost:8888/actuator/busrefresh
+
+### Config Service App Info
+GET http://localhost:8888/config-service/app-info

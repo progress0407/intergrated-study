@@ -47,8 +47,4 @@ logging.level:
   org.hibernate:
     type.descriptor.sql: trace
 
-management:
-  endpoints:
-    web:
-      exposure:
-          include: refresh, health, beans, busrefresh
+management.endpoints.web.exposure.include: refresh, health, beans, busrefresh

@@ -18,8 +18,8 @@ class UserController(
     val userService: UserService,
     val userQuery: UserQuery) {
 
-    @GetMapping("/health-check")
-    fun status() =
+    @GetMapping("/app-info")
+    fun appInfo() =
         """
         It's Working in User Service 
         port(local.server.port) = ${env.getProperty("local.server.port")}, 
