@@ -1,0 +1,10 @@
+server:
+  port: 8888
+
+spring:
+  application.name: config-service
+  cloud.config.server:
+    git:
+      uri: https://github.com/progress0407/leedowon-msa-spring-cloud-configuration
+#      username: [your username]
+#      password: [your password]

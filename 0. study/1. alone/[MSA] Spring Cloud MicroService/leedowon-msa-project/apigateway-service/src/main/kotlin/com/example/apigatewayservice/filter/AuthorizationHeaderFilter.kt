@@ -1,5 +1,6 @@
 package com.example.apigatewayservice.filter
 
+import com.example.apigatewayservice.filter.AuthorizationHeaderFilter.*
 import io.jsonwebtoken.Jwts
 import mu.KotlinLogging
 import org.springframework.cloud.gateway.filter.GatewayFilter
@@ -18,7 +19,7 @@ private const val AUTHORIZATION = "AUTHORIZATION"
 @Component
 class AuthorizationHeaderFilter(
     private val secretKey: SecretKey
-) : AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config>(Config::class.java) {
+) : AbstractGatewayFilterFactory<Config>(Config::class.java) {
 
     class Config
 

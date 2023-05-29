@@ -1,5 +1,6 @@
 package com.example.apigatewayservice.filter
 
+import com.example.apigatewayservice.filter.CustomFilter.*
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
@@ -11,7 +12,7 @@ import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
 @Component
-class CustomFilter() : AbstractGatewayFilterFactory<CustomFilter.Config>(Config::class.java) {
+class CustomFilter() : AbstractGatewayFilterFactory<Config>(Config::class.java) {
 
     private val log = LoggerFactory.getLogger(CustomFilter::class.java)
 

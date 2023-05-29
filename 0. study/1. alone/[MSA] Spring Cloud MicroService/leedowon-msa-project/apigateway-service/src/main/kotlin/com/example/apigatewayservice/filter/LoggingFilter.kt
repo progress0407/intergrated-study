@@ -1,5 +1,6 @@
 package com.example.apigatewayservice.filter
 
+import com.example.apigatewayservice.filter.LoggingFilter.*
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.OrderedGatewayFilter
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 
 @Component
-class LoggingFilter : AbstractGatewayFilterFactory<LoggingFilter.Config>(Config::class.java) {
+class LoggingFilter : AbstractGatewayFilterFactory<Config>(Config::class.java) {
 
     val log = LoggerFactory.getLogger(LoggingFilter::class.java)!!
 

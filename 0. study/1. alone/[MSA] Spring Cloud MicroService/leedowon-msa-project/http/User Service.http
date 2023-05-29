@@ -1,5 +1,5 @@
 ### Direct Health Check
-GET http://localhost:6764/users/health-check
+GET http://localhost:9876/users/health-check
 
 
 ### Direct Refresh
@@ -8,7 +8,7 @@ POST http://localhost:6764/actuator/refresh
 
 ### Health Check
 GET http://localhost:8000/user-service/health-check
-Authorization: Bearer {[token}}
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjY0MDY4LCJleHAiOjE2ODUzNTA0Njd9.NIKJl7mBmFdnMcEGZeMBM_3HIKCJBgDx165VO-gEURX2ZthgF4W7aPNxGYanccN14_zSlwzJRz4QGgn7yM5aGA
 
 
 ### Welcome

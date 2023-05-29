@@ -1,0 +1,10 @@
+server:
+  port: 8888
+
+spring:
+  application.name: config-service
+  cloud.config.server:
+    native:
+      search-locations: 'file:///C:/dev/5.%20projects/3.%20global/leedowon-msa-spring-cloud-configuration'
+  profiles:
+    active: native
