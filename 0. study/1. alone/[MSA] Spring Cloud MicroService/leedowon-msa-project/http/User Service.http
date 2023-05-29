@@ -40,11 +40,11 @@ Content-Type: application/json
 
 ### List
 GET http://localhost:8000/user-service/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM3OTI5LCJleHAiOjE2ODU0MjQzMjl9.pFbdw2b-wJwcsFZjjKYZWU9HmsVQVG6ZAj-CQxBpTT2o4en8ETzRjYFWAQTigcLCrbLLtSh4HpmWC2pn3ohAqg
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM4ODIzLCJleHAiOjE2ODU0MjUyMjN9.7GudidF_Te1S-FSqt049-mlfFmrF3OBlXfvzITNizl8ijqRVqyuRXXmR8s4U-pJ17egg5XLrQH8tktSTiqmsEQ
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjUwOTEwLCJleHAiOjE2ODUzMzczMTB9.RroSOzt5TsqKuCGihEIccPoIJ_xsK2_MzB5cSJ55sUvHfHrWbz5XZlRbF3dkBOLKAiTfB4TK37IJDIOKBdHghw
 
 ### Refresh
 GET http://localhost:8000/user-service/actuator/refresh
