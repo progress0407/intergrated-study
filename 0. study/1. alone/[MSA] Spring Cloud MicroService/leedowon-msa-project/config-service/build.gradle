@@ -1,9 +1,10 @@
 dependencies {
     // Config Server
     implementation 'org.springframework.cloud:spring-cloud-config-server'
-}
 
-// 정확한 이유는 모르겠으나 아래 의존성이 있어야 한다
-//configurations {
-//    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
-//}
+    // AMQP for Spring Cloud Bus
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    // actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
