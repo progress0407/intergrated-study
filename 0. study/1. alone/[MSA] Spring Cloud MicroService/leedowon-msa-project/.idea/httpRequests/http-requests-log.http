@@ -1,0 +1,737 @@
+GET http://localhost:8000/user-service/users/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T032500.200.json
+
+###
+
+GET http://localhost:8000/order-service/1/orders
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T032441.200.json
+
+###
+
+POST http://localhost:8000/order-service/1/orders
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-002",
+  "orderQuantity": 5,
+  "unitPrice": 1000
+}
+
+<> 2023-06-02T032432.201.json
+
+###
+
+POST http://localhost:8000/order-service/1/orders
+Content-Type: application/json
+Content-Length: 76
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+<> 2023-06-02T032430.201.json
+
+###
+
+GET http://localhost:8000/order-service/health_check
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T032427.200.txt
+
+###
+
+POST http://localhost:8000/order-service/1/orders
+Content-Type: application/json
+Content-Length: 76
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+<> 2023-06-02T032400.500.json
+
+###
+
+POST http://localhost:8000/order-service/1/orders
+Content-Type: application/json
+Content-Length: 76
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+<> 2023-06-02T032344.500.json
+
+###
+
+POST http://localhost:8000/order-service/1/orders
+Content-Type: application/json
+Content-Length: 76
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+<> 2023-06-02T032058.500.json
+
+###
+
+GET http://localhost:8000/user-service/users/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=0E4AA4CB53C2E13D613299D3E2D17B63
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T031922.200.json
+
+###
+
+GET http://localhost:8000/user-service/users/2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=FCC0F8F7FDEED4C89DD0BC068725B50D
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8000/user-service/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=FCC0F8F7FDEED4C89DD0BC068725B50D
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T031848.200.json
+
+###
+
+GET http://localhost:8000/user-service/users/adda9234-fb9a-4a10-8f1a-913dd9325595
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=C9EE2313CCE74E4A99C49F8AC5C430F1
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=C9EE2313CCE74E4A99C49F8AC5C430F1
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+###
+
+GET http://localhost:8000/user-service/users/adda9234-fb9a-4a10-8f1a-913dd9325595
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzQxMTk3LCJleHAiOjE2ODU0Mjc1OTd9.WBecu1_uCPVOOYyNOEQ30Gpbkekl0tQl7uUGxQbjJiNUXNL1V-Qlxv4IK7-ADEXfVaZE3OnLUNW0cDkpUDhd6w
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=C9EE2313CCE74E4A99C49F8AC5C430F1
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8000/user-service/users/adda9234-fb9a-4a10-8f1a-913dd9325595
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNDc2LCJleHAiOjE2ODU3Mjk4NzZ9.tsugQ7R5yt8l-edOrlrHx_3Qy5KL5Bmdc4tYJk2BgS2Sdb08HB77sWysM3gJ4L1DboKhXeX7-dBJh93hvXRblA
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8000/user-service/users/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNDc2LCJleHAiOjE2ODU3Mjk4NzZ9.tsugQ7R5yt8l-edOrlrHx_3Qy5KL5Bmdc4tYJk2BgS2Sdb08HB77sWysM3gJ4L1DboKhXeX7-dBJh93hvXRblA
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T031805.200.json
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+###
+
+GET http://localhost:8000/order-service/adda9234-fb9a-4a10-8f1a-913dd9325595/orders
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T031739.200.json
+
+###
+
+GET http://localhost:8000/order-service/abc-123/orders
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T031731.200.json
+
+###
+
+POST http://localhost:8000/order-service/adda9234-fb9a-4a10-8f1a-913dd9325595/orders
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-002",
+  "orderQuantity": 5,
+  "unitPrice": 1000
+}
+
+<> 2023-06-02T031730.201.json
+
+###
+
+POST http://localhost:8000/order-service/adda9234-fb9a-4a10-8f1a-913dd9325595/orders
+Content-Type: application/json
+Content-Length: 76
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "productId": "CATALOG-001",
+  "orderQuantity": 10,
+  "unitPrice": 1500
+}
+
+<> 2023-06-02T031716.201.json
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T031650.200.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030656.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030655.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030534.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030533.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030429.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030401.404.json
+
+###
+
+POST http://localhost:8000/actuator/busrefresh
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+<> 2023-06-02T030349.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030347.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030345.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030344.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030343.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030326.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030325.404.json
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+<> 2023-06-02T030240.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T030235.404.json
+
+###
+
+POST http://localhost:8000/actuator/busrefresh
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8000/user-service/health-check
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjY0MDY4LCJleHAiOjE2ODUzNTA0Njd9.NIKJl7mBmFdnMcEGZeMBM_3HIKCJBgDx165VO-gEURX2ZthgF4W7aPNxGYanccN14_zSlwzJRz4QGgn7yM5aGA
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T022734.404.json
+
+###
+
+GET http://localhost:8000/user-service/welcome
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg0OTAzMDIyLCJleHAiOjE2ODQ5ODk0MjJ9.JuM3ASUpGfOukRaa89Ha1O7-p5i3Gb1h1JpQwPMllIZlDtVcnT6B3DqMWJcYzkdFelEKh7HOY-IwJ3eL3VvTsA
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T022731.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T022725.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T022722.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T022720.404.json
+
+###
+
+POST http://localhost:8000/user-service/login
+Content-Type: application/json
+Content-Length: 55
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+<> 2023-06-02T022719.404.json
+
+###
+
+GET http://localhost:8000/user-service/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzQxMTk3LCJleHAiOjE2ODU0Mjc1OTd9.WBecu1_uCPVOOYyNOEQ30Gpbkekl0tQl7uUGxQbjJiNUXNL1V-Qlxv4IK7-ADEXfVaZE3OnLUNW0cDkpUDhd6w
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T022712.404.json
+
+###
+
+GET http://localhost:8000/order-service/abc-123/orders
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T022707.404.json
+
+###
+
+GET http://localhost:8000/order-service/health_check
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-02T022701.404.json
+
+###
+
+POST http://localhost:8000/user-service/users
+Content-Type: application/json
+Content-Length: 75
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=B9B7444268D6228313FF7D4347218EE5
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+<> 2023-06-02T022500.404.json
+
+###
+
