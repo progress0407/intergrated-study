@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ApigGtewayApplication
+class ApiGtewayApplication
 
 fun main(args: Array<String>) {
-    runApplication<ApigGtewayApplication>(*args)
+    runApplication<ApiGtewayApplication>(*args)
 }
