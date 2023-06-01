@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ### List
 GET http://localhost:8000/user-service/users
-#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM4ODIzLCJleHAiOjE2ODU0MjUyMjN9.7GudidF_Te1S-FSqt049-mlfFmrF3OBlXfvzITNizl8ijqRVqyuRXXmR8s4U-pJ17egg5XLrQH8tktSTiqmsEQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzQxMTk3LCJleHAiOjE2ODU0Mjc1OTd9.WBecu1_uCPVOOYyNOEQ30Gpbkekl0tQl7uUGxQbjJiNUXNL1V-Qlxv4IK7-ADEXfVaZE3OnLUNW0cDkpUDhd6w
 
 ### Detail
 GET http://localhost:8000/user-service/users/1
