@@ -16,7 +16,7 @@ class OrderService(private val orderRepository: OrderRepository) {
 
 
     fun createOrder(createOrderRequest: CreateOrderRequest, userId: String): OrderResponse {
-        val order = createOrderRequest.toEntity(userId)
+        val order: Order = createOrderRequest.toEntity(userId)
         orderRepository.save(order)
         val orderResponse = OrderResponse()
         converter.map(order, orderResponse)

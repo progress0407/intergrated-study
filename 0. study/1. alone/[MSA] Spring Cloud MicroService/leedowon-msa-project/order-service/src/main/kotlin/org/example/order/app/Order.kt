@@ -15,7 +15,7 @@ open class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id: Long? = null
 
-    @Column(nullable = false, length = 120, unique = true)
+    @Column(nullable = false, length = 120)
     open var productId: String? = null
 
     @Column(nullable = false)

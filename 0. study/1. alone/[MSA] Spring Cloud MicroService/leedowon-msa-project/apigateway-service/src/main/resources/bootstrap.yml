@@ -1,5 +1,5 @@
 spring:
   cloud.config:
     uri: http://localhost:8888
-    name: api-gateway, ecommerce
+    name: api-gateway, ecommerce # , api-gateway-route-and-filters, api-gateway-route-user-service, api-gateway-route-etc,
   profiles.active: default

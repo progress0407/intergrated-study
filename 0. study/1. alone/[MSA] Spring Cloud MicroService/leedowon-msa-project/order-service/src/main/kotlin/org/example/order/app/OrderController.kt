@@ -21,7 +21,7 @@ class OrderController(private val environment: Environment,
 
     @PostMapping("/{userId}/orders")
     @ResponseStatus(HttpStatus.CREATED)
-    fun createOrder(@PathVariable("userId") userId: String,
+    fun createOrder(@PathVariable userId: String,
                     @RequestBody createOrderRequest: CreateOrderRequest): OrderResponse {
 
         log.info("Before add orders data")
@@ -33,7 +33,7 @@ class OrderController(private val environment: Environment,
 
     @GetMapping("/{userId}/orders")
     @Throws(Exception::class)
-    fun getOrder(@PathVariable("userId") userId: String): List<OrderResponse> {
+    fun getOrder(@PathVariable userId: String): List<OrderResponse> {
 
         log.info("Before retrieve orders data")
 
