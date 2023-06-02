@@ -80,10 +80,15 @@ class AuthenticationFilter(
         log.info { "login success ! token: $token" }
 
         response.addHeader("token", token)
-        response.addHeader("userId", userId.toString())
+        response.addHeader("userId", userId)
     }
 
-    private fun convertUserId(authResult: Authentication): Long {
+    private fun createExpirationDateTime(): Date {
+
+        return Date(System.currentTimeMillis() + expirationDurationTime)
+    }
+
+    private fun convertUserId(authResult: Authentication): String {
 
         val username = (authResult.principal as SecurityUser).username
 
@@ -101,26 +106,23 @@ class AuthenticationFilter(
     }
 
     private fun createToken(
-        userId: Long,
+        userId: String,
         expirationTime: Date,
         key: SecretKey,
         algorithm: SignatureAlgorithm
     ): String =
         Jwts.builder()
             .signWith(key, algorithm)
-            .setSubject(userId.toString())
+            .setSubject(userId)
             .setIssuedAt(Date())
             .setExpiration(expirationTime)
             .compact()
+
+    private fun usernamePasswordAuthenticationToken(credentials: LoginRequest) =
+        UsernamePasswordAuthenticationToken(credentials.email, credentials.password, emptyList())
 
     private fun createKey(): SecretKey {
 
         return Keys.hmacShaKeyFor(secretKey.toByteArray())
     }
-
-    private fun createExpirationDateTime(): Date =
-        Date(System.currentTimeMillis() + expirationDurationTime)
-
-    private fun usernamePasswordAuthenticationToken(credentials: LoginRequest) =
-        UsernamePasswordAuthenticationToken(credentials.email, credentials.password, emptyList())
 }

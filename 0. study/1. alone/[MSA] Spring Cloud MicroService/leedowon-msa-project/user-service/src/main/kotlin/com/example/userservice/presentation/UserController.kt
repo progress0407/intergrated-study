@@ -45,7 +45,7 @@ class UserController(
     }
 
     @GetMapping("/{userId}")
-    fun findByUserId(@PathVariable userId: Long): UserResponse {
+    fun findByUserId(@PathVariable userId: String): UserResponse {
         return userQuery.findOne(userId)
     }
 }

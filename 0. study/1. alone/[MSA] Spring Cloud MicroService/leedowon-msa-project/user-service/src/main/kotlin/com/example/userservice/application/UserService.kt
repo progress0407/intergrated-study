@@ -2,7 +2,7 @@ package com.example.userservice.application
 
 import com.example.userservice.dto.CreateUserRequest
 import com.example.userservice.dto.CreateUserResponse
-import com.example.userservice.entity.User
+import com.example.userservice.domain.User
 import com.example.userservice.infrastructure.UserRepository
 import com.example.userservice.security.SecurityUser
 import org.springframework.security.core.GrantedAuthority
@@ -21,10 +21,10 @@ class UserService(
 
     fun createUser(dto: CreateUserRequest): CreateUserResponse {
 
-        val user = createUserOne(dto)
+        val user = createUserFromDto(dto)
         userRepository.save(user)
 
-        return CreateUserResponse(user.id!!, user.userId)
+        return CreateUserResponse(user.id)
     }
 
     override fun loadUserByUsername(username: String): UserDetails {
@@ -38,18 +38,17 @@ class UserService(
         )
     }
 
-    private fun createUserOne(dto: CreateUserRequest): User {
+    private fun createUserFromDto(dto: CreateUserRequest): User {
 
         val randomId = createRandomId()
         val encodedPassword = passwordEncoder.encode(dto.password)
 
         return User(
-            userId = randomId,
+            id = randomId,
             email = dto.email,
             name = dto.name,
             encryptedPassword = encodedPassword
         )
     }
-
     private fun createRandomId() = UUID.randomUUID().toString()
 }
