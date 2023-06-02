@@ -1,10 +1,9 @@
 package com.example.userservice.infrastructure
 
-import com.example.userservice.entity.User
+import com.example.userservice.domain.User
 import org.springframework.data.jpa.repository.JpaRepository
-import java.util.Optional
 
-interface UserRepository : JpaRepository<User, Long> {
+interface UserRepository : JpaRepository<User, String> {
 
     fun findByEmail(email: String): User?
 }
