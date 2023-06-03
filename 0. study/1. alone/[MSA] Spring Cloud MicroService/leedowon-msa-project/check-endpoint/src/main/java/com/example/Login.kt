@@ -11,11 +11,11 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 private const val LOGIN_ENDPOINT = "http://localhost:8000/user-service/login"
 
 fun main() {
-    val response = retrieveToken()
-    println("Access Token: $response")
+    val response = login()
+    println("Response: $response")
 }
 
-fun retrieveToken(): Any? {
+fun login(): Any? {
     // Create RestTemplate instance
     val restTemplate = RestTemplate()
 
