@@ -4,16 +4,17 @@ import com.example.userservice.dto.OrderResponse
 import com.example.userservice.dto.UserResponse
 import com.example.userservice.domain.User
 import com.example.userservice.exception.UserNotFoundException
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod.GET
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
-import java.lang.RuntimeException
 
 @Component
 class UserQuery(
     private val userRepository: UserRepository,
-    private val restTemplate: RestTemplate
+    private val restTemplate: RestTemplate,
+    @Value("\${order-service-url-format}") private val orderServiceUrlFormat: String
 ) {
 
     fun findAll(): List<UserResponse> {
@@ -26,7 +27,7 @@ class UserQuery(
     fun findOne(userId: String): UserResponse {
 
         val userOne: User =
-            userRepository.findById(userId).orElseThrow { throw UserNotFoundException("User not found") }
+            userRepository.findById(userId).orElseThrow { throw UserNotFoundException() }
 
         val orderResponses = requestOrdersFromOrderService(userId)
 
@@ -35,7 +36,7 @@ class UserQuery(
 
     private fun requestOrdersFromOrderService(userId: String): List<OrderResponse>? {
 
-        val orderServiceUrl = "http://localhost:8000/order-service/${userId}/orders"
+        val orderServiceUrl = orderServiceUrlFormat.format(userId)
 
         val response =
             try {
@@ -51,7 +52,7 @@ class UserQuery(
 
     fun findIdByUsername(username: String): String {
 
-        val user = userRepository.findByEmail(username) ?: throw UserNotFoundException("User not found")
+        val user = userRepository.findByEmail(username) ?: throw UserNotFoundException()
 
         return user.id
     }
