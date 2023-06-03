@@ -1,0 +1,42 @@
+### App Info
+GET http://localhost:8000/user-service/users/app-info
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM3OTI5LCJleHAiOjE2ODU0MjQzMjl9.pFbdw2b-wJwcsFZjjKYZWU9HmsVQVG6ZAj-CQxBpTT2o4en8ETzRjYFWAQTigcLCrbLLtSh4HpmWC2pn3ohAqg
+
+### App Info
+GET http://localhost:2980/users/app-info
+
+### Refresh
+POST http://localhost:2980/actuator/refresh
+
+### Bus Refresh
+POST http://localhost:2980/actuator/busrefresh
+
+// a38d552e-8572-4fd3-a6dd-8408fefa551c
+
+### Sign Up
+POST http://localhost:3499/users
+Content-Type: application/json
+
+{
+  "email": "hello@google.com",
+  "name": "sw cho",
+  "password": "1234"
+}
+
+### Login
+POST http://localhost:3499/login
+Content-Type: application/json
+
+{
+  "email": "hello@google.com",
+  "password": "1234"
+}
+
+### List
+GET http://localhost:3499/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4YjlkYmQ1MC03MWQ5LTQzYzEtYjgwOS01ZTUwNDcwOWNkNDciLCJpYXQiOjE2ODU3MDg3OTksImV4cCI6MTY4NTc5NTE5OX0.ycBvxxkxTDEam07eK_sblpSPx9jcRCSnt6aN1p9_yMZqGCJyZKxrjJEKDvalDUig-7b5k_gXVpE0ckd7eLbihg
+
+### Detail
+GET http://localhost:3499/users/8b9dbd50-71d9-43c1-b809-5e504709cd47
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4YjlkYmQ1MC03MWQ5LTQzYzEtYjgwOS01ZTUwNDcwOWNkNDciLCJpYXQiOjE2ODU3MDg3OTksImV4cCI6MTY4NTc5NTE5OX0.ycBvxxkxTDEam07eK_sblpSPx9jcRCSnt6aN1p9_yMZqGCJyZKxrjJEKDvalDUig-7b5k_gXVpE0ckd7eLbihg
+

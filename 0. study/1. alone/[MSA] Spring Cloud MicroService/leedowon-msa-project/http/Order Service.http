@@ -2,7 +2,7 @@
 GET http://localhost:8000/order-service/health_check
 
 ### Order "CATALOG-001"
-POST http://localhost:8000/order-service/1/orders
+POST http://localhost:8000/order-service/b1c4ff32-9d33-4bb9-b52f-842d59d40c80/orders
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Order "CATALOG-002"
-POST http://localhost:8000/order-service/1/orders
+POST http://localhost:8000/order-service/b1c4ff32-9d33-4bb9-b52f-842d59d40c80/orders
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### List
-GET http://localhost:8000/order-service/1/orders
+GET http://localhost:8000/order-service/607d95b8-037b-4174-89db-2804cbed9fe8/orders
