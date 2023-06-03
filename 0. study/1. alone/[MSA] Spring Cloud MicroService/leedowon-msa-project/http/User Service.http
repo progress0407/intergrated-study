@@ -2,47 +2,8 @@
 GET http://localhost:8000/user-service/users/app-info
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MzM3OTI5LCJleHAiOjE2ODU0MjQzMjl9.pFbdw2b-wJwcsFZjjKYZWU9HmsVQVG6ZAj-CQxBpTT2o4en8ETzRjYFWAQTigcLCrbLLtSh4HpmWC2pn3ohAqg
 
-### Direct App Info
-GET http://localhost:2980/users/app-info
-
-### Direct Refresh
-POST http://localhost:2980/actuator/refresh
-
-### Direct Bus Refresh
-POST http://localhost:2980/actuator/busrefresh
-
-// a38d552e-8572-4fd3-a6dd-8408fefa551c
-
-### Direct Sign Up
-POST http://localhost:3499/users
-Content-Type: application/json
-
-{
-  "email": "hello@google.com",
-  "name": "sw cho",
-  "password": "1234"
-}
-
-### Direct Login
-POST http://localhost:3499/login
-Content-Type: application/json
-
-{
-  "email": "hello@google.com",
-  "password": "1234"
-}
-
-### Direct List
-GET http://localhost:3499/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4YjlkYmQ1MC03MWQ5LTQzYzEtYjgwOS01ZTUwNDcwOWNkNDciLCJpYXQiOjE2ODU3MDg3OTksImV4cCI6MTY4NTc5NTE5OX0.ycBvxxkxTDEam07eK_sblpSPx9jcRCSnt6aN1p9_yMZqGCJyZKxrjJEKDvalDUig-7b5k_gXVpE0ckd7eLbihg
-
-### Direct Detail
-GET http://localhost:3499/users/8b9dbd50-71d9-43c1-b809-5e504709cd47
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4YjlkYmQ1MC03MWQ5LTQzYzEtYjgwOS01ZTUwNDcwOWNkNDciLCJpYXQiOjE2ODU3MDg3OTksImV4cCI6MTY4NTc5NTE5OX0.ycBvxxkxTDEam07eK_sblpSPx9jcRCSnt6aN1p9_yMZqGCJyZKxrjJEKDvalDUig-7b5k_gXVpE0ckd7eLbihg
-
-
 ### Health Check
-GET http://localhost:3290/user-service/health-check
+GET http://localhost:8000/user-service/health-check
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1MjY0MDY4LCJleHAiOjE2ODUzNTA0Njd9.NIKJl7mBmFdnMcEGZeMBM_3HIKCJBgDx165VO-gEURX2ZthgF4W7aPNxGYanccN14_zSlwzJRz4QGgn7yM5aGA
 
 ### Welcome
@@ -68,13 +29,15 @@ Content-Type: application/json
   "password": "1234"
 }
 
+### Detail
+GET http://localhost:8000/user-service/users/b1c4ff32-9d33-4bb9-b52f-842d59d40c80
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiMWM0ZmYzMi05ZDMzLTRiYjktYjUyZi04NDJkNTlkNDBjODAiLCJpYXQiOjE2ODU3NjMzMjUsImV4cCI6MTY4NTg0OTcyNX0.t3GVyCN1MBjM7NcOoMRmhoTjetqKXG18lC0cV0khMqhGft0g-ageFOeHgd4rYqBC7gSi9wfmHLZ8O0PCi2vERQ
+
+
 ### List
 GET http://localhost:8000/user-service/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MDdkOTViOC0wMzdiLTQxNzQtODlkYi0yODA0Y2JlZDlmZTgiLCJpYXQiOjE2ODU3NjE5ODcsImV4cCI6MTY4NTg0ODM4N30.H0-_n9xGzvU4zCYpWDAE88vsUwsCzHa-c7PMiiDSQxwqSo58u7jvXuE0C7XqM_k6HdyQpwOBYGAQCKSjHAywuQ
 
-### Detail
-GET http://localhost:8000/user-service/users/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg1NjQzNTE2LCJleHAiOjE2ODU3Mjk5MTZ9.Ufqw-PzSQKMzDdTPeHDcj9Vz83W_s92TfjMQEIeCDqtNQ8SOyzHnJqVWzlGzcYV6yTYZ_2OSIk8M4zqnxO7IZw
 
 ### Refresh
 GET http://localhost:8000/user-service/actuator/refresh
