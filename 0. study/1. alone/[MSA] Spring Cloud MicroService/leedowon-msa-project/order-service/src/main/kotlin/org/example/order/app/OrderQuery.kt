@@ -21,7 +21,7 @@ class OrderQuery(private val orderRepository: OrderRepository) {
 
     fun finderOrdersByUserId(userId: String): List<OrderResponse> {
 
-        val orders: Iterable<Order> = orderRepository.findByUserId(userId)
+        val orders = orderRepository.findByUserId(userId)
         val orderResponses = orders.map { convertDto(it) }.toList()
 
         return orderResponses
