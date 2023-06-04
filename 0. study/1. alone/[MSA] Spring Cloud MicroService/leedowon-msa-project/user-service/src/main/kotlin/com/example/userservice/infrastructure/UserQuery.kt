@@ -5,6 +5,8 @@ import com.example.userservice.dto.UserResponse
 import com.example.userservice.domain.User
 import com.example.userservice.exception.UserNotFoundException
 import com.example.userservice.httpclient.OrderServiceClient
+import feign.FeignException
+import mu.KotlinLogging
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod.GET
@@ -19,6 +21,8 @@ class UserQuery(
     private val orderServiceClient: OrderServiceClient
 ) {
 
+    private val log = KotlinLogging.logger {  }
+
     fun findAll(): List<UserResponse> {
 
         return userRepository.findAll()
@@ -31,13 +35,28 @@ class UserQuery(
         val userOne: User =
             userRepository.findById(userId).orElseThrow { throw UserNotFoundException() }
 
-//        val orderResponses = requestOrdersFromOrderService(userId)
-        val orderResponses = orderServiceClient.requestOrders(userId)
+        // RestTemplate + Try Catch
+//        val orderResponses = requestOrdersFromOrderServiceByRestTemplate(userId)
+
+        // Open Feign Client + Try Catch
+        val orderResponses = requestOrdersFromOrderServiceByFeignClient(userId)
+
+        // Open Feign Client + Error Decoder of Open Feign
+        val orderResponses2 = orderServiceClient.requestWrongOrders(userId)
 
         return UserResponse(userOne, orderResponses)
     }
 
-    private fun requestOrdersFromOrderService(userId: String): List<OrderResponse>? {
+    private fun requestOrdersFromOrderServiceByFeignClient(userId: String): List<OrderResponse>? =
+
+        try {
+            orderServiceClient.requestOrders(userId)
+        } catch (ex: FeignException) {
+            log.error { ex.message }
+            null
+        }
+
+    private fun requestOrdersFromOrderServiceByRestTemplate(userId: String): List<OrderResponse>? {
 
         val orderServiceUrl = orderServiceUrlFormat.format(userId)
 

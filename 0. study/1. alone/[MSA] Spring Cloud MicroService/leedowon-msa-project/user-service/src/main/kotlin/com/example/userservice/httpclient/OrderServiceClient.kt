@@ -10,4 +10,10 @@ interface OrderServiceClient {
 
     @GetMapping("/order-service/{userId}/orders")
     fun requestOrders(@PathVariable userId: String): List<OrderResponse>?
+
+    /**
+     * Test용도, 잘못된 주소
+     */
+    @GetMapping("/order-service/{userId}/orders_ng")
+    fun requestWrongOrders(@PathVariable userId: String): List<OrderResponse>?
 }
