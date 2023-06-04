@@ -4,6 +4,7 @@ import com.example.userservice.dto.OrderResponse
 import com.example.userservice.dto.UserResponse
 import com.example.userservice.domain.User
 import com.example.userservice.exception.UserNotFoundException
+import com.example.userservice.httpclient.OrderServiceClient
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod.GET
@@ -14,7 +15,8 @@ import org.springframework.web.client.RestTemplate
 class UserQuery(
     private val userRepository: UserRepository,
     private val restTemplate: RestTemplate,
-    @Value("\${order-service-url-format}") private val orderServiceUrlFormat: String
+    @Value("\${order-service-url-format}") private val orderServiceUrlFormat: String,
+    private val orderServiceClient: OrderServiceClient
 ) {
 
     fun findAll(): List<UserResponse> {
@@ -29,7 +31,8 @@ class UserQuery(
         val userOne: User =
             userRepository.findById(userId).orElseThrow { throw UserNotFoundException() }
 
-        val orderResponses = requestOrdersFromOrderService(userId)
+//        val orderResponses = requestOrdersFromOrderService(userId)
+        val orderResponses = orderServiceClient.requestOrders(userId)
 
         return UserResponse(userOne, orderResponses)
     }
