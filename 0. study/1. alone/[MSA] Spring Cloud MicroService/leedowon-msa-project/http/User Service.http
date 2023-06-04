@@ -30,8 +30,8 @@ Content-Type: application/json
 }
 
 ### Detail
-GET http://localhost:8000/user-service/users/7426732c-7857-4498-a35d-ab360cdb642c
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3NDI2NzMyYy03ODU3LTQ0OTgtYTM1ZC1hYjM2MGNkYjY0MmMiLCJpYXQiOjE2ODU4NzAwMjQsImV4cCI6MTY4NTk1NjQyNH0.nm1JXfB8-o4heaQVIwT3dYSEmrnhQrKyyoKdNO4dt-IeOmGtkVlKpNxpOFa37Ks19XdJ_BlioPCiJXg1WR6bbQ
+GET http://localhost:8000/user-service/users/ce634ca5-2cac-4265-b18d-61fb5e1f1917
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZTYzNGNhNS0yY2FjLTQyNjUtYjE4ZC02MWZiNWUxZjE5MTciLCJpYXQiOjE2ODU4ODM2OTgsImV4cCI6MTY4NTk3MDA5OH0.xrDD9mJgn4IKPdtHfxsnV4g5ktDaPKNwQuY8NpQS89JOhR3p5FM8p1hRUET07Lhjk8w-QSjRAs6ChpKUz30VoQ
 
 
 ### List
