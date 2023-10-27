@@ -42,7 +42,7 @@ class UserQuery(
         val orderResponses = requestOrdersFromOrderServiceByFeignClient(userId)
 
         // Open Feign Client + Error Decoder of Open Feign
-        val orderResponses2 = orderServiceClient.requestWrongOrders(userId)
+//        val orderResponses2 = orderServiceClient.requestWrongOrders(userId)
 
         return UserResponse(userOne, orderResponses)
     }

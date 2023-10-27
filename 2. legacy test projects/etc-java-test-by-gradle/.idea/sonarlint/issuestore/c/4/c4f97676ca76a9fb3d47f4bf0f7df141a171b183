@@ -1,0 +1,10 @@
+
+X
+java:S4977<"=Rename "T" which hides a type parameter from the outer scope.(°¦¡Ãıÿÿÿÿ
+k
+java:S3655A"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ç–ƒˆúÿÿÿÿ
+V	java:S125*"<This block of commented-out lines of code should be removed.(¥••˜ıÿÿÿÿ
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(Òá¼¢ıÿÿÿÿ
+N	java:S106="9Replace this use of System.out or System.err by a logger.(¸–½Î
+J
+java:S1068%"4Remove this unused "DEAFULT_CAPACITY" private field.(¹¨
