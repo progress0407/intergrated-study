@@ -1,0 +1,24 @@
+
+Q	java:S125S"<This block of commented-out lines of code should be removed.(àıŸò
+Y
+java:S1155^">Use isEmpty() to check whether the collection is empty or not.(ôÔ¦øÿÿÿÿ
+V	java:S125k"<This block of commented-out lines of code should be removed.(×çĞßşÿÿÿÿ
+T
+java:S1155w">Use isEmpty() to check whether the collection is empty or not.(Ü‹»Û
+]
+java:S1854™"ARemove this useless assignment to local variable "tempBookmarks".(ÿÂÍÑÿÿÿÿÿ
+V
+java:S1854˜"?Remove this useless assignment to local variable "tempFolders".(¨çÀ
+Q	java:S125ƒ"<This block of commented-out lines of code should be removed.(üÍÃZ
+G
+java:S1481˜"0Remove this unused "tempFolders" local variable.(¨çÀ
+N
+java:S1481™"2Remove this unused "tempBookmarks" local variable.(ÿÂÍÑÿÿÿÿÿ
+Z
+java:S1155¨">Use isEmpty() to check whether the collection is empty or not.(¯€é’ùÿÿÿÿ
+U
+java:S1155¯">Use isEmpty() to check whether the collection is empty or not.(µ¼öÅ
+W	java:S125µ"<This block of commented-out lines of code should be removed.(Ç¿üÿÿÿÿ
+W	java:S125º"<This block of commented-out lines of code should be removed.(ì‹ù…ùÿÿÿÿ
+D
+java:S1068")Remove this unused "files" private field.(ãşÙœúÿÿÿÿ

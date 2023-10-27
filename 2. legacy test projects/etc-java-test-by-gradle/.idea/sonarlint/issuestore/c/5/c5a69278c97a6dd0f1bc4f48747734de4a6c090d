@@ -1,0 +1,9 @@
+
+V	java:S125
+"<This block of commented-out lines of code should be removed.(áİ˜ïüÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(©áË­üÿÿÿÿ
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(›í›ûúÿÿÿÿ
+@
+java:S1144"*Remove this unused private "test2" method.(ŒÍöí
+E
+java:S1144""*Remove this unused private "test1" method.(•Ü±ªÿÿÿÿÿ

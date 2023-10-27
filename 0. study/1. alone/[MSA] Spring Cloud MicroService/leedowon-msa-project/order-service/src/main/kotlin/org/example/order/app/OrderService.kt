@@ -14,7 +14,6 @@ class OrderService(private val orderRepository: OrderRepository) {
         converter.configuration.matchingStrategy = MatchingStrategies.STRICT
     }
 
-
     fun createOrder(createOrderRequest: CreateOrderRequest, userId: String): OrderResponse {
         val order: Order = createOrderRequest.toEntity(userId)
         orderRepository.save(order)

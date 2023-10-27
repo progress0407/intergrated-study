@@ -1,0 +1,13 @@
+
+O
+java:S3516"9Refactor this method to not always return the same value.(ä®Ò
+Q
+java:S1854!";Remove this useless assignment to local variable "payload".(Š©ÜŠ
+B
+java:S1481",Remove this unused "payload" local variable.(«“­Ì
+_
+java:S2147("DCombine this catch with the one at line 34, which has the same body.(‹µ×‡øÿÿÿÿ
+Z
+java:S2147+"DCombine this catch with the one at line 40, which has the same body.(”ı¾
+U
+java:S1874(":Remove this use of "SignatureException"; it is deprecated.(‹µ×‡øÿÿÿÿ

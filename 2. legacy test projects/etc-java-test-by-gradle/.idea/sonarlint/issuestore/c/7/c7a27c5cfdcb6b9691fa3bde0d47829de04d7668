@@ -1,0 +1,9 @@
+
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ήΐ³‚
+M	java:S106"9Replace this use of System.out or System.err by a logger.(Λ›ίI
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(β§χώÿÿÿÿ
+M	java:S106'"9Replace this use of System.out or System.err by a logger.(Λ›ίI
+_
+java:S1128"DRemove this unused import 'basic.abstractt.AbstractMain.AInterface'.(ώΟ†ψÿÿÿÿ
+Z
+java:S1128"DRemove this unused import 'basic.abstractt.AbstractMain.BInterface'.(”

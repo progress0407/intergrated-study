@@ -1,3 +1,6 @@
 dependencies {
     apply from: rootProject.file('gradle-dependencies/micro-service.gradle')
+
+    // Maria DB
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
 }
