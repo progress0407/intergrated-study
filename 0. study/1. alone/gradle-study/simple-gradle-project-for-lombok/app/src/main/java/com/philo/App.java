@@ -3,12 +3,20 @@
  */
 package com.philo;
 
+import lombok.Getter;
+
+@Getter
 public class App {
+
+    private final String message = "Hello World!2";
+
     public String getGreeting() {
-        return "Hello World!";
+        return message;
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        App app = new App();
+        System.out.println(app.getGreeting());
+        System.out.println("app.getMessage() = " + app.getMessage());
     }
 }
