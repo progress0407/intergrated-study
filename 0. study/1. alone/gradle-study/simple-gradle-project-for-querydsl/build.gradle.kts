@@ -75,7 +75,7 @@ sourceSets {
 	}
 }
 
-tasks.register("cleanGenerated") {
+tasks.register("cleanQueryDslDir") {
 	doLast {
 		delete(file(querydslDir))
 	}
