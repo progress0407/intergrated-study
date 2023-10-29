@@ -46,11 +46,42 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	// QueryDSL
-	implementation("com.querydsl:querydsl-jpa:${queryDslVersion}")
-	annotationProcessor("javax.persistence:javax.persistence-api")
-	annotationProcessor("javax.annotation:javax.annotation-api")
-	annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+//	implementation("com.querydsl:querydsl-jpa:${queryDslVersion}")
+//	annotationProcessor("javax.persistence:javax.persistence-api")
+//	annotationProcessor("javax.annotation:javax.annotation-api")
+//	annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+
+	implementation("com.querydsl:querydsl-jpa")
+	implementation("com.querydsl:querydsl-core")
+	implementation("com.querydsl:querydsl-collections")
+	annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jpa") // querydsl JPAAnnotationProcessor 사용 지정
+	annotationProcessor("jakarta.annotation:jakarta.annotation-api") // java.lang.NoClassDefFoundError (javax.annotation.Generated) 대응 코드
+	annotationProcessor("jakarta.persistence:jakarta.persistence-api") // java.lang.NoClassDefFoundError (javax.annotation.Entity) 대응 코드
 }
+
+// QueryDsl Start
+val querydslDir = "src/main/generated"
+
+tasks.withType<JavaCompile> {
+	options.generatedSourceOutputDirectory = file(querydslDir)
+}
+
+sourceSets {
+//	main.java.srcDirs += [ generated ]
+	main {
+		java {
+			srcDir(querydslDir)
+		}
+	}
+}
+
+tasks.register("cleanGenerated") {
+	doLast {
+		delete(file(querydslDir))
+	}
+}
+
+// QueryDsl End
 
 tasks.withType<Test> {
 	useJUnitPlatform()
