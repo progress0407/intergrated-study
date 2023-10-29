@@ -1,3 +1,6 @@
+### Query DSL ###
+src/main/generated
+
 HELP.md
 .gradle
 build/
