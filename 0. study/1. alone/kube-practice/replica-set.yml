@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: container
-        image: progress0407/docker-app
+        image: progress0407/docker-app-ver2
       terminationGracePeriodSeconds: 0

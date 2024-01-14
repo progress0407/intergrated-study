@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: my-deployment
 spec:
   selector:
     matchLabels:
       app: pod
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
   minReadySeconds: 10
@@ -17,5 +17,5 @@ spec:
     spec:
       containers:
       - name: container
-        image: progress0407/docker-app
+        image: progress0407/docker-app-ver2
       terminationGracePeriodSeconds: 0
