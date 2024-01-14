@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-was
+  namespace: my-namespace
 spec:
   selector:
     matchLabels:
@@ -18,18 +19,7 @@ spec:
       containers:
       - name: container
         image: progress0407/docker-app-prod
-        # args: ["-Dspring.profiles.active=local", "-Dserver.port=8081", "-Dspring.datasource.url=jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false"]
-        # - "--server.port=8080"
-        # - "--spring.datasource.url=jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false"
-        env:
-        - name: spring.profiles.active
-          value: "local"
-        - name: server.port
-          value: "8080"
-        - name: spring.datasource.url
-          value: "jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false&allowPublicKeyRetrieval=true"
-        - name: spring.datasource.username
-          value: "root"
-        - name: spring.datasource.password
-          value: "1234"
+        envFrom:
+        - configMapRef:
+            name: was-config
       terminationGracePeriodSeconds: 0

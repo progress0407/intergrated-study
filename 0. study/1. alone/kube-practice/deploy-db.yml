@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-db
+  namespace: my-namespace
 spec:
   selector:
     matchLabels:
@@ -17,13 +18,7 @@ spec:
         image: mysql:8.0.3
         ports:
         - containerPort: 3306
-        env:
-        - name: MYSQL_DATABASE
-          value: 'docker_app'
-        - name: MYSQL_ROOT_HOST
-          value: '%'
-        - name: MYSQL_ROOT_PASSWORD
-          value: '1234'
-        - name: TZ
-          value: 'Asia/Seoul'
+        envFrom:
+        - configMapRef:
+            name: db-config
 
