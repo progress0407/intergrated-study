@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-db
+spec:
+  selector:
+    matchLabels:
+      pod-type: db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        pod-type: db
+    spec:
+      containers:
+      - name: container
+        image: mysql:8.0.3
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_DATABASE
+          value: 'docker_app'
+        - name: MYSQL_ROOT_HOST
+          value: '%'
+        - name: MYSQL_ROOT_PASSWORD
+          value: '1234'
+        - name: TZ
+          value: 'Asia/Seoul'
+

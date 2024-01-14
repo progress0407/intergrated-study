@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-was
+spec:
+  selector:
+    matchLabels:
+      pod-type: was
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        pod-type: was
+    spec:
+      containers:
+      - name: container
+        image: progress0407/docker-app-prod
+        # args: ["-Dspring.profiles.active=local", "-Dserver.port=8081", "-Dspring.datasource.url=jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false"]
+        # - "--server.port=8080"
+        # - "--spring.datasource.url=jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false"
+        env:
+        - name: spring.profiles.active
+          value: "local"
+        - name: server.port
+          value: "8080"
+        - name: spring.datasource.url
+          value: "jdbc:mysql://svc-db-forward:3306/docker_app?useSSL=false&allowPublicKeyRetrieval=true"
+        - name: spring.datasource.username
+          value: "root"
+        - name: spring.datasource.password
+          value: "1234"
+      terminationGracePeriodSeconds: 0
