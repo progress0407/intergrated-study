@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: db-config
+ namespace: my-namespace
+data:
+ MYSQL_DATABASE: docker_app
+ MYSQL_ROOT_HOST: '%'
+ MYSQL_ROOT_PASSWORD: '1234'
+ TZ: 'Asia/Seoul'

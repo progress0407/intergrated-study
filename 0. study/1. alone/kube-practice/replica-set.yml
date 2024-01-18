@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod
+  template:
+    metadata:
+      name: my-pod
+      labels:
+        app: pod
+    spec:
+      containers:
+      - name: container
+        image: progress0407/docker-app-ver2
+      terminationGracePeriodSeconds: 0
